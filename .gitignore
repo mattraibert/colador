@@ -1,0 +1,7 @@
+log
+*~
+dist/
+state/
+.cabal-sandbox/
+cabal.sandbox.config
+site_key.txt
