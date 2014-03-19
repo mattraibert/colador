@@ -156,6 +156,7 @@ initGroundhogPostgres :: SnapletInit b GroundhogPostgres
 initGroundhogPostgres = makeSnaplet "groundhog-postgresql" description Nothing $ do
     config <- getSnapletUserConfig
     connstr <- liftIO $ getConnectionString config
+    liftIO $ print connstr
     pool <- createPostgresqlPool (B8.unpack connstr) 5
     return $ GroundhogPostgres pool
 

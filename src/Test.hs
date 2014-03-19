@@ -19,7 +19,7 @@ import Data.Time.Clock
 import Data.Time.Format
 import System.Locale (defaultTimeLocale)
 import System.Random (randomIO)
-
+import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Core
 import Snap.Snaplet
 import Snap.Test.BDD
@@ -42,3 +42,8 @@ eventTests =
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
+     name "it gets into the database" $ do
+       succeeds (post "/events/new" $ params [("new-event.title", "Best Event"),
+                                              ("new-event.content", "Great things happened!")])
+       changes (+1) (gh $ countAll (undefined :: Event)) (post "/events/new" $ params [("new-event.title", "Best Event"),
+                                              ("new-event.content", "Great things happened!")])
