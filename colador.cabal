@@ -35,7 +35,12 @@ Executable colador
     time                      >= 1.1     && < 1.5,
     xmlhtml                   >= 0.1,
     postgresql-simple,
-    snaplet-postgresql-simple
+    snaplet-postgresql-simple,
+    snap-testing,
+    fsnotify,
+    digestive-functors,
+    digestive-functors-snap,
+    digestive-functors-heist
 
   if flag(old-base)
     build-depends:
