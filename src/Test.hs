@@ -41,4 +41,4 @@ eventTests =
      name "there's a form that I can enter events into" $ do 
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
-
+       contains (get "/events/new") "content"
