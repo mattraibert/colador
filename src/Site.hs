@@ -10,6 +10,7 @@ module Site where
 import           Control.Applicative
 import           Data.ByteString (ByteString)
 import qualified Data.Text as T
+import           Data.Text (Text)
 import           Snap.Snaplet.PostgresqlSimple
 import           Snap.Core
 import           Snap.Snaplet
@@ -17,6 +18,7 @@ import           Snap.Snaplet.Heist
 import           Snap.Util.FileServe
 import           Heist
 import qualified Heist.Interpreted as I
+import           Snap.Snaplet.Groundhog.Postgresql
 import           Text.Digestive
 import           Text.Digestive.Snap
 import           Text.Digestive.Heist
@@ -30,8 +32,8 @@ eventForm = "title" .: text Nothing
 newEventHandler :: AppHandler ()
 newEventHandler = do r <- runForm "new-event" eventForm
                      case r of
-                       (Nothing, v) -> renderWithSplices (digestiveSplices v) "events/new"
-                       (Just e, _) -> undefined
+                       (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+                       (_, Just e) -> undefined
 
 ------------------------------------------------------------------------------
 -- | The application's routes.
@@ -46,7 +48,8 @@ routes = [ ("/events", route [("", ifTop $ render "events/index")
 app :: SnapletInit App App
 app = makeSnaplet "app" "An snaplet example application." Nothing $ do
     h <- nestSnaplet "" heist $ heistInit "templates"
-    p <- nestSnaplet "pg" pg pgsInit
+    p <- nestSnaplet "pg" postgres pgsInit
+    g <- nestSnaplet "groundhog" groundhog initGroundhogPostgres
     addRoutes routes
-    return $ App h p
+    return $ App h p g
 
