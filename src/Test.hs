@@ -36,7 +36,7 @@ main = do
 
 
 eventTests :: SnapTesting App ()
-eventTests =
+eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
   do name "events shows you a blank page" $ succeeds (get "/events")
      name "there's a form that I can enter events into" $ do 
        contains (get "/events/new") "<form"
