@@ -43,6 +43,9 @@ main = do
 
 data FormExpectations a = Value a | ErrorPaths [Text] 
 
+assert :: Bool -> SnapTesting App ()
+assert b = equals b (return True)
+
 form :: (Eq a, Show a)
      => FormExpectations a
      -> Form Text AppHandler a
@@ -54,7 +57,7 @@ form expected theForm theParams =
        Value a -> equals (snd r) (return $ Just a)
        ErrorPaths expectedPaths ->
          do let viewErrorPaths = map (fromPath . fst) $ viewErrors $ fst r
-            equals (all (`elem` viewErrorPaths) expectedPaths) (return True)
+            assert (all (`elem` viewErrorPaths) expectedPaths)
   where lookupParam :: Path -> AppHandler [FormInput]
         lookupParam pth = case M.lookup (fromPath pth) fixedParams of
                             Nothing -> return []
