@@ -29,13 +29,16 @@ import           Text.Digestive.Heist
 ------------------------------------------------------------------------------
 import           Application
 
-nonEmpty :: Form Text AppHandler Text -> Form Text AppHandler Text
-nonEmpty = check "Must not be blank" (\t -> not (T.null t))
+capitalize :: Text -> Text
+capitalize txt = T.append (T.toUpper $ T.take 1 txt) (T.drop 1 txt)
+
+requiredTextField :: Text -> Form Text AppHandler Text
+requiredTextField nm = nm .: check "must not be blank" (not . T.null) (text Nothing)
 
 eventForm :: Form Text AppHandler Event
-eventForm = Event <$> "title" .: nonEmpty (text Nothing)
-                  <*> "content" .: nonEmpty (text Nothing)
-                  <*> "citation" .: nonEmpty (text Nothing)
+eventForm = Event <$> requiredTextField "title"
+                  <*> requiredTextField "content"
+                  <*> requiredTextField "citation"
 
 newEventHandler :: AppHandler ()
 newEventHandler = do r <- runForm "new-event" eventForm
@@ -47,7 +50,7 @@ data Event = Event {
   title :: Text,
   content :: Text,
   citation :: Text
-  } deriving Show
+  } deriving (Show, Eq)
 
 TH.mkPersist TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle } [TH.groundhog|
                                                                                          - entity: Event
