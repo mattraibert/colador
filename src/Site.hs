@@ -33,9 +33,9 @@ nonEmpty :: Form Text AppHandler Text -> Form Text AppHandler Text
 nonEmpty = check "Must not be blank" (\t -> not (T.null t))
 
 eventForm :: Form Text AppHandler Event
-eventForm = Event <$> "title" .: text Nothing
-                  <*> "content" .: text Nothing
-                  <*> "citation" .: (text Nothing)
+eventForm = Event <$> "title" .: nonEmpty (text Nothing)
+                  <*> "content" .: nonEmpty (text Nothing)
+                  <*> "citation" .: nonEmpty (text Nothing)
 
 newEventHandler :: AppHandler ()
 newEventHandler = do r <- runForm "new-event" eventForm

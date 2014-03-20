@@ -43,7 +43,12 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
      name "it gets into the database" $ do
-       succeeds (post "/events/new" $ params [("new-event.title", "Best Event"),
-                                              ("new-event.content", "Great things happened!")])
-       changes (+1) (gh $ countAll (undefined :: Event)) (post "/events/new" $ params [("new-event.title", "Best Event"),
-                                              ("new-event.content", "Great things happened!")])
+       changes (+1)
+         (gh $ countAll (undefined :: Event))
+         (post "/events/new" $ params [("new-event.title", "Best Event"),
+                                       ("new-event.content", "Great things happened!"),
+                                       ("new-event.citation", "ibid.")])
+       changes (+0)
+         (gh $ countAll (undefined :: Event))
+         (post "/events/new" $ params [("new-event.title", "Best Event"),
+                                       ("new-event.content", "Great things happened!")])
