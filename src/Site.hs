@@ -7,6 +7,7 @@
 module Site where
 
 ------------------------------------------------------------------------------
+import           Control.Monad.Trans (liftIO)
 import           Control.Applicative
 import           Control.Monad
 import           Data.ByteString (ByteString)
@@ -28,19 +29,24 @@ import           Text.Digestive.Heist
 ------------------------------------------------------------------------------
 import           Application
 
-eventForm :: Form Text AppHandler (Text, Text)
-eventForm = (,) <$> "title" .: text Nothing
-                <*>  "content" .: text Nothing
+nonEmpty :: Form Text AppHandler Text -> Form Text AppHandler Text
+nonEmpty = check "Must not be blank" (\t -> not (T.null t))
+
+eventForm :: Form Text AppHandler Event
+eventForm = Event <$> "title" .: text Nothing
+                  <*> "content" .: text Nothing
+                  <*> "citation" .: (text Nothing)
 
 newEventHandler :: AppHandler ()
 newEventHandler = do r <- runForm "new-event" eventForm
                      case r of
                        (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
-                       (_, Just (title,content)) -> void (gh $ countAll (undefined :: Event))
+                       (_, Just e) -> void $ gh $ insert e
 
 data Event = Event {
   title :: Text,
-  content :: Text
+  content :: Text,
+  citation :: Text
   } deriving Show
 
 TH.mkPersist TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle } [TH.groundhog|
@@ -64,4 +70,3 @@ app = makeSnaplet "app" "An snaplet example application." Nothing $ do
     g <- nestSnaplet "groundhog" groundhog initGroundhogPostgres
     addRoutes routes
     return $ App h p g
-
