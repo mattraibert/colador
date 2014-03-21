@@ -1,18 +1,11 @@
-<dfForm>
-  <dfLabel ref="title">Title: </dfLabel>
-  <dfInputText ref="title" />
-  <dfChildErrorList ref="title" />
-  <br>
-
-  <dfLabel ref="content">Content: </dfLabel>
-  <dfInputTextArea ref="content" />
-  <dfChildErrorList ref="content" />
-  <br>
-
-  <dfLabel ref="citation">Citation: </dfLabel>
-  <dfInputText ref="citation" />
-  <dfChildErrorList ref="citation" />
-  <br>
-
-  <dfInputSubmit value="Enter" />
-</dfForm>
+<apply template="base">
+  <dfForm class="form-event">
+    <dfInputText ref="title" size="60" placeholder="Title"/>
+    <dfChildErrorList ref="title" />
+    <dfInputText ref="citation" size="60" placeholder="Citation"/>
+    <dfChildErrorList ref="citation" />
+    <dfInputTextArea ref="content" rows="20" cols="80" placeholder="Event content goes here... "/>
+    <dfChildErrorList ref="content" />
+    <dfInputSubmit value="Enter" class="btn btn-lg btn-primary btn-block" />
+  </dfForm>
+</apply>

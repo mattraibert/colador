@@ -8,7 +8,6 @@ module Site where
 
 ------------------------------------------------------------------------------
 import           Control.Applicative
-import           Control.Monad
 import           Data.ByteString (ByteString)
 import qualified Data.Text as T
 import           Data.Text (Text)
@@ -17,8 +16,6 @@ import           Snap.Core
 import           Snap.Snaplet
 import           Snap.Snaplet.Heist
 import           Snap.Util.FileServe
-import           Heist
-import qualified Heist.Interpreted as I
 import           Snap.Snaplet.Groundhog.Postgresql
 import qualified Database.Groundhog.TH as TH
 import           Text.Digestive
@@ -51,10 +48,12 @@ newEventHandler = do
   response <- runForm "new-event" eventForm
   case response of
     (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
-    (_, Just e) -> void $ gh $ insert e
-
+    (_, Just e) -> do
+      gh $ insert e
+      redirect "/events"
+    
 eventIndexHandler :: AppHandler ()
-eventIndexHandler = render "events/index"
+eventIndexHandler = writeBS "[]"
 
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
@@ -64,7 +63,7 @@ eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
 ------------------------------------------------------------------------------
 -- | The application's routes.
 routes :: [(ByteString, Handler App App ())]
-routes = [eventRoutes, ("", serveDirectory "static")]
+routes = [eventRoutes, ("/static", serveDirectory "static")]
 
 ------------------------------------------------------------------------------
 -- | The application initializer.
