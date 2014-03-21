@@ -11,6 +11,8 @@ import Snap.Test.BDD
 import Application
 import Site
 
+it = name
+
 main :: IO ()
 main = do
   runSnapTests defaultConfig (route routes) app $ do
@@ -19,17 +21,19 @@ main = do
 
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
-  do name "events shows you a blank page" $ succeeds (get "/events")
-     name "there's a form that I can enter events into" $ do 
+  do it "shows you a blank page" $ succeeds (get "/events")
+     it "provides a form to enter an Event" $ do 
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
-     name "it gets into the database" $ do
+     it "creates an Event in the database" $ do
        changes (+1)
          (gh $ countAll (undefined :: Event))
          (post "/events/new" $ params [("new-event.title", "Best Event"),
                                        ("new-event.content", "Great things happened!"),
                                        ("new-event.citation", "ibid.")])
+     it "validates presence of title, content and citation" $ do
        form (Value $ Event "a" "b" "c") eventForm $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
        form (ErrorPaths ["title", "content", "citation"]) eventForm $ M.fromList []
+
