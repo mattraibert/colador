@@ -1,10 +1,10 @@
-Name:                colador
-Version:             0.1
-Synopsis:            Project Synopsis Here
-Description:         Project Description Here
-License:             AllRightsReserved
-Author:              Author
-Maintainer:          maintainer@example.com
+Name:                Colador
+Version:             0.0.1
+Synopsis:            Colador History CMS
+Description:         A system for putting historical events onto a map.
+License:             GPLv3
+Author:              Matt J Raibert
+Maintainer:          mattraibert@gmail.com
 Stability:           Experimental
 Category:            Web
 Build-type:          Simple
