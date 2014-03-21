@@ -7,7 +7,6 @@
 module Site where
 
 ------------------------------------------------------------------------------
-import           Control.Monad.Trans (liftIO)
 import           Control.Applicative
 import           Control.Monad
 import           Data.ByteString (ByteString)
@@ -20,8 +19,8 @@ import           Snap.Snaplet.Heist
 import           Snap.Util.FileServe
 import           Heist
 import qualified Heist.Interpreted as I
-import qualified Database.Groundhog.TH as TH
 import           Snap.Snaplet.Groundhog.Postgresql
+import qualified Database.Groundhog.TH as TH
 import           Text.Digestive
 import           Text.Digestive.Snap
 import           Text.Digestive.Heist
@@ -29,8 +28,15 @@ import           Text.Digestive.Heist
 ------------------------------------------------------------------------------
 import           Application
 
-capitalize :: Text -> Text
-capitalize txt = T.append (T.toUpper $ T.take 1 txt) (T.drop 1 txt)
+data Event = Event {
+  title :: Text,
+  content :: Text,
+  citation :: Text
+  } deriving (Show, Eq)
+
+TH.mkPersist
+  TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }
+  [TH.groundhog| - entity: Event |]
 
 requiredTextField :: Text -> Form Text AppHandler Text
 requiredTextField nm = nm .: check "must not be blank" (not . T.null) (text Nothing)
@@ -41,28 +47,24 @@ eventForm = Event <$> requiredTextField "title"
                   <*> requiredTextField "citation"
 
 newEventHandler :: AppHandler ()
-newEventHandler = do r <- runForm "new-event" eventForm
-                     case r of
-                       (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
-                       (_, Just e) -> void $ gh $ insert e
+newEventHandler = do
+  response <- runForm "new-event" eventForm
+  case response of
+    (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+    (_, Just e) -> void $ gh $ insert e
 
-data Event = Event {
-  title :: Text,
-  content :: Text,
-  citation :: Text
-  } deriving (Show, Eq)
+eventIndexHandler :: AppHandler ()
+eventIndexHandler = render "events/index"
 
-TH.mkPersist TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle } [TH.groundhog|
-                                                                                         - entity: Event
-|]
+eventRoutes :: (ByteString, Handler App App ())
+eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
+                                ,("new", newEventHandler)])
+
 
 ------------------------------------------------------------------------------
 -- | The application's routes.
 routes :: [(ByteString, Handler App App ())]
-routes = [ ("/events", route [("", ifTop $ render "events/index")
-                             ,("new", newEventHandler)])
-         , ("", serveDirectory "static")
-         ]
+routes = [eventRoutes, ("", serveDirectory "static")]
 
 ------------------------------------------------------------------------------
 -- | The application initializer.
