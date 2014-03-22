@@ -15,6 +15,8 @@ import           Snap.Snaplet.PostgresqlSimple
 import           Snap.Core
 import           Snap.Snaplet
 import           Snap.Snaplet.Heist
+import           Heist
+import           Heist.Interpreted
 import           Snap.Util.FileServe
 import           Snap.Snaplet.Groundhog.Postgresql
 import qualified Database.Groundhog.TH as TH
@@ -30,6 +32,9 @@ data Event = Event {
   content :: Text,
   citation :: Text
   } deriving (Show, Eq)
+
+showText :: Show a => a -> Text
+showText = T.pack . show
 
 TH.mkPersist
   TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }
@@ -51,9 +56,12 @@ newEventHandler = do
     (_, Just e) -> do
       gh $ insert e
       redirect "/events"
-    
+
+s :: [Event] -> Splices (Splice AppHandler)
+s events = "foo" ## textSplice $ showText events
+
 eventIndexHandler :: AppHandler ()
-eventIndexHandler = writeBS "[]"
+eventIndexHandler = renderWithSplices "events/index" (s [Event "hi" "bye" "bar"])
 
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)

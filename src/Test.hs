@@ -36,4 +36,3 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        form (Value $ Event "a" "b" "c") eventForm $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
        form (ErrorPaths ["title", "content", "citation"]) eventForm $ M.fromList []
-
