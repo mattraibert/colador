@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction #-}
 
 module Test where
 
@@ -19,9 +19,17 @@ main = do
     eventTests
   putStrLn ""
 
+
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
-  do it "shows you a blank page" $ succeeds (get "/events")
+  do
+     it "shows a table filled with events" $ do
+       eval $ gh $ insert_ (Event "Alabaster" "Baltimore" "Crenshaw")
+       contains (get "/events") "<table"
+       contains (get "/events") "<td"
+       contains (get "/events") "Alabaster"
+       contains (get "/events") "Crenshaw"
+       notcontains (get "/events") "Baltimore"
      it "provides a form to enter an Event" $ do 
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"

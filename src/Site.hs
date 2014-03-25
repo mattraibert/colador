@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction #-}
 
 ------------------------------------------------------------------------------
 -- | This module is where all the routes and handlers are defined for your
@@ -19,7 +19,6 @@ import           Heist
 import           Heist.Interpreted
 import           Snap.Util.FileServe
 import           Snap.Snaplet.Groundhog.Postgresql
-import           Database.Groundhog.Core
 import qualified Database.Groundhog.TH as TH
 import           Text.Digestive
 import           Text.Digestive.Snap
@@ -36,8 +35,6 @@ data Event = Event {
 
 showText :: Show a => a -> Text
 showText = T.pack . show
-
-
 
 TH.mkPersist
   TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }

@@ -42,7 +42,7 @@ Executable colador
     monad-logger,
     postgresql-simple,
     snaplet-postgresql-simple,
-    snap-testing,
+    snap-testing              >= 0.4.1.1,
     fsnotify,
     digestive-functors,
     digestive-functors-snap,
