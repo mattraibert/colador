@@ -7,6 +7,7 @@
 module Site where
 
 ------------------------------------------------------------------------------
+import           Prelude hiding ((++))
 import           Control.Applicative
 import           Data.ByteString (ByteString)
 import qualified Data.Text as T
@@ -20,12 +21,16 @@ import           Heist.Interpreted
 import           Snap.Util.FileServe
 import           Snap.Snaplet.Groundhog.Postgresql
 import qualified Database.Groundhog.TH as TH
+import           Database.Groundhog.Core hiding (get)
+import           Database.Groundhog.Utils
 import           Text.Digestive
 import           Text.Digestive.Snap
 import           Text.Digestive.Heist
 
 ------------------------------------------------------------------------------
 import           Application
+
+type EventEntity = Entity (AutoKey Event) Event
 
 data Event = Event {
   title :: Text,
@@ -57,20 +62,25 @@ newEventHandler = do
       gh $ insert e
       redirect "/events"
 
-eventsSplice :: [Event] -> Splices (Splice AppHandler)
+getId (EventKey (PersistInt64 id)) = fromIntegral id :: Int
+eventEditPath eventId = "/events/" ++ (showText $ eventId) ++ "/edit"
+
+eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
 eventsSplice events = "events" ## mapSplices (runChildrenWith . eventSplice) events
 
-eventSplice :: Event -> Splices (Splice AppHandler)
-eventSplice (Event _title _content _citation) = do
+eventSplice :: (EventEntity) -> Splices (Splice AppHandler)
+eventSplice (Entity _id (Event _title _content _citation)) = do
   "title" ## textSplice _title
   "eventcontent" ## textSplice _content
   "citation" ## textSplice _citation
+  "editLink" ## textSplice $ eventEditPath $ getId _id
 
 
 eventIndexHandler :: AppHandler ()
 eventIndexHandler = do
-  events <- fmap (map snd) (gh selectAll)
-  renderWithSplices "events/index" (eventsSplice events)
+  events <- gh selectAll
+  let eventEntities = map (uncurry Entity) events
+  renderWithSplices "events/index" (eventsSplice eventEntities)
 
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)

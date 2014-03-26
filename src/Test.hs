@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction #-}
+{-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction, GADTs #-}
 
 module Test where
 
@@ -24,13 +24,14 @@ eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
   do
      it "shows a table filled with events" $ do
-       eval $ gh $ insert_ (Event "Alabaster" "Baltimore" "Crenshaw")
+       eventId <- eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
        contains (get "/events") "<table"
        contains (get "/events") "<td"
        contains (get "/events") "Alabaster"
        contains (get "/events") "Crenshaw"
        notcontains (get "/events") "Baltimore"
-     it "provides a form to enter an Event" $ do 
+       contains (get "/events") $ eventEditPath $ getId eventId
+     it "provides a form to enter an Event" $ do
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"

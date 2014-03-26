@@ -13,6 +13,8 @@ import Snap.Snaplet.Groundhog.Postgresql (HasGroundhogPostgres(..), GroundhogPos
 import Snap.Snaplet
 import Snap.Snaplet.Heist
 import Snap.Snaplet.PostgresqlSimple
+import Prelude hiding ((++))
+import Data.Monoid (Monoid, mappend)
 
 ------------------------------------------------------------------------------
 data App = App
@@ -34,3 +36,7 @@ instance HasGroundhogPostgres (Handler b App) where
 
 ------------------------------------------------------------------------------
 type AppHandler = Handler App App
+
+(++) :: Monoid d => d -> d -> d
+(++) = mappend
+

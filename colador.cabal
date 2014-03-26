@@ -38,6 +38,7 @@ Executable colador
     groundhog,
     groundhog-th,
     groundhog-postgresql,
+    groundhog-utils,
     resource-pool,
     monad-logger,
     postgresql-simple,
