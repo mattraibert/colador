@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables #-}
+{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
 ------------------------------------------------------------------------------
 -- | This module is where all the routes and handlers are defined for your
@@ -72,17 +72,26 @@ userEvent maybeEvent = do
 
 newEventHandler :: AppHandler ()
 newEventHandler = userEvent Nothing
-  
+
+getEvent :: (PersistBackend m) => Int -> m (Maybe Event)
+getEvent eventId = GC.get (GUP.intToKey eventId)
+
+intParam :: MonadSnap m => ByteString -> m (Maybe Int)
+intParam name = fmap (fmap $ read . B8.unpack) (getParam name)
+
+requestedEvent :: (MonadSnap m, HasGroundhogPostgres m) => m (Maybe Event)
+requestedEvent = do
+  maybeEventId <- intParam "id"
+  case maybeEventId of
+    Nothing -> pass
+    Just eventId -> gh $ getEvent eventId
+
 editEventHandler :: AppHandler ()
 editEventHandler = do
-  eventIdBS <- getParam "id"
-  case fmap (read . B8.unpack) eventIdBS of
+  event <- requestedEvent
+  case event of
     Nothing -> pass
-    Just eventId -> do
-      event <- gh $ GC.get (GUP.intToKey eventId)
-      case event of
-        Nothing -> pass
-        Just _e -> userEvent (Just _e)
+    Just _e -> userEvent (Just _e)
 
 getId :: Key Event u -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
