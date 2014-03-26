@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction #-}
+{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables #-}
 
 ------------------------------------------------------------------------------
 -- | This module is where all the routes and handlers are defined for your
@@ -10,6 +10,7 @@ module Site where
 import           Prelude hiding ((++))
 import           Control.Applicative
 import           Data.ByteString (ByteString)
+import qualified Data.ByteString.Char8 as B8
 import qualified Data.Text as T
 import           Data.Text (Text)
 import           Snap.Snaplet.PostgresqlSimple
@@ -21,8 +22,9 @@ import           Heist.Interpreted
 import           Snap.Util.FileServe
 import           Snap.Snaplet.Groundhog.Postgresql
 import qualified Database.Groundhog.TH as TH
-import           Database.Groundhog.Core hiding (get)
-import           Database.Groundhog.Utils
+import           Database.Groundhog.Core as GC
+import           Database.Groundhog.Utils 
+import           Database.Groundhog.Utils.Postgresql as GUP
 import           Text.Digestive
 import           Text.Digestive.Snap
 import           Text.Digestive.Heist
@@ -45,25 +47,48 @@ TH.mkPersist
   TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }
   [TH.groundhog| - entity: Event |]
 
-requiredTextField :: Text -> Form Text AppHandler Text
-requiredTextField nm = nm .: check "must not be blank" (not . T.null) (text Nothing)
 
-eventForm :: Form Text AppHandler Event
-eventForm = Event <$> requiredTextField "title"
-                  <*> requiredTextField "content"
-                  <*> requiredTextField "citation"
+requiredTextField :: Text -> Text -> Form Text AppHandler Text
+requiredTextField name defaultValue = name .: check "must not be blank" (not . T.null) (text $ Just defaultValue)
 
-newEventHandler :: AppHandler ()
-newEventHandler = do
-  response <- runForm "new-event" eventForm
+eventForm :: Maybe Event -> Form Text AppHandler Event
+eventForm maybeEvent = case maybeEvent of
+  Nothing -> form (Event "" "" "")
+  (Just event) -> form event
+  where
+    form (Event _title _content _citation) = 
+      Event <$> requiredTextField "title" _title
+      <*> requiredTextField "content" _content
+      <*> requiredTextField "citation" _citation
+
+userEvent :: Maybe Event -> AppHandler ()
+userEvent maybeEvent = do
+  response <- runForm "new-event" (eventForm maybeEvent)
   case response of
     (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
     (_, Just e) -> do
       gh $ insert e
       redirect "/events"
 
-getId (EventKey (PersistInt64 id)) = fromIntegral id :: Int
-eventEditPath eventId = "/events/" ++ (showText $ eventId) ++ "/edit"
+newEventHandler :: AppHandler ()
+newEventHandler = userEvent Nothing
+  
+editEventHandler :: AppHandler ()
+editEventHandler = do
+  eventIdBS <- getParam "id"
+  case fmap (read . B8.unpack) eventIdBS of
+    Nothing -> pass
+    Just eventId -> do
+      event <- gh $ GC.get (GUP.intToKey eventId)
+      case event of
+        Nothing -> pass
+        Just _e -> userEvent (Just _e)
+
+getId :: Key Event u -> Int
+getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
+
+eventEditPath :: Key Event u -> Text
+eventEditPath eventId = "/events/" ++ (showText $ (getId eventId)) ++ "/edit"
 
 eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
 eventsSplice events = "events" ## mapSplices (runChildrenWith . eventSplice) events
@@ -73,18 +98,20 @@ eventSplice (Entity _id (Event _title _content _citation)) = do
   "title" ## textSplice _title
   "eventcontent" ## textSplice _content
   "citation" ## textSplice _citation
-  "editLink" ## textSplice $ eventEditPath $ getId _id
+  "editLink" ## textSplice $ eventEditPath _id
 
 
 eventIndexHandler :: AppHandler ()
 eventIndexHandler = do
-  events <- gh selectAll
+  events <- gh GC.selectAll
   let eventEntities = map (uncurry Entity) events
   renderWithSplices "events/index" (eventsSplice eventEntities)
 
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
-                                ,("new", newEventHandler)])
+                                ,("new", newEventHandler)
+                                ,(":id/edit", editEventHandler)
+                                ])
 
 
 ------------------------------------------------------------------------------
