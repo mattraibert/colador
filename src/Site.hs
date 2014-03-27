@@ -106,17 +106,20 @@ eventSplice (Entity _id (Event _title _content _citation)) = do
   "citation" ## textSplice _citation
   "editLink" ## textSplice $ eventEditPath _id
 
-
 eventIndexHandler :: AppHandler ()
 eventIndexHandler = do
   events <- gh GC.selectAll
   let eventEntities = map (uncurry Entity) events
   renderWithSplices "events/index" (eventsSplice eventEntities)
 
+mapHandler :: AppHandler ()
+mapHandler = render "events/map"
+
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
                                 ,("new", newEventHandler)
                                 ,(":id/edit", editEventHandler)
+                                ,("map", mapHandler)
                                 ])
 
 

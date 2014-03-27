@@ -32,6 +32,9 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get "/events") "Crenshaw"
        notcontains (get "/events") "Baltimore"
        contains (get "/events") $ eventEditPath eventId
+     it "shows the map image" $ do
+       contains (get "/events/map") "<svg"
+       contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
      it "provides a form to enter an Event" $ do
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
