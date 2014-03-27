@@ -61,17 +61,14 @@ eventForm maybeEvent = case maybeEvent of
       <*> requiredTextField "content" _content
       <*> requiredTextField "citation" _citation
 
-userEvent :: Maybe Event -> AppHandler ()
-userEvent maybeEvent = do
-  response <- runForm "new-event" (eventForm maybeEvent)
+newEventHandler :: AppHandler ()
+newEventHandler = do
+  response <- runForm "new-event" (eventForm Nothing)
   case response of
     (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
     (_, Just e) -> do
       gh $ insert e
       redirect "/events"
-
-newEventHandler :: AppHandler ()
-newEventHandler = userEvent Nothing
 
 getEvent :: (PersistBackend m) => Int -> m (Maybe Event)
 getEvent eventId = GC.get (GUP.intToKey eventId)
@@ -89,9 +86,12 @@ requestedEvent = do
 editEventHandler :: AppHandler ()
 editEventHandler = do
   event <- requestedEvent
-  case event of
-    Nothing -> pass
-    Just _e -> userEvent (Just _e)
+  response <- runForm "new-event" (eventForm $ event)
+  case response of
+    (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+    (_, Just e) -> do
+      gh $ insert e
+      redirect "/events"
 
 getId :: Key Event u -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
