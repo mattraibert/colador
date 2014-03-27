@@ -65,7 +65,7 @@ newEventHandler :: AppHandler ()
 newEventHandler = do
   response <- runForm "new-event" (eventForm Nothing)
   case response of
-    (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+    (v, Nothing) -> renderWithSplices "events/form" (digestiveSplices v)
     (_, Just e) -> do
       gh $ insert e
       redirect "/events"
@@ -83,9 +83,9 @@ editEventHandler = do
     Nothing -> pass
     Just eventKey -> do
       maybeEvent <- gh $ GC.get eventKey
-      response <- runForm "new-event" (eventForm $ maybeEvent)
+      response <- runForm "edit-event" (eventForm $ maybeEvent)
       case response of
-        (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+        (v, Nothing) -> renderWithSplices "events/form" (digestiveSplices v)
         (_, Just e) -> do
           gh $ replace eventKey e
           redirect "/events"
