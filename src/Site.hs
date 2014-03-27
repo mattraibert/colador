@@ -7,30 +7,30 @@
 module Site where
 
 ------------------------------------------------------------------------------
-import           Prelude hiding ((++))
-import           Control.Applicative
-import           Data.ByteString (ByteString)
+import Prelude hiding ((++))
+import Control.Applicative
+import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as B8
 import qualified Data.Text as T
-import           Data.Text (Text)
-import           Snap.Snaplet.PostgresqlSimple
-import           Snap.Core
-import           Snap.Snaplet
-import           Snap.Snaplet.Heist
-import           Heist
-import           Heist.Interpreted
-import           Snap.Util.FileServe
-import           Snap.Snaplet.Groundhog.Postgresql
+import Data.Text (Text)
+import Snap.Snaplet.PostgresqlSimple
+import Snap.Core
+import Snap.Snaplet
+import Snap.Snaplet.Heist
+import Heist
+import Heist.Interpreted
+import Snap.Util.FileServe
+import Snap.Snaplet.Groundhog.Postgresql
 import qualified Database.Groundhog.TH as TH
-import           Database.Groundhog.Core as GC
-import           Database.Groundhog.Utils 
-import           Database.Groundhog.Utils.Postgresql as GUP
-import           Text.Digestive
-import           Text.Digestive.Snap
-import           Text.Digestive.Heist
+import Database.Groundhog.Core as GC
+import Database.Groundhog.Utils 
+import Database.Groundhog.Utils.Postgresql as GUP
+import Text.Digestive
+import Text.Digestive.Snap
+import Text.Digestive.Heist
 
 ------------------------------------------------------------------------------
-import           Application
+import Application
 
 type EventEntity = Entity (AutoKey Event) Event
 
