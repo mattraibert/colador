@@ -70,33 +70,30 @@ newEventHandler = do
       gh $ insert e
       redirect "/events"
 
-getEvent :: (PersistBackend m) => Int -> m (Maybe Event)
-getEvent eventId = GC.get (GUP.intToKey eventId)
+readKey :: ByteString -> AutoKey Event
+readKey = GUP.intToKey . read . B8.unpack
 
-intParam :: MonadSnap m => ByteString -> m (Maybe Int)
-intParam name = fmap (fmap $ read . B8.unpack) (getParam name)
-
-requestedEvent :: (MonadSnap m, HasGroundhogPostgres m) => m (Maybe Event)
-requestedEvent = do
-  maybeEventId <- intParam "id"
-  case maybeEventId of
-    Nothing -> pass
-    Just eventId -> gh $ getEvent eventId
+eventKeyParam :: MonadSnap m => ByteString -> m (Maybe (AutoKey Event))
+eventKeyParam name = fmap (fmap readKey) (getParam name)
 
 editEventHandler :: AppHandler ()
 editEventHandler = do
-  event <- requestedEvent
-  response <- runForm "new-event" (eventForm $ event)
-  case response of
-    (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
-    (_, Just e) -> do
-      gh $ insert e
-      redirect "/events"
+  maybeEventKey <- eventKeyParam "id"
+  case maybeEventKey of
+    Nothing -> pass
+    Just eventKey -> do
+      maybeEvent <- gh $ GC.get eventKey
+      response <- runForm "new-event" (eventForm $ maybeEvent)
+      case response of
+        (v, Nothing) -> renderWithSplices "events/new" (digestiveSplices v)
+        (_, Just e) -> do
+          gh $ replace eventKey e
+          redirect "/events"
 
 getId :: Key Event u -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
 
-eventEditPath :: Key Event u -> Text
+eventEditPath :: AutoKey Event -> Text
 eventEditPath eventId = "/events/" ++ (showText $ (getId eventId)) ++ "/edit"
 
 eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
