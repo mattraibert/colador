@@ -5,11 +5,10 @@ module Test where
 import qualified Data.Map as M
 import Control.Monad (void)
 import Snap.Snaplet.Groundhog.Postgresql hiding (get)
-import Database.Groundhog.Core as GC hiding (get)
 import Snap.Core
 import Snap.Test.BDD
-import qualified Data.Text as T
 import Data.Text.Encoding
+import Delete as D
 
 import Application
 import Site
@@ -52,17 +51,22 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get editPath) "Baltimore"
        contains (get editPath) "Crenshaw"
        it "replaces the Event in the database on update" $ do
-         changes (+0)
+         changes (0 +)
            (gh $ countAll (undefined :: Event))
            (post editPath $ params [("new-event.title", "a"),
                                     ("new-event.content", "b"),
                                     ("new-event.citation", "c")])
      it "creates a new Event in the database on create" $ do
-       changes (+1)
+       changes (1 +)
          (gh $ countAll (undefined :: Event))
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
                                        ("new-event.citation", "c")])
+     it "deletes an event" $ do
+       eventId <- insertEvent
+       changes (-1 +)
+         (gh $ countAll (undefined :: Event))
+         (D.delete $ encodeUtf8 $ eventPath eventId)
      it "validates presence of title, content and citation" $ do
        form (Value $ Event "a" "b" "c") (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
