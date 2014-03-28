@@ -75,15 +75,6 @@ readKey = GUP.intToKey . read . B8.unpack
 eventKeyParam :: MonadSnap m => ByteString -> m (Maybe (AutoKey Event))
 eventKeyParam name = fmap (fmap readKey) (getParam name)
 
-deleteEventHandler :: AppHandler ()
-deleteEventHandler = do
-  maybeEventKey <- eventKeyParam "id"
-  case maybeEventKey of
-    Nothing -> pass
-    Just eventKey -> do
-      gh $ deleteBy eventKey
-      redirect "/events"
-
 editEventHandler :: AppHandler ()
 editEventHandler = do
   maybeEventKey <- eventKeyParam "id"
@@ -116,6 +107,7 @@ eventSplice (Entity _id (Event _title _content _citation)) = do
   "eventcontent" ## textSplice _content
   "citation" ## textSplice _citation
   "editLink" ## textSplice $ eventEditPath _id
+  "eventLink" ## textSplice $ eventPath _id
   "eventX" ## textSplice $ showText $ (getId _id) * 25
   "eventY" ## textSplice $ showText $ (getId _id) * 25
 
@@ -131,9 +123,31 @@ mapHandler = do
   let eventEntities = map (uncurry Entity) events
   renderWithSplices "events/map" (eventsSplice eventEntities)
 
-eventRoutes :: (ByteString, Handler App App ())
+methodParam :: MonadSnap m => m Snap.Core.Method
+methodParam = fmap parseMethod $ getParam "_method"
+  where parseMethod param = case param of
+          Nothing -> GET
+          Just _method -> read $ B8.unpack _method
+
+deleteEventHandler :: AppHandler ()
+deleteEventHandler = do
+  maybeEventKey <- eventKeyParam "id"
+  case maybeEventKey of
+    Nothing -> redirect "/events"
+    Just eventKey -> do
+      gh $ deleteBy eventKey
+      redirect "/events"
+
+restfulEventHandler :: AppHandler ()
+restfulEventHandler = do
+  _method <- methodParam
+  case _method of
+    DELETE -> deleteEventHandler
+    _ -> pass
+
+eventRoutes :: (ByteString, AppHandler ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
-                                ,(":id", method DELETE deleteEventHandler)
+                                ,(":id", restfulEventHandler)
                                 ,("new", newEventHandler)
                                 ,(":id/edit", editEventHandler)
                                 ,("map", mapHandler)

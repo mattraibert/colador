@@ -4,6 +4,7 @@
       <th>Title</th>
       <th>Citation</th>
       <th></th>
+      <th></th>
     </thead>
     <tbody>
       <events>
@@ -11,6 +12,12 @@
 	  <td><title /></td>
 	  <td><citation /></td>
 	  <td><a href="${editLink}">edit</a></td>
+	  <td>
+	    <form action="${eventLink}" method='POST'>
+	      <input type='hidden' name='_method' value='DELETE' />
+	      <input type='submit' value='X' />
+	    </form>
+	  </td>
 	</tr>
       </events>
     </tbody>

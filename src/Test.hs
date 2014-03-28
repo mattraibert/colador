@@ -66,7 +66,7 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        eventId <- insertEvent
        changes (-1 +)
          (gh $ countAll (undefined :: Event))
-         (D.delete $ encodeUtf8 $ eventPath eventId)
+         (post (encodeUtf8 $ eventPath eventId) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        form (Value $ Event "a" "b" "c") (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
