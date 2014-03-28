@@ -5,6 +5,7 @@ module Test where
 import qualified Data.Map as M
 import Control.Monad (void)
 import Snap.Snaplet.Groundhog.Postgresql hiding (get)
+import Database.Groundhog.Core as GC hiding (get)
 import Snap.Core
 import Snap.Test.BDD
 import qualified Data.Text as T
@@ -21,11 +22,13 @@ main = do
     eventTests
   putStrLn ""
 
+insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
+
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
   do
      it "shows a table filled with events" $ do
-       eventId <- eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
+       eventId <- insertEvent
        contains (get "/events") "<table"
        contains (get "/events") "<td"
        contains (get "/events") "Alabaster"
@@ -33,14 +36,16 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        notcontains (get "/events") "Baltimore"
        contains (get "/events") $ eventEditPath eventId
      it "shows the map image" $ do
+       insertEvent
        contains (get "/events/map") "<svg"
        contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
+       contains (get "/events/map") "<image xlink:href='/static/nature2.gif' title='Alabaster'"
      it "provides a form to enter an Event" $ do
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
      it "provides a form to enter an Event" $ do
-       eventId <- eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
+       eventId <- insertEvent
        let editPath = encodeUtf8 $ eventEditPath eventId
        contains (get editPath) "<form"
        contains (get editPath) "Alabaster"

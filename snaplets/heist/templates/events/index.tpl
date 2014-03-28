@@ -8,11 +8,9 @@
     <tbody>
       <events>
 	<tr>
-	  <event>
-	    <td><title /></td>
-	    <td><citation /></td>
-	    <td><a href="${editLink}">edit</a></td>
-	  </event>
+	  <td><title /></td>
+	  <td><citation /></td>
+	  <td><a href="${editLink}">edit</a></td>
 	</tr>
       </events>
     </tbody>

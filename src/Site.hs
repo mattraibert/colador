@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
+{-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
 ------------------------------------------------------------------------------
 -- | This module is where all the routes and handlers are defined for your
@@ -105,6 +105,8 @@ eventSplice (Entity _id (Event _title _content _citation)) = do
   "eventcontent" ## textSplice _content
   "citation" ## textSplice _citation
   "editLink" ## textSplice $ eventEditPath _id
+  "eventX" ## textSplice $ showText $ (getId _id) * 25
+  "eventY" ## textSplice $ showText $ (getId _id) * 25
 
 eventIndexHandler :: AppHandler ()
 eventIndexHandler = do
@@ -113,7 +115,10 @@ eventIndexHandler = do
   renderWithSplices "events/index" (eventsSplice eventEntities)
 
 mapHandler :: AppHandler ()
-mapHandler = render "events/map"
+mapHandler = do
+  events <- gh GC.selectAll
+  let eventEntities = map (uncurry Entity) events
+  renderWithSplices "events/map" (eventsSplice eventEntities)
 
 eventRoutes :: (ByteString, Handler App App ())
 eventRoutes = ("/events", route [("", ifTop $ eventIndexHandler)
