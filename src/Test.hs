@@ -9,7 +9,6 @@ import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Core
 import Snap.Test.BDD
 import Data.Text.Encoding
-import Delete as D
 
 import Application
 import Site

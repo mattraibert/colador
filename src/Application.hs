@@ -12,14 +12,12 @@ import Snap (get)
 import Snap.Snaplet.Groundhog.Postgresql (HasGroundhogPostgres(..), GroundhogPostgres)
 import Snap.Snaplet
 import Snap.Snaplet.Heist
-import Snap.Snaplet.PostgresqlSimple
 import Prelude hiding ((++))
 import Data.Monoid (Monoid, mappend)
 
 ------------------------------------------------------------------------------
 data App = App
     { _heist :: Snaplet (Heist App)
-    , _postgres :: Snaplet Postgres
     , _groundhog :: Snaplet GroundhogPostgres
     }
 
@@ -27,9 +25,6 @@ makeLenses ''App
 
 instance HasHeist App where
     heistLens = subSnaplet heist
-
-instance HasPostgres (Handler b App) where
-    getPostgresState = with postgres get
 
 instance HasGroundhogPostgres (Handler b App) where
   getGroundhogPostgresState = with groundhog get
@@ -39,4 +34,3 @@ type AppHandler = Handler App App
 
 (++) :: Monoid d => d -> d -> d
 (++) = mappend
-

@@ -41,8 +41,6 @@ Executable colador
     groundhog-utils,
     resource-pool,
     monad-logger,
-    postgresql-simple,
-    snaplet-postgresql-simple,
     snap-testing              >= 0.4.1.1,
     fsnotify,
     digestive-functors,
