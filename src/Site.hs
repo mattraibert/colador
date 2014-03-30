@@ -99,17 +99,21 @@ eventPath :: AutoKey Event -> Text
 eventPath eventId = "/events/" ++ (showText $ getId eventId)
 
 eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
-eventsSplice events = "events" ## mapSplices (runChildrenWith . eventSplice) events
+eventsSplice events = "events" ## mapSplices (runChildrenWith . eventEntitySplice) events
 
-eventSplice :: (EventEntity) -> Splices (Splice AppHandler)
-eventSplice (Entity _id (Event _title _content _citation)) = do
-  "title" ## textSplice _title
-  "eventcontent" ## textSplice _content
-  "citation" ## textSplice _citation
+eventSplice :: Event -> Splices (Splice AppHandler)
+eventSplice (Event _title _content _citation) = do
+  "eventTitle" ## textSplice _title
+  "eventContent" ## textSplice _content
+  "eventCitation" ## textSplice _citation
+
+eventEntitySplice :: EventEntity -> Splices (Splice AppHandler)
+eventEntitySplice (Entity _id _event) = do
   "editLink" ## textSplice $ eventEditPath _id
   "eventLink" ## textSplice $ eventPath _id
   "eventX" ## textSplice $ showText $ (getId _id) * 25
   "eventY" ## textSplice $ showText $ (getId _id) * 25
+  eventSplice _event
 
 eventIndexHandler :: AppHandler ()
 eventIndexHandler = do
@@ -138,11 +142,23 @@ deleteEventHandler = do
       gh $ deleteBy eventKey
       redirect "/events"
 
+showEventHandler :: AppHandler ()
+showEventHandler = do
+  maybeEventKey <- eventKeyParam "id"
+  case maybeEventKey of
+    Nothing -> redirect "/events"
+    Just eventKey -> do
+      maybeEvent <- gh $ GC.get eventKey
+      case maybeEvent of
+        Nothing -> redirect "/events"
+        Just event -> renderWithSplices "/events/show" $ eventSplice event
+
 restfulEventHandler :: AppHandler ()
 restfulEventHandler = do
   _method <- methodParam
   case _method of
     DELETE -> deleteEventHandler
+    GET -> showEventHandler
     _ -> pass
 
 eventRoutes :: (ByteString, AppHandler ())

@@ -9,8 +9,8 @@
     <tbody>
       <events>
 	<tr>
-	  <td><title /></td>
-	  <td><citation /></td>
+	  <td><eventTitle /></td>
+	  <td><eventCitation /></td>
 	  <td><a href="${editLink}">edit</a></td>
 	  <td>
 	    <form action="${eventLink}" method='POST'>

@@ -2,6 +2,7 @@
 
 module Test where
 
+import Prelude hiding ((++))
 import qualified Data.Map as M
 import Control.Monad (void)
 import Snap.Snaplet.Groundhog.Postgresql hiding (get)
@@ -26,47 +27,55 @@ insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
   do
-     it "shows a table filled with events" $ do
-       eventId <- insertEvent
+     it "#index" $ do
+       eventKey <- insertEvent
        contains (get "/events") "<table"
        contains (get "/events") "<td"
        contains (get "/events") "Alabaster"
        contains (get "/events") "Crenshaw"
        notcontains (get "/events") "Baltimore"
-       contains (get "/events") $ eventEditPath eventId
-     it "shows the map image" $ do
-       insertEvent
+       contains (get "/events") $ eventEditPath eventKey
+     it "#map" $ do
+       eventKey <- insertEvent
        contains (get "/events/map") "<svg"
        contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
        contains (get "/events/map") "<image xlink:href='/static/nature2.gif' title='Alabaster'"
-     it "provides a form to enter an Event" $ do
+       contains (get "/events/map") ("<a xlink:href='" ++ (eventPath eventKey))
+     it "#show" $ do
+       eventKey <- insertEvent
+       let showPath = encodeUtf8 $ eventPath eventKey
+       notcontains (get showPath) "<form"
+       contains (get showPath) "Alabaster"
+       contains (get showPath) "Baltimore"
+       contains (get showPath) "Crenshaw"
+     it "#new" $ do
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
-     it "provides a form to enter an Event" $ do
-       eventId <- insertEvent
-       let editPath = encodeUtf8 $ eventEditPath eventId
+     it "#edit" $ do
+       eventKey <- insertEvent
+       let editPath = encodeUtf8 $ eventEditPath eventKey
        contains (get editPath) "<form"
        contains (get editPath) "Alabaster"
        contains (get editPath) "Baltimore"
        contains (get editPath) "Crenshaw"
-       it "replaces the Event in the database on update" $ do
+       it "#update" $ do
          changes (0 +)
            (gh $ countAll (undefined :: Event))
            (post editPath $ params [("new-event.title", "a"),
                                     ("new-event.content", "b"),
                                     ("new-event.citation", "c")])
-     it "creates a new Event in the database on create" $ do
+     it "#create" $ do
        changes (1 +)
          (gh $ countAll (undefined :: Event))
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
                                        ("new-event.citation", "c")])
-     it "deletes an event" $ do
-       eventId <- insertEvent
+     it "#deletes" $ do
+       eventKey <- insertEvent
        changes (-1 +)
          (gh $ countAll (undefined :: Event))
-         (post (encodeUtf8 $ eventPath eventId) $ params [("_method", "DELETE")])
+         (post (encodeUtf8 $ eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        form (Value $ Event "a" "b" "c") (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
