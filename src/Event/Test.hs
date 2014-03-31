@@ -26,6 +26,7 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get "/events") "<td"
        contains (get "/events") "Alabaster"
        contains (get "/events") "Crenshaw"
+       contains (get "/events") "href='/events/new'"
        notcontains (get "/events") "Baltimore"
        contains (get "/events") $ eventEditPath eventKey
      it "#map" $ do

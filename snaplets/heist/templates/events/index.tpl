@@ -22,4 +22,5 @@
       </events>
     </tbody>
   </table>
+  <a class='btn btn-default pull-right' style='border: red 1px solid;' href='/events/new'>New Event</a>
 </apply>

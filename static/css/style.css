@@ -13,3 +13,5 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
+.container {max-width: 730px;}
