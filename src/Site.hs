@@ -7,7 +7,7 @@ import Snap.Snaplet
 import Snap.Snaplet.Heist
 import Snap.Util.FileServe
 import Snap.Snaplet.Groundhog.Postgresql
-import Event.Handler
+import Event.Site
 
 import Application
 

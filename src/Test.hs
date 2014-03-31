@@ -7,7 +7,7 @@ import Snap.Core
 import Snap.Test.BDD
 
 import Site
-import Event.Handler.Test
+import Event.Test
 
 main :: IO ()
 main = do

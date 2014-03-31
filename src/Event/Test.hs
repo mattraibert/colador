@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction, GADTs #-}
 
-module Event.Handler.Test where
+module Event.Test where
 
 import Prelude hiding ((++))
 import qualified Data.Map as M
@@ -11,7 +11,7 @@ import Data.Text.Encoding
 
 import Application
 import Event
-import Event.Handler.Digestive
+import Event.Digestive
 
 it = name
 

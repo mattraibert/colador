@@ -1,6 +1,6 @@
 {-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
-module Event.Handler where
+module Event.Site where
 
 import Prelude hiding ((++))
 import Control.Applicative
@@ -20,7 +20,7 @@ import Text.Digestive
 import Text.Digestive.Snap (runForm)
 import Text.Digestive.Heist
 
-import Event.Handler.Digestive
+import Event.Digestive
 import Event
 import Helpers
 

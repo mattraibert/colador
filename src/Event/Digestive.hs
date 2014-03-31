@@ -1,6 +1,6 @@
 {-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
-module Event.Handler.Digestive where
+module Event.Digestive where
 
 import Prelude hiding ((++))
 import Control.Applicative
