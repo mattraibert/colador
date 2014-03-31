@@ -3,20 +3,14 @@
 module Event.Site where
 
 import Prelude hiding ((++))
-import Control.Applicative
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as B8
-import qualified Data.Text as T
-import Data.Text (Text)
 import Snap.Core
 import Snap.Snaplet.Heist
-import Heist
-import Heist.Interpreted
 import Snap.Snaplet.Groundhog.Postgresql
 import Database.Groundhog.Core as GC
 import Database.Groundhog.Utils
 import Database.Groundhog.Utils.Postgresql as GUP
-import Text.Digestive
 import Text.Digestive.Snap (runForm)
 import Text.Digestive.Heist
 
@@ -29,9 +23,9 @@ import Application
 home :: AppHandler ()
 home = redirect "/events"
 
-eventRoutes :: AppHandler ()
-eventRoutes = route [("", ifTop $ eventIndexHandler)
-                    ,(":id", restfulEventHandler (\_method -> case _method of
+routes :: [(ByteString, AppHandler ())]
+routes = [("", ifTop $ eventIndexHandler)
+                    ,(":id", restMethodDispatcher (\_method -> case _method of
                                                      DELETE -> deleteEventHandler
                                                      GET -> showEventHandler
                                                      _ -> home))

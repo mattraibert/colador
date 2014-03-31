@@ -13,8 +13,8 @@ methodParam = fmap parseMethod $ getParam "_method"
           Nothing -> GET
           Just _method -> read $ B8.unpack _method
 
-restfulEventHandler :: (Snap.Core.Method -> AppHandler ()) -> AppHandler ()
-restfulEventHandler mapping = do
+restMethodDispatcher :: (Snap.Core.Method -> AppHandler ()) -> AppHandler ()
+restMethodDispatcher mapping = do
   _method <- methodParam
   mapping _method
 
