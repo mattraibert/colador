@@ -10,7 +10,7 @@ import Snap.Test.BDD
 import Data.Text.Encoding
 
 import Application
-import Event.State
+import Event
 import Event.Handler.Digestive
 
 it = name

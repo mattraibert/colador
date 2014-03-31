@@ -1,6 +1,6 @@
 {-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
-module Event.State where
+module Event where
 
 import Data.Text (Text)
 import qualified Database.Groundhog.TH as TH

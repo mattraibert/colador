@@ -12,7 +12,7 @@ import Database.Groundhog.Core
 import Database.Groundhog.Utils
 import Text.Digestive
 
-import Event.State
+import Event
 import Helpers
 import Application
 
