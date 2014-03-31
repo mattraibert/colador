@@ -3,6 +3,6 @@ CREATE TABLE Event (
     title text not null,
     content text not null,
     citation text not null,
-    start_year integer,
-    end_year integer
+    "years#start_year" integer,
+    "years#end_year" integer
 );

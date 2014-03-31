@@ -15,7 +15,7 @@ import Event.Digestive
 
 it = name
 
-insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw")
+insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 2014))
 
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
@@ -46,6 +46,8 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get "/events/new") "<form"
        contains (get "/events/new") "title"
        contains (get "/events/new") "content"
+       contains (get "/events/new") "startYear"
+       contains (get "/events/new") "endYear"
      it "#edit" $ do
        eventKey <- insertEvent
        let editPath = encodeUtf8 $ eventEditPath eventKey
@@ -71,6 +73,8 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
          (gh $ countAll (undefined :: Event))
          (post (encodeUtf8 $ eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
-       form (Value $ Event "a" "b" "c") (eventForm Nothing) $
-         M.fromList [("title", "a"), ("content", "b"), ("citation", "c")]
+       let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)
+       form (Value $ expectedEvent) (eventForm Nothing) $
+         M.fromList [("title", "a"), ("content", "b"), ("citation", "c"),
+                     ("startYear", "1200"), ("endYear", "1300")]
        form (ErrorPaths ["title", "content", "citation"]) (eventForm Nothing) $ M.fromList []

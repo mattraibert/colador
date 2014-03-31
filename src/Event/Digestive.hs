@@ -21,13 +21,15 @@ requiredTextField name defaultValue = name .: check "must not be blank" (not . T
 
 eventForm :: Maybe Event -> Form Text AppHandler Event
 eventForm maybeEvent = case maybeEvent of
-  Nothing -> form (Event "" "" "")
+  Nothing -> form (Event "" "" "" (YearRange 0 0))
   (Just event) -> form event
   where
-    form (Event _title _content _citation) =
+    form (Event _title _content _citation (YearRange _startYear _endYear)) =
       Event <$> requiredTextField "title" _title
       <*> requiredTextField "content" _content
       <*> requiredTextField "citation" _citation
+      <*> (YearRange <$> "startYear" .: stringRead "must be a number" (Just _startYear)
+           <*> "endYear" .: stringRead "must be a number" (Just _endYear))
 
 eventEditPath :: AutoKey Event -> Text
 eventEditPath eventId = (eventPath eventId) ++ "/edit"
@@ -39,7 +41,7 @@ eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
 eventsSplice events = "events" ## mapSplices (runChildrenWith . eventEntitySplice) events
 
 eventSplice :: Event -> Splices (Splice AppHandler)
-eventSplice (Event _title _content _citation) = do
+eventSplice (Event _title _content _citation (YearRange _startYear _endYear)) = do
   "eventTitle" ## textSplice _title
   "eventContent" ## textSplice _content
   "eventCitation" ## textSplice _citation
