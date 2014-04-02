@@ -2,3 +2,11 @@
 :set -hide-package MonadCatchIO-mtl
 :set -hide-package monads-fd
 :set -XOverloadedStrings
+:set -XGADTs
+:set -XTemplateHaskell
+:set -XQuasiQuotes
+:set -XFlexibleInstances
+:set -XTypeFamilies
+:set -XNoMonomorphismRestriction
+:set -XScopedTypeVariables
+:set -XFlexibleContexts
