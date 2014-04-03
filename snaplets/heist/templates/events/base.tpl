@@ -28,6 +28,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/events">Home</a></li>
+            <li><a href="/events/map">Map</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
