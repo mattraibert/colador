@@ -2,7 +2,7 @@ Name:                Colador
 Version:             0.0.1
 Synopsis:            Colador History CMS
 Description:         A system for putting historical events onto a map.
-License:             GPLv3
+License:             GPL-3
 Author:              Matt J Raibert
 Maintainer:          mattraibert@gmail.com
 Stability:           Experimental

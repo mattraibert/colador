@@ -1,4 +1,4 @@
-{-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
+{-# Language OverloadedStrings, GADTs, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
 module Site where
 
@@ -13,7 +13,7 @@ import Event.Site as Event
 import Application
 
 routes :: [(ByteString, Handler App App ())]
-routes = [("/events", (route Event.routes)),
+routes = [("/events", route Event.routes),
           ("/static", serveDirectory "static")]
 
 app :: SnapletInit App App
