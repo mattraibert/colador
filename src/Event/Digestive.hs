@@ -45,6 +45,9 @@ eventSplice (Event _title _content _citation (YearRange _startYear _endYear)) = 
   "eventTitle" ## textSplice _title
   "eventContent" ## textSplice _content
   "eventCitation" ## textSplice _citation
+  "eventYears" ## textSplice $ T.pack $ unwords $ map show [_startYear.._endYear]
+  "eventStart" ## textSplice $ showText _startYear
+  "eventEnd" ## textSplice $ showText _endYear
 
 eventEntitySplice :: EventEntity -> Splices (Splice AppHandler)
 eventEntitySplice (Entity _id _event) = do

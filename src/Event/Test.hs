@@ -15,7 +15,7 @@ import Event.Digestive
 
 it = name
 
-insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 2014))
+insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
 
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
@@ -35,6 +35,8 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
        contains (get "/events/map") "<image xlink:href='/static/nature2.gif' title='Alabaster'"
        contains (get "/events/map") ("<a xlink:href='" ++ (eventPath eventKey))
+       contains (get "/events/map") "data-startYear='1492'"
+       contains (get "/events/map") "data-endYear='1494'"
      it "#show" $ do
        eventKey <- insertEvent
        let showPath = encodeUtf8 $ eventPath eventKey
@@ -74,7 +76,7 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
          (post (encodeUtf8 $ eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)
-       form (Value $ expectedEvent) (eventForm Nothing) $
+       form (Value expectedEvent) (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c"),
                      ("startYear", "1200"), ("endYear", "1300")]
        form (ErrorPaths ["title", "content", "citation"]) (eventForm Nothing) $ M.fromList []
