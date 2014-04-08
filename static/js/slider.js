@@ -1,5 +1,3 @@
-var sliderConf = {left: 238, width: 800, top: 59, minYear: 1491, maxYear: 2020};
-
 var x = d3.scale.linear()
   .domain([sliderConf.minYear, sliderConf.maxYear])
   .range([0, sliderConf.width])
@@ -19,7 +17,7 @@ var brush = d3.svg.brush()
 
 var svg = d3.select("svg")
   .append("g")
-  .attr("transform", "translate(242,66)");
+  .attr("transform", "translate("+sliderConf.left+","+sliderConf.top+")");
 
 svg.append("g")
   .attr("class", "x axis")
@@ -38,7 +36,7 @@ var slider = svg.append("g")
 
 var year = slider.append("text")
   .attr("class","year")
-  .attr("transform", "translate(-4,-12)");
+  .attr("transform", "translate(0,-12)");
 
 var handle = slider.append("rect")
   .attr("class", "handle")
@@ -49,7 +47,7 @@ var handle = slider.append("rect")
 slider.call(brush.event);
 
 slider.selectAll(".extent,.resize").remove();
-slider.select(".background").attr("height",30).attr("transform", "translate(0,-15)");
+slider.select(".background").attr("height",sliderConf.height).attr("transform", "translate(0,-"+sliderConf.height/2+")");
 
 function brushed() {
   var value = brush.extent()[0];

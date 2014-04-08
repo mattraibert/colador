@@ -25,6 +25,9 @@
 </svg>
 </div>
 <link href="/static/css/slider.css" media="all" rel="stylesheet" type="text/css" />
+<script>
+var sliderConf = {left: 242, width: 800, top: 66, height: 30, minYear: 1491, maxYear: 2020};
+</script>
 <script src="/static/js/slider.js"></script>
 </body>
 </html>
