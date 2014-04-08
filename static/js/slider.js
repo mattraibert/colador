@@ -61,4 +61,5 @@ function brushed() {
   handle.attr("x", x(value));
   year.text(roundvalue);
   location.hash = roundvalue;
+  sliderConf.callback(roundvalue);
 }

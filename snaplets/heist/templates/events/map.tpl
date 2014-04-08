@@ -26,7 +26,11 @@
 </div>
 <link href="/static/css/slider.css" media="all" rel="stylesheet" type="text/css" />
 <script>
-var sliderConf = {left: 242, width: 800, top: 66, height: 30, minYear: 1491, maxYear: 2020};
+  var showEvents = function(year) {
+    console.log("show events " + year);
+  };
+
+  var sliderConf = {left: 242, width: 800, top: 66, height: 30, minYear: 1491, maxYear: 2020, callback: showEvents};
 </script>
 <script src="/static/js/slider.js"></script>
 </body>
