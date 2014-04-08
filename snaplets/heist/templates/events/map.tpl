@@ -3,15 +3,15 @@
 <head>
 <meta charset='UTF-8'>
 <title>Colador</title>
+<script src="/static/js/d3.v3.min.js"></script>
 <style>
   body { background-image: url('/static/sea.gif') }
   .container { 
-    margin: auto;
-    width: 1200px;
+      margin: auto;
+      width: 1200px;
   }
 </style>
 </head>
-
 <body>
 <div class='container'>
 <svg width=1200 height=800>
@@ -24,6 +24,7 @@
   </events>
 </svg>
 </div>
+<link href="/static/css/slider.css" media="all" rel="stylesheet" type="text/css" />
+<script src="/static/js/slider.js"></script>
 </body>
-
 </html>
