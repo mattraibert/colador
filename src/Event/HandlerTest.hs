@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Event.Test where
+module Event.HandlerTest where
 
 import Prelude hiding ((++))
 import qualified Data.Map as M

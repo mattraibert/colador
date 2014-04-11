@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Event.TestJson where
+module Event.JsonTest where
 
 import Data.Aeson
 import Snap.Test.BDD
@@ -8,8 +8,6 @@ import TestCommon
 import Application
 import Event
 import Event.Json
-
-import Control.Monad.Trans
 
 eventJsonTests :: SnapTesting App ()
 eventJsonTests = do

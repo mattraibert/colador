@@ -7,8 +7,8 @@ import Snap.Core
 import Snap.Test.BDD
 
 import Site
-import Event.Test
-import Event.TestJson
+import Event.HandlerTest
+import Event.JsonTest
 
 main :: IO ()
 main = do
