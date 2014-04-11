@@ -35,6 +35,7 @@
 <script>
   d3.select("svg").selectAll("image.event").data(events).enter()
   .append("a")
+  .attr("xlink:href", function(d) {return "/events/" + d.id;})
   .append("image")
   .attr("class", "event")
   .attr("xlink:href", function(d) {return d.img;})
