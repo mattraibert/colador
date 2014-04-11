@@ -45,7 +45,8 @@ Executable colador
     fsnotify,
     digestive-functors,
     digestive-functors-snap,
-    digestive-functors-heist
+    digestive-functors-heist,
+    aeson
 
 
   if flag(old-base)

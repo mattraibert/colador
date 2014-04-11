@@ -6,6 +6,7 @@ import Data.Text (Text)
 import qualified Database.Groundhog.TH as TH
 import Database.Groundhog.Core as GC
 import Database.Groundhog.Utils
+
 import Application ()
 
 data Event = Event {
@@ -28,3 +29,6 @@ TH.mkPersist
 
 getId :: AutoKey Event -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
+
+makeId :: Int -> AutoKey Event 
+makeId _id = (EventKey (PersistInt64 $ fromIntegral _id))

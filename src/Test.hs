@@ -8,9 +8,11 @@ import Snap.Test.BDD
 
 import Site
 import Event.Test
+import Event.TestJson
 
 main :: IO ()
 main = do
   runSnapTests defaultConfig (route routes) app $ do
     eventTests
+    eventJsonTests
   putStrLn ""

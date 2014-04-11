@@ -4,6 +4,7 @@ module Event.Site where
 
 import Prelude hiding ((++))
 import Data.ByteString (ByteString)
+import Data.Aeson
 import qualified Data.ByteString.Char8 as B8
 import Snap.Core
 import Snap.Snaplet.Heist
@@ -16,6 +17,7 @@ import Text.Digestive.Heist
 
 import Event.Digestive
 import Event
+import Event.Json
 import Helpers
 
 import Application
@@ -31,7 +33,8 @@ routes = [("", ifTop $ eventIndexHandler)
                                                      _ -> home))
                     ,("new", newEventHandler)
                     ,(":id/edit", editEventHandler)
-                    ,("map", mapHandler)]
+                    ,("map", mapHandler)
+                    ,("index.json", eventsJsonHandler)]
 
 eventsHandler :: ByteString -> AppHandler ()
 eventsHandler template =  do
@@ -44,6 +47,13 @@ eventIndexHandler = eventsHandler "events/index"
 
 mapHandler :: AppHandler ()
 mapHandler = eventsHandler "events/map"
+
+eventsJsonHandler :: AppHandler ()
+eventsJsonHandler = do
+  events <- gh GC.selectAll
+  let eventEntities = map (uncurry Entity) events
+  modifyResponse $ setHeader "Content-Type" "application/json"
+  writeLBS $ encode $ map mapEvent eventEntities
 
 showEventHandler :: AppHandler ()
 showEventHandler = do

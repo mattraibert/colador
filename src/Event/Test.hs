@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction, GADTs #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Event.Test where
 
@@ -7,13 +7,12 @@ import qualified Data.Map as M
 import Control.Monad (void)
 import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Test.BDD
+import TestCommon
 import Data.Text.Encoding
 
 import Application
 import Event
 import Event.Digestive
-
-it = name
 
 insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
 
@@ -33,10 +32,6 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        _eventKey <- insertEvent
        contains (get "/events/map") "<svg"
        contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
-       contains (get "/events/map") "<image xlink:href='/static/nature2.gif' title='Alabaster'"
-       --contains (get "/events/map") ("<a xlink:href='" ++ (eventPath eventKey))
-       --contains (get "/events/map") "data-startYear='1492'"
-       --contains (get "/events/map") "data-endYear='1494'"
      it "#show" $ do
        eventKey <- insertEvent
        let showPath = encodeUtf8 $ eventPath eventKey
