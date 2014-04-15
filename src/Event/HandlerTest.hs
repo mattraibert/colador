@@ -9,6 +9,7 @@ import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Test.BDD
 import TestCommon
 import Data.Text.Encoding
+import Control.Applicative
 
 import Application
 import Event
@@ -21,37 +22,37 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
   do
      it "#index" $ do
        eventKey <- insertEvent
-       contains (get "/events") "<table"
-       contains (get "/events") "<td"
-       contains (get "/events") "Alabaster"
-       contains (get "/events") "Crenshaw"
-       contains (get "/events") "href='/events/new'"
-       notcontains (get "/events") "Baltimore"
-       contains (get "/events") $ eventEditPath eventKey
+       should $ haveText <$> (get "/events") <*> val "<table"
+       should $ haveText <$> (get "/events")  <*> val "<td"
+       should $ haveText <$> (get "/events")  <*> val "Alabaster"
+       should $ haveText <$> (get "/events")  <*> val "Crenshaw"
+       should $ haveText <$> (get "/events")  <*> val "href='/events/new'"
+       shouldNot $ haveText <$> (get "/events")  <*> val "Baltimore"
+--       should $ haveText <$> (get "/events") <*> eventEditPath eventKey
      it "#map" $ do
        _eventKey <- insertEvent
-       contains (get "/events/map") "<svg"
-       contains (get "/events/map") "<image xlink:href='/static/LAMap-grid.gif'"
+       should $ haveText <$> (get "/events/map")  <*> val "<svg"
+       should $ haveText <$> (get "/events/map")  <*> val "<image xlink:href='/static/LAMap-grid.gif'"
      it "#show" $ do
        eventKey <- insertEvent
-       let showPath = encodeUtf8 $ eventPath eventKey
-       notcontains (get showPath) "<form"
-       contains (get showPath) "Alabaster"
-       contains (get showPath) "Baltimore"
-       contains (get showPath) "Crenshaw"
+       let showPath = eventPath eventKey
+       shouldNot $ haveText <$> (get showPath)  <*> val "<form"
+       should $ haveText <$> (get showPath)  <*> val "Alabaster"
+       should $ haveText <$> (get showPath)  <*> val "Baltimore"
+       should $ haveText <$> (get showPath)  <*> val "Crenshaw"
      it "#new" $ do
-       contains (get "/events/new") "<form"
-       contains (get "/events/new") "title"
-       contains (get "/events/new") "content"
-       contains (get "/events/new") "startYear"
-       contains (get "/events/new") "endYear"
+       should $ haveText <$> (get "/events/new")  <*> val "<form"
+       should $ haveText <$> (get "/events/new")  <*> val "title"
+       should $ haveText <$> (get "/events/new")  <*> val "content"
+       should $ haveText <$> (get "/events/new")  <*> val "startYear"
+       should $ haveText <$> (get "/events/new")  <*> val "endYear"
      it "#edit" $ do
        eventKey <- insertEvent
-       let editPath = encodeUtf8 $ eventEditPath eventKey
-       contains (get editPath) "<form"
-       contains (get editPath) "Alabaster"
-       contains (get editPath) "Baltimore"
-       contains (get editPath) "Crenshaw"
+       let editPath = eventEditPath eventKey
+       should $ haveText <$> (get editPath)  <*> val "<form"
+       should $ haveText <$> (get editPath)  <*> val "Alabaster"
+       should $ haveText <$> (get editPath)  <*> val "Baltimore"
+       should $ haveText <$> (get editPath)  <*> val "Crenshaw"
        it "#update" $ do
          changes (0 +)
            (gh $ countAll (undefined :: Event))
@@ -68,7 +69,7 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        eventKey <- insertEvent
        changes (-1 +)
          (gh $ countAll (undefined :: Event))
-         (post (encodeUtf8 $ eventPath eventKey) $ params [("_method", "DELETE")])
+         (post (eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)
        form (Value expectedEvent) (eventForm Nothing) $
