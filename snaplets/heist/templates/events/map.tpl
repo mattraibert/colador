@@ -6,23 +6,13 @@
 <script src="/static/js/d3.v3.min.js"></script>
 <style>
   body { background-image: url('/static/sea.gif') }
-  .container { 
+  .container {
     margin: auto;
     width: 1250px;
   }
 
   .hidden { display: none;}
 </style>
-<script>
-  var events = [
-    {id: 1, title: "Great things", img: '/static/nature2.gif', x: 10, y: 10, startYear: 1491, endYear: 1491},
-    {id: 2, title: "Aligator eats", img: '/static/nature2.gif', x: 20, y: 20, startYear: 1491, endYear: 1491},
-    {id: 3, title: "Hippo charges", img: '/static/nature2.gif', x: 30, y: 30, startYear: 1491, endYear: 1493},
-    {id: 4, title: "Mole burrows", img: '/static/nature2.gif', x: 40, y: 40, startYear: 1492, endYear: 1492},
-    {id: 5, title: "Snake coils", img: '/static/nature2.gif', x: 50, y: 50, startYear: 1492, endYear: 1492},
-    {id: 6, title: "Asparagus spears", img: '/static/nature2.gif', x: 60, y: 60, startYear: 1493, endYear: 1493}
-  ];
-</script>
 </head>
 <body>
 <div class='container'>
@@ -33,15 +23,18 @@
 </div>
 <link href="/static/css/slider.css" media="all" rel="stylesheet" type="text/css" />
 <script>
-  d3.select("svg").selectAll("image.event").data(events).enter()
-  .append("a")
-  .attr("xlink:href", function(d) {return "/events/" + d.id;})
-  .append("image")
-  .attr("class", "event")
-  .attr("xlink:href", function(d) {return d.img;})
-  .attr("width",20).attr("height",20)
-  .attr("x", function(d) {return d.id * 25;})
-  .attr("y", function(d) {return d.id * 25;});
+  d3.json("/events/index.json", function(error, events) {
+    d3.select("svg").selectAll("image.event").data(events).enter()
+      .append("a")
+      .attr("xlink:href", function(d) {return "/events/" + d.id;})
+      .append("image")
+      .attr("class", "event")
+      .attr("xlink:href", function(d) {return d.img;})
+      .attr("width",20).attr("height",20)
+      .attr("x", function(d) {return d.id * 25;})
+      .attr("y", function(d) {return d.id * 25;});
+    slider.call(brush.event);
+  });
 
   var showEvents = function(year) {
     function should_hide(d) {
