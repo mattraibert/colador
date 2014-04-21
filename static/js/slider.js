@@ -13,7 +13,8 @@ var startYear = clampYear(hashYear);
 var brush = d3.svg.brush()
   .x(x)
   .extent([startYear, startYear])
-  .on("brush", brushed);
+  .on("brush", brushed)
+  .on("brushend", brushEnded);
 
 var svg = d3.select("svg")
   .append("g")
@@ -60,6 +61,16 @@ function brushed() {
   var roundvalue = Math.round(value);
   handle.attr("x", x(value));
   year.text(roundvalue);
-  location.hash = roundvalue;
   sliderConf.callback(roundvalue);
+}
+
+function brushEnded() {
+  var value = brush.extent()[0];
+
+  if (d3.event.sourceEvent) { // not a programmatic event
+    value = x.invert(d3.mouse(this)[0]);
+    brush.extent([value, value]);
+  }
+
+  location.hash = Math.round(value);
 }
