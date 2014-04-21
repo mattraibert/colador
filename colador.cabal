@@ -42,7 +42,6 @@ Executable colador
     resource-pool,
     monad-logger,
     snap-testing              >= 0.5.0.0,
-    fsnotify,
     digestive-functors,
     digestive-functors-snap,
     digestive-functors-heist,

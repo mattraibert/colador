@@ -31,12 +31,12 @@ clean:
 superclean: clean
 	rm -rf $(DEPDIR) .cabal-sandbox/ cabal.sandbox.config TAGS
 
-init: deps sandbox
+init: sandbox deps
 
 
 deps: $(patsubst %, $(DEPDIR)/%.d, $(DEPS))
 
-$(DEPDIR)/%.d: sandbox
+$(DEPDIR)/%.d:
 	git clone git@github.com:$*.git $@
 	cabal sandbox add-source $@
 
