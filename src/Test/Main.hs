@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings, NoMonomorphismRestriction, GADTs #-}
 
-module Test where
+module Test.Main where
 
 import Prelude hiding ((++))
 import Snap.Core

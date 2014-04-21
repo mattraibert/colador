@@ -4,11 +4,12 @@ module Event.JsonTest where
 import Data.Aeson
 import Snap.Test.BDD
 import Database.Groundhog.Utils
-import TestCommon
+import Test.Common
 import Control.Applicative
 import Application
 import Event
 import Event.Json
+
 
 eventJsonTests :: SnapTesting App ()
 eventJsonTests = do

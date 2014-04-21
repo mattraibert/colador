@@ -7,8 +7,7 @@ import qualified Data.Map as M
 import Control.Monad (void)
 import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Test.BDD
-import TestCommon
-import Data.Text.Encoding
+import Test.Common
 import Control.Applicative
 
 import Application

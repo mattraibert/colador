@@ -1,4 +1,4 @@
-module TestCommon where
+module Test.Common where
 
 import Snap.Test.BDD
 
