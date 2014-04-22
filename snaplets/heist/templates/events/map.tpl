@@ -31,8 +31,8 @@
       .attr("class", "event")
       .attr("xlink:href", function(d) {return d.img;})
       .attr("width",20).attr("height",20)
-      .attr("x", function(d) {return d.id * 25;})
-      .attr("y", function(d) {return d.id * 25;});
+      .attr("x", function(d) {return randomIntFromInterval(200,600);})
+      .attr("y", function(d) {return randomIntFromInterval(200,500);});
     slider.call(brush.event);
   });
 
@@ -43,6 +43,10 @@
 
     d3.selectAll("image.event").classed("hidden", should_hide);
   };
+
+  function randomIntFromInterval(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+  }
 
   var sliderConf = {left: 262, width: 800, top: 66, height: 30, minYear: 1491, maxYear: 2020, callback: showEvents};
 </script>
