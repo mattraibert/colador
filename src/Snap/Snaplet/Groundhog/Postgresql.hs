@@ -5,7 +5,7 @@ module Snap.Snaplet.Groundhog.Postgresql
         ( initGroundhogPostgres
         , GroundhogPostgres
         , HasGroundhogPostgres(..)
-        , gh
+        , runGH
 
         , (==.), (&&.), (=.), (||.)
         , (/=.), (<.), (<=.), (>.), (>=.)
@@ -160,8 +160,8 @@ initGroundhogPostgres = makeSnaplet "groundhog-postgresql" description Nothing $
     return $ GroundhogPostgres pool
 
 
-gh :: (MonadSnap m, HasGroundhogPostgres m)
+runGH :: (MonadSnap m, HasGroundhogPostgres m)
             => DbPersist Postgresql (NoLoggingT IO) a
             -> m a
-gh f = do cm <- fmap pgPool getGroundhogPostgresState
-          liftIO $ runDbConn f cm
+runGH f = do cm <- fmap pgPool getGroundhogPostgresState
+             liftIO $ runDbConn f cm

@@ -14,10 +14,10 @@ import Application
 import Event
 import Event.Digestive
 
-insertEvent = eval $ gh $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
+insertEvent = eval $ runGH $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
 
 eventTests :: SnapTesting App ()
-eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
+eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
   do
      it "#index" $ do
        eventKey <- insertEvent
@@ -54,20 +54,20 @@ eventTests = cleanup (void $ gh $ deleteAll (undefined :: Event)) $
        should $ haveText <$> (get editPath)  <*> val "Crenshaw"
        it "#update" $ do
          changes (0 +)
-           (gh $ countAll (undefined :: Event))
+           (runGH $ countAll (undefined :: Event))
            (post editPath $ params [("new-event.title", "a"),
                                     ("new-event.content", "b"),
                                     ("new-event.citation", "c")])
      it "#create" $ do
        changes (1 +)
-         (gh $ countAll (undefined :: Event))
+         (runGH $ countAll (undefined :: Event))
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
                                        ("new-event.citation", "c")])
      it "#deletes" $ do
        eventKey <- insertEvent
        changes (-1 +)
-         (gh $ countAll (undefined :: Event))
+         (runGH $ countAll (undefined :: Event))
          (post (eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)

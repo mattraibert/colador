@@ -38,7 +38,7 @@ routes = [("", ifTop $ eventIndexHandler)
 
 eventsHandler :: ByteString -> AppHandler ()
 eventsHandler template =  do
-  events <- gh GC.selectAll
+  events <- runGH GC.selectAll
   let eventEntities = map (uncurry Entity) events
   renderWithSplices template (eventsSplice eventEntities)
 
@@ -50,7 +50,7 @@ mapHandler = eventsHandler "events/map"
 
 eventsJsonHandler :: AppHandler ()
 eventsJsonHandler = do
-  events <- gh GC.selectAll
+  events <- runGH GC.selectAll
   let eventEntities = map (uncurry Entity) events
   modifyResponse $ setHeader "Content-Type" "application/json"
   writeLBS $ encode $ map mapEvent eventEntities
@@ -61,7 +61,7 @@ showEventHandler = do
   case maybeEventKey of
     Nothing -> home
     Just eventKey -> do
-      maybeEvent <- gh $ GC.get eventKey
+      maybeEvent <- runGH $ GC.get eventKey
       case maybeEvent of
         Nothing -> home
         Just event -> renderWithSplices "/events/show" $ eventSplice event
@@ -72,7 +72,7 @@ newEventHandler = do
   case response of
     (v, Nothing) -> renderWithSplices "events/form" (digestiveSplices v)
     (_, Just e) -> do
-      gh $ insert e
+      runGH $ insert e
       home
 
 editEventHandler :: AppHandler ()
@@ -81,12 +81,12 @@ editEventHandler = do
   case maybeEventKey of
     Nothing -> home
     Just eventKey -> do
-      maybeEvent <- gh $ GC.get eventKey
+      maybeEvent <- runGH $ GC.get eventKey
       response <- runForm "edit-event" (eventForm $ maybeEvent)
       case response of
         (v, Nothing) -> renderWithSplices "events/form" (digestiveSplices v)
         (_, Just e) -> do
-          gh $ replace eventKey e
+          runGH $ replace eventKey e
           home
 
 deleteEventHandler :: AppHandler ()
@@ -95,7 +95,7 @@ deleteEventHandler = do
   case maybeEventKey of
     Nothing -> home
     Just eventKey -> do
-      gh $ deleteBy eventKey
+      runGH $ deleteBy eventKey
       home
 
 readKey :: ByteString -> AutoKey Event
