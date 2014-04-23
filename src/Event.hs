@@ -30,5 +30,5 @@ TH.mkPersist
 getId :: AutoKey Event -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
 
-makeId :: Int -> AutoKey Event 
+makeId :: Int -> AutoKey Event
 makeId _id = (EventKey (PersistInt64 $ fromIntegral _id))

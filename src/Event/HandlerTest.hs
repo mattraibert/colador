@@ -4,8 +4,7 @@ module Event.HandlerTest where
 
 import Prelude hiding ((++))
 import qualified Data.Map as M
-import Control.Monad (void)
-import Snap.Snaplet.Groundhog.Postgresql hiding (get)
+import GroundhogWrapping
 import Snap.Test.BDD
 import Test.Common
 import Control.Applicative
@@ -14,10 +13,11 @@ import Application
 import Event
 import Event.Digestive
 
-insertEvent = eval $ runGH $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
+insertEvent = insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
+
 
 eventTests :: SnapTesting App ()
-eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
+eventTests = cleanup (deleteAll (undefined :: Event)) $
   do
      it "#index" $ do
        eventKey <- insertEvent
@@ -27,7 +27,7 @@ eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
        should $ haveText <$> (get "/events")  <*> val "Crenshaw"
        should $ haveText <$> (get "/events")  <*> val "href='/events/new'"
        shouldNot $ haveText <$> (get "/events")  <*> val "Baltimore"
---       should $ haveText <$> (get "/events") <*> eventEditPath eventKey
+       should $ haveText <$> (get "/events") <*> val (eventEditPath eventKey)
      it "#map" $ do
        _eventKey <- insertEvent
        should $ haveText <$> (get "/events/map")  <*> val "<svg"
@@ -54,20 +54,20 @@ eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
        should $ haveText <$> (get editPath)  <*> val "Crenshaw"
        it "#update" $ do
          changes (0 +)
-           (runGH $ countAll (undefined :: Event))
+           (countAll (undefined :: Event))
            (post editPath $ params [("new-event.title", "a"),
                                     ("new-event.content", "b"),
                                     ("new-event.citation", "c")])
      it "#create" $ do
        changes (1 +)
-         (runGH $ countAll (undefined :: Event))
+         (countAll (undefined :: Event))
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
                                        ("new-event.citation", "c")])
      it "#deletes" $ do
        eventKey <- insertEvent
        changes (-1 +)
-         (runGH $ countAll (undefined :: Event))
+         (countAll (undefined :: Event))
          (post (eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
        let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)
