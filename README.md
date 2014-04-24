@@ -1,10 +1,8 @@
-Colador History CMS
+Latin American History Visualizer
 
 A system for putting historical events into map pins.
 
-Postgres, Haskell Snap, HTML5, D3(?), jQuery UI
+D3, Haskell Snap, Postgres
 
 
 https://trello.com/b/5Q4LwWGY/colador
-
-You can see a demo at http://mattraibert.com:8000/events/
