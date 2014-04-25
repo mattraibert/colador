@@ -35,7 +35,7 @@ Executable colador
     time                      >= 1.1     && < 1.5,
     xmlhtml                   >= 0.1,
     configurator,
-    groundhog,
+    groundhog                 >= 0.5.0,
     groundhog-th,
     groundhog-postgresql,
     groundhog-utils,
