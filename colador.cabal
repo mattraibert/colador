@@ -24,12 +24,12 @@ Executable colador
 
   Build-depends:
     bytestring                >= 0.9.1   && < 0.11,
-    heist                     >= 0.13    && < 0.14,
+    heist                     == 1.*,
     MonadCatchIO-transformers >= 0.2.1   && < 0.4,
     mtl                       >= 2       && < 3,
-    snap                      >= 0.13    && < 0.14,
-    snap-core                 >= 0.9     && < 0.11,
-    snap-server               >= 0.9     && < 0.11,
+    snap                      == 1.*,
+    snap-core                 == 1.*,
+    snap-server               == 1.*,
     snap-loader-static        >= 0.9     && < 0.10,
     text                      >= 0.11    && < 1.2,
     time                      >= 1.1     && < 1.5,
@@ -55,11 +55,11 @@ Executable colador
   else
     build-depends:
       base                      >= 4.4      && < 5,
-      lens                      >= 3.7.6    && < 4.1
+      lens                      >= 3.7.6    && < 4.2
 
   if flag(development)
     build-depends:
-      snap-loader-dynamic == 0.10.*
+      snap-loader-dynamic == 1.*
     cpp-options: -DDEVELOPMENT
     -- In development mode, speed is already going to suffer, so skip
     -- the fancy optimization flags.  Additionally, disable all

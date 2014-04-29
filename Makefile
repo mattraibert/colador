@@ -1,5 +1,5 @@
 EXECUTABLE=$(BINDIR)/colador
-DEPS=Soostone/groundhog-utils dbp/snap-testing
+DEPS=Soostone/groundhog-utils snapframework/snap-core snapframework/heist snapframework/snap-server snapframework/snap  dbp/snap-testing
 TESTMAIN=src/Test/Main.hs
 INSTALLFLAGS=-j -fdevelopment
 
@@ -13,7 +13,7 @@ SHELL=/bin/bash
 
 .PHONY: all install clean superclean test init deps sandbox tags confirm
 
-all: init install test tags run
+all: init install test tags
 
 install: $(EXECUTABLE)
 

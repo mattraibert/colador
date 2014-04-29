@@ -145,7 +145,7 @@ getConnectionString config = do
                      '\\' -> bs ++ bs
                      _ -> TB.singleton c
 
-class (MonadCatchIO m) => HasGroundhogPostgres m where
+class HasGroundhogPostgres m where
     getGroundhogPostgresState :: m GroundhogPostgres
 
 description :: T.Text
