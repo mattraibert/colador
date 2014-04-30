@@ -1,5 +1,8 @@
 EXECUTABLE=$(BINDIR)/colador
-DEPS=Soostone/groundhog-utils snapframework/snap-core snapframework/heist snapframework/snap-server snapframework/snap  dbp/snap-testing
+DEPS=Soostone/groundhog-utils mattraibert/snap-testing \
+	snapframework/snap-core snapframework/heist snapframework/snap-server \
+	snapframework/snap-loader-static snapframework/snap \
+	mattraibert/snap-loader-dynamic
 TESTMAIN=src/Test/Main.hs
 INSTALLFLAGS=-j -fdevelopment
 
@@ -38,8 +41,12 @@ confirm:
 
 init: sandbox deps
 
+deps: $(patsubst %, $(DEPDIR)/%.d, $(DEPS)) $(DEPDIR)/digestive-functors
 
-deps: $(patsubst %, $(DEPDIR)/%.d, $(DEPS))
+$(DEPDIR)/digestive-functors:
+	git clone git@github.com:mattraibert/digestive-functors.git $@
+	cabal sandbox add-source $(DEPDIR)/digestive-functors/digestive-functors-snap
+	cabal sandbox add-source $(DEPDIR)/digestive-functors/digestive-functors-heist
 
 $(DEPDIR)/%.d:
 	git clone git@github.com:$*.git $@
