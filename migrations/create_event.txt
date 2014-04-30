@@ -1,8 +1,16 @@
-CREATE TABLE Event (
+Description: Create event table
+Created: 2014-04-30 16:00:46.745894 UTC
+Depends:
+Apply:
+  CREATE TABLE Event (
     id serial PRIMARY KEY,
     title text not null,
     content text not null,
     citation text not null,
     "years#start_year" integer,
     "years#end_year" integer
-);
+  );
+
+
+Revert:
+  DROP TABLE event;

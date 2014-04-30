@@ -5,6 +5,8 @@ DEPS=Soostone/groundhog-utils mattraibert/snap-testing \
 	mattraibert/snap-loader-dynamic
 TESTMAIN=src/Test/Main.hs
 INSTALLFLAGS=-j -fdevelopment
+MOODEVEL=-c devel.cfg
+MOOTEST=-c test.cfg
 
 EXEC=cabal exec --
 RUN=$(EXEC) runghc -isrc
@@ -14,7 +16,8 @@ SOURCES=$(shell find src -type f -iname '*.hs')
 DEPDIR=deps
 SHELL=/bin/bash
 
-.PHONY: all install clean superclean test init deps sandbox tags confirm
+.PHONY: all install clean superclean test init deps sandbox tags confirm \
+	dbup dbtest dbnew dbrevert
 
 all: init install test tags
 
@@ -63,3 +66,20 @@ tags: TAGS
 
 TAGS: $(SOURCES)
 	$(EXEC) haskdogs -e
+
+
+
+dbup:
+	moo upgrade $(MOODEVEL)
+	moo upgrade $(MOOTEST)
+
+dbtest:
+	moo test $(MOODEVEL) $(MIGRATION)
+	moo test $(MOOTEST) $(MIGRATION)
+
+dbnew:
+	moo new $(MOODEVEL) $(MIGRATION)
+
+dbrevert:
+	moo revert $(MOODEVEL) $(MIGRATION)
+	moo revert $(MOOTEST) $(MIGRATION)
