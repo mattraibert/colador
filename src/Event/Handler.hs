@@ -1,6 +1,6 @@
 {-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
-module Event.Site where
+module Event.Handler where
 
 import Prelude hiding ((++))
 import Data.ByteString (ByteString)

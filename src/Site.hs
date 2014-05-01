@@ -10,22 +10,13 @@ import Snap.Core
 import Snap.Snaplet.Heist
 import Snap.Util.FileServe
 import Snap.Snaplet.Groundhog.Postgresql
-import Event.Site as Event
+import qualified Event.Handler
 
 import Application
 
 routes :: [(ByteString, Handler App App ())]
-routes = [("/events", route Event.routes),
+routes = [("/events", route Event.Handler.routes),
           ("/static", serveDirectory "static")]
-
-methodWrapper :: AppHandler () -> AppHandler ()
-methodWrapper site = do _method <- (>>= readMethod) <$> getParam "_method"
-                        case _method of
-                          Nothing -> return ()
-                          Just m -> modifyRequest (\r -> r { rqMethod = m })
-                        site
-  where readMethod "GET" = Just GET
-        readMethod "POST" = Just POST
 
 app :: SnapletInit App App
 app = makeSnaplet "colador" "An event mapping application." Nothing $ do
