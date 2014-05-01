@@ -16,7 +16,7 @@ import Text.Digestive.Snap (runForm)
 import Text.Digestive.Heist
 
 import Event.Digestive
-import Event
+import Event.Types
 import Event.Json
 import Helpers
 

@@ -7,7 +7,7 @@ import Database.Groundhog.Utils
 import Test.Common
 import Control.Applicative
 import Application
-import Event
+import Event.Types
 import Event.Json
 
 

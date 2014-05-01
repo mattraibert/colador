@@ -1,6 +1,6 @@
 {-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
 
-module Event where
+module Event.Types where
 
 import Data.Text (Text)
 import qualified Database.Groundhog.TH as TH
@@ -30,5 +30,5 @@ TH.mkPersist
 getId :: AutoKey Event -> Int
 getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
 
-makeId :: Int -> AutoKey Event 
+makeId :: Int -> AutoKey Event
 makeId _id = (EventKey (PersistInt64 $ fromIntegral _id))
