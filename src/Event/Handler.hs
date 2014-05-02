@@ -15,7 +15,8 @@ import Database.Groundhog.Utils.Postgresql as GUP
 import Text.Digestive.Snap (runForm)
 import Text.Digestive.Heist
 
-import Event.Digestive
+import Event.Splices
+import Event.Form
 import Event.Types
 import Event.Json
 import Helpers

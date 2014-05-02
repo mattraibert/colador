@@ -12,7 +12,8 @@ import Control.Applicative
 
 import Application
 import Event.Types
-import Event.Digestive
+import Event.Form
+import Event.Splices
 
 insertEvent = eval $ runGH $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
 
