@@ -3,7 +3,7 @@ DEPS=Soostone/groundhog-utils mattraibert/snap-testing \
 	snapframework/snap-core snapframework/heist snapframework/snap-server \
 	snapframework/snap-loader-static snapframework/snap \
 	mattraibert/snap-loader-dynamic
-TESTMAIN=src/Test/Main.hs
+TESTMAIN=test/Test/Main.hs
 INSTALLFLAGS=-j -fdevelopment
 MOODEVEL=-c devel.cfg
 MOOTEST=-c test.cfg
@@ -27,7 +27,7 @@ $(EXECUTABLE): $(SOURCES)
 	cabal install $(INSTALLFLAGS)
 
 test:
-	$(RUN) $(TESTMAIN)
+	$(RUN) -itest $(TESTMAIN)
 
 run: $(EXECUTABLE)
 	$(EXECUTABLE)

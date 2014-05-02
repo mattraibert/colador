@@ -2,9 +2,7 @@
 
 module Site where
 
-import Control.Applicative
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as B8
 import Snap.Snaplet
 import Snap.Core
 import Snap.Snaplet.Heist

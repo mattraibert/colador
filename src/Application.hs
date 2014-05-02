@@ -12,7 +12,6 @@ import Snap (get)
 import Snap.Snaplet.Groundhog.Postgresql (HasGroundhogPostgres(..), GroundhogPostgres)
 import Snap.Snaplet
 import Snap.Snaplet.Heist
-import Prelude hiding ((++))
 import Data.Monoid (Monoid, mappend)
 
 ------------------------------------------------------------------------------

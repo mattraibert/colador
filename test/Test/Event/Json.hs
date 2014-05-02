@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Event.JsonTest where
+module Test.Event.Json where
 
 import Data.Aeson
 import Snap.Test.BDD
