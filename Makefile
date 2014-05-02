@@ -2,7 +2,7 @@ EXECUTABLE=$(BINDIR)/colador
 DEPS=Soostone/groundhog-utils mattraibert/snap-testing \
 	snapframework/snap-core snapframework/heist snapframework/snap-server \
 	snapframework/snap-loader-static snapframework/snap \
-	mattraibert/snap-loader-dynamic
+	mattraibert/snap-loader-dynamic mattraibert/groundhog-postgres-snap
 TESTMAIN=test/Test/Main.hs
 INSTALLFLAGS=-j -fdevelopment
 MOODEVEL=-c devel.cfg
