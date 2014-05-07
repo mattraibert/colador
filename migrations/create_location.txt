@@ -1,0 +1,13 @@
+Description: (Description here.)
+Created: 2014-05-05 20:05:17.247298 UTC
+Depends: create_event
+Apply:
+  CREATE TABLE Location (
+    id serial PRIMARY KEY,
+    location text not null,
+    x integer not null,
+    y integer not null
+  );
+
+Revert:
+  DROP TABLE Location;
