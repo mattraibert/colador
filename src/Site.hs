@@ -7,7 +7,7 @@ import Snap.Snaplet
 import Snap.Core
 import Snap.Snaplet.Heist
 import Snap.Util.FileServe
-import Snap.Snaplet.Groundhog.Postgresql
+import Snap.Snaplet.Persistent
 import qualified Event.Handler
 
 import Application
@@ -19,6 +19,6 @@ routes = [("/events", route Event.Handler.routes),
 app :: SnapletInit App App
 app = makeSnaplet "colador" "An event mapping application." Nothing $ do
     h <- nestSnaplet "" heist $ heistInit "templates"
-    g <- nestSnaplet "groundhog" groundhog initGroundhogPostgres
+    p <- nestSnaplet "persistent" persistent $ initPersist (return ())
     addRoutes Site.routes
-    return $ App h g
+    return $ App h p

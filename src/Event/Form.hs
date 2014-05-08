@@ -16,12 +16,12 @@ requiredTextField name defaultValue = name .: check "must not be blank" (not . T
 
 eventForm :: Maybe Event -> Form Text AppHandler Event
 eventForm maybeEvent = case maybeEvent of
-  Nothing -> form (Event "" "" "" (YearRange 0 0))
+  Nothing -> form (Event "" "" "" 0 0)
   (Just event) -> form event
   where
-    form (Event _title _content _citation (YearRange _startYear _endYear)) =
+    form (Event _title _content _citation _startYear _endYear) =
       Event <$> requiredTextField "title" _title
       <*> requiredTextField "content" _content
       <*> requiredTextField "citation" _citation
-      <*> (YearRange <$> "startYear" .: stringRead "must be a number" (Just _startYear)
-           <*> "endYear" .: stringRead "must be a number" (Just _endYear))
+      <*> "startYear" .: stringRead "must be a number" (Just _startYear)
+      <*> "endYear" .: stringRead "must be a number" (Just _endYear)

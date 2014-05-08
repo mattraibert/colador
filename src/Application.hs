@@ -8,8 +8,7 @@ module Application where
 
 ------------------------------------------------------------------------------
 import Control.Lens
-import Snap (get)
-import Snap.Snaplet.Groundhog.Postgresql (HasGroundhogPostgres(..), GroundhogPostgres)
+import Snap.Snaplet.Persistent
 import Snap.Snaplet
 import Snap.Snaplet.Heist
 import Data.Monoid (Monoid, mappend)
@@ -17,7 +16,7 @@ import Data.Monoid (Monoid, mappend)
 ------------------------------------------------------------------------------
 data App = App
     { _heist :: Snaplet (Heist App)
-    , _groundhog :: Snaplet GroundhogPostgres
+    , _persistent :: Snaplet PersistState
     }
 
 makeLenses ''App
@@ -25,8 +24,9 @@ makeLenses ''App
 instance HasHeist App where
     heistLens = subSnaplet heist
 
-instance HasGroundhogPostgres (Handler b App) where
-  getGroundhogPostgresState = with groundhog get
+
+instance HasPersistPool (Handler b App) where
+    getPersistPool = with persistent getPersistPool
 
 ------------------------------------------------------------------------------
 type AppHandler = Handler App App

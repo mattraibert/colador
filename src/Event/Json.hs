@@ -4,11 +4,12 @@ module Event.Json where
 
 import Data.Text (Text)
 import Data.Aeson.TH
-import Database.Groundhog.Utils
+import Database.Persist.Types
+import Snap.Snaplet.Persistent as P
 import Event.Types
 
 mapEvent :: EventEntity -> MapEvent
-mapEvent (Entity key (Event title' _ _ (YearRange startYear' endYear'))) = MapEvent (getId key) title' "/static/nature2.gif" (fromIntegral $ getId key) (fromIntegral $ getId key) startYear' endYear'
+mapEvent (Entity key (Event title' _ _ startYear' endYear')) = MapEvent (P.mkInt key) title' "/static/nature2.gif" 0 0 startYear' endYear'
 
 data MapEvent = MapEvent {
   id :: Int,

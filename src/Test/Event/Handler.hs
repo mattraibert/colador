@@ -5,20 +5,22 @@ module Test.Event.Handler where
 import Prelude hiding ((++))
 import qualified Data.Map as M
 import Control.Monad (void)
-import Snap.Snaplet.Groundhog.Postgresql hiding (get)
 import Snap.Test.BDD
 import Test.Common
 import Control.Applicative
+import Snap.Snaplet.Persistent
+import Database.Persist (Filter)
+import qualified Database.Persist as P
 
 import Application
 import Event.Types
 import Event.Form
 import Event.Splices
 
-insertEvent = eval $ runGH $ insert (Event "Alabaster" "Baltimore" "Crenshaw" (YearRange 1492 1494))
+insertEvent = eval $ runPersist $ P.insert (Event "Alabaster" "Baltimore" "Crenshaw" 1492 1494)
 
 eventTests :: SnapTesting App ()
-eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
+eventTests = cleanup (void deleteEvents) $
   do
      it "#index" $ do
        eventKey <- insertEvent
@@ -55,24 +57,31 @@ eventTests = cleanup (void $ runGH $ deleteAll (undefined :: Event)) $
        should $ haveText <$> (get editPath)  <*> val "Crenshaw"
        it "#update" $ do
          changes (0 +)
-           (runGH $ countAll (undefined :: Event))
+           (countEvents)
            (post editPath $ params [("new-event.title", "a"),
                                     ("new-event.content", "b"),
                                     ("new-event.citation", "c")])
      it "#create" $ do
        changes (1 +)
-         (runGH $ countAll (undefined :: Event))
+         (countEvents)
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
                                        ("new-event.citation", "c")])
      it "#deletes" $ do
        eventKey <- insertEvent
        changes (-1 +)
-         (runGH $ countAll (undefined :: Event))
+         (countEvents)
          (post (eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
-       let expectedEvent = Event "a" "b" "c" (YearRange 1200 1300)
+       let expectedEvent = Event "a" "b" "c" 1200 1300
        form (Value expectedEvent) (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c"),
                      ("startYear", "1200"), ("endYear", "1300")]
        form (ErrorPaths ["title", "content", "citation"]) (eventForm Nothing) $ M.fromList []
+
+
+countEvents :: AppHandler Int
+countEvents = runPersist $ P.count ([] :: [P.Filter Event])
+
+deleteEvents :: AppHandler ()
+deleteEvents = runPersist $ P.deleteWhere ([] :: [P.Filter Event])

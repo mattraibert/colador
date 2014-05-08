@@ -2,29 +2,19 @@
 
 module Location.Types where
 
+import Database.Persist.TH
+import Database.Persist.Types
 import Data.Text (Text)
-import qualified Database.Groundhog.TH as TH
-import Database.Groundhog.Core as GC
-import Database.Groundhog.Utils
 
 import Application ()
 
-data Location = Location {
-  location :: Text,
-  x :: Int,
-  y :: Int
-} deriving (Show, Eq)
+share [mkPersist sqlSettings] [persistLowerCase|
+Location
+    location Text
+    x Int
+    y Int
+    deriving Show
+    deriving Eq
+|]
 
-type LocationEntity = Entity (AutoKey Location) Location
-
-TH.mkPersist
-  TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }
-  [TH.groundhog|
-   - entity: Location
-               |]
-
-getId :: AutoKey Location -> Int
-getId (LocationKey (PersistInt64 _id)) = fromIntegral _id :: Int
-
-makeId :: Int -> AutoKey Location
-makeId _id = (LocationKey (PersistInt64 $ fromIntegral _id))
+type LocationEntity = Entity Location

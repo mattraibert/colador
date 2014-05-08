@@ -7,8 +7,8 @@ Apply:
     title text not null,
     content text not null,
     citation text not null,
-    "years#start_year" integer,
-    "years#end_year" integer
+    "start_year" integer,
+    "end_year" integer
   );
 
 

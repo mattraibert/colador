@@ -1,34 +1,23 @@
-{-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
+{-# LANGUAGE QuasiQuotes, TypeFamilies, GeneralizedNewtypeDeriving, TemplateHaskell,
+             OverloadedStrings, GADTs, FlexibleContexts, EmptyDataDecls #-}
 
 module Event.Types where
 
 import Data.Text (Text)
-import qualified Database.Groundhog.TH as TH
-import Database.Groundhog.Core as GC
-import Database.Groundhog.Utils
+import Database.Persist.Types
+import Database.Persist.TH
 
 import Application ()
 
-data Event = Event {
-  title :: Text,
-  content :: Text,
-  citation :: Text,
-  years :: YearRange
-  } deriving (Show, Eq)
+share [mkPersist sqlSettings] [persistLowerCase|
+Event
+    title Text
+    content Text
+    citation Text
+    startYear Int
+    endYear Int
+    deriving Show
+    deriving Eq
+|]
 
-data YearRange = YearRange {startYear :: Int, endYear :: Int} deriving (Show, Eq)
-
-type EventEntity = Entity (AutoKey Event) Event
-
-TH.mkPersist
-  TH.defaultCodegenConfig { TH.namingStyle = TH.lowerCaseSuffixNamingStyle }
-  [TH.groundhog|
-   - entity: Event
-   - embedded: YearRange
-               |]
-
-getId :: AutoKey Event -> Int
-getId (EventKey (PersistInt64 _id)) = fromIntegral _id :: Int
-
-makeId :: Int -> AutoKey Event
-makeId _id = (EventKey (PersistInt64 $ fromIntegral _id))
+type EventEntity = Entity Event
