@@ -68,6 +68,8 @@ TAGS: $(SOURCES)
 	$(EXEC) haskdogs -e
 
 
+dbconsole:
+	PGPASSWORD=123 psql colador_devel -U colador -h localhost
 
 dbup:
 	moo upgrade $(MOODEVEL)

@@ -12,7 +12,7 @@ import Test.Event.Json
 
 main :: IO ()
 main = do
-  runSnapTests defaultConfig (route routes) app $ do
+  runSnapTests defaultConfig { reportGenerators = [consoleReport, linuxDesktopReport] } (route routes) app $ do
     eventTests
     eventJsonTests
   putStrLn ""
