@@ -4,6 +4,7 @@ module Test.Event.Handler where
 
 import Prelude hiding ((++))
 import qualified Data.Map as M
+import Data.Maybe (fromJust)
 import Control.Monad (void)
 import Snap.Test.BDD
 import Test.Common
@@ -13,11 +14,14 @@ import Database.Persist (Filter)
 import qualified Database.Persist as P
 
 import Application
+import Location.Types
 import Event.Types
 import Event.Form
 import Event.Splices
 
-insertEvent = eval $ runPersist $ P.insert (Event "Alabaster" "Baltimore" "Crenshaw" 1492 1494)
+insertLocation = eval $ runPersist $ P.insert (Location "Bostron" 45 44)
+insertEvent = do locationId' <- insertLocation
+                 eval $ runPersist $ P.insert (Event "Alabaster" "Baltimore" "Crenshaw" 1492 1494 locationId')
 
 eventTests :: SnapTesting App ()
 eventTests = cleanup (void deleteEvents) $
@@ -48,6 +52,7 @@ eventTests = cleanup (void deleteEvents) $
        should $ haveText <$> (get "/events/new")  <*> val "content"
        should $ haveText <$> (get "/events/new")  <*> val "startYear"
        should $ haveText <$> (get "/events/new")  <*> val "endYear"
+     locationKey <- insertLocation
      it "#edit" $ do
        eventKey <- insertEvent
        let editPath = eventEditPath eventKey
@@ -56,24 +61,25 @@ eventTests = cleanup (void deleteEvents) $
        should $ haveText <$> (get editPath)  <*> val "Baltimore"
        should $ haveText <$> (get editPath)  <*> val "Crenshaw"
        it "#update" $ do
-         changes (0 +)
-           (countEvents)
-           (post editPath $ params [("new-event.title", "a"),
-                                    ("new-event.content", "b"),
-                                    ("new-event.citation", "c")])
+         changes (const ("New content", "a", "c"))
+           (((\e -> (eventContent e, eventTitle e, eventCitation e)) . fromJust) <$> runPersist (P.get eventKey))
+           (post editPath $ params [("edit-event.title", "a"),
+                                    ("edit-event.content", "New content"),
+                                    ("edit-event.citation", "c")])
      it "#create" $ do
        changes (1 +)
          (countEvents)
          (post "/events/new" $ params [("new-event.title", "a"),
                                        ("new-event.content", "b"),
-                                       ("new-event.citation", "c")])
+                                       ("new-event.citation", "c"),
+                                       ("new-event.location", showKeyBS locationKey)])
      it "#deletes" $ do
        eventKey <- insertEvent
        changes (-1 +)
          (countEvents)
          (post (eventPath eventKey) $ params [("_method", "DELETE")])
      it "validates presence of title, content and citation" $ do
-       let expectedEvent = Event "a" "b" "c" 1200 1300
+       let expectedEvent = Event "a" "b" "c" 1200 1300 $ mkKey 0
        form (Value expectedEvent) (eventForm Nothing) $
          M.fromList [("title", "a"), ("content", "b"), ("citation", "c"),
                      ("startYear", "1200"), ("endYear", "1300")]

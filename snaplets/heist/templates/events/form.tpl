@@ -6,6 +6,8 @@
     <dfChildErrorList ref="startYear" />
     <dfInputText ref="endYear" size="60" placeholder="EndYear"/>
     <dfChildErrorList ref="endYear" />
+    <dfInputText ref="location" size="60" placeholder="location..."/>
+    <dfChildErrorList ref="location" />
     <dfInputText ref="citation" size="60" placeholder="Citation"/>
     <dfChildErrorList ref="citation" />
     <dfInputTextArea ref="content" rows="20" cols="80" placeholder="Event content goes here... "/>

@@ -9,7 +9,7 @@ import Snap.Snaplet.Persistent as P
 import Event.Types
 
 mapEvent :: EventEntity -> MapEvent
-mapEvent (Entity key (Event title' _ _ startYear' endYear')) = MapEvent (P.mkInt key) title' "/static/nature2.gif" 0 0 startYear' endYear'
+mapEvent (Entity key (Event title' _ _ startYear' endYear' _)) = MapEvent (P.mkInt key) title' "/static/nature2.gif" 0 0 startYear' endYear'
 
 data MapEvent = MapEvent {
   id :: Int,

@@ -14,7 +14,7 @@ import Event.Json
 eventJsonTests :: SnapTesting App ()
 eventJsonTests = do
   it "produces JSON" $ do
-    let mapEvent' = mapEvent (Entity (P.mkKey 1) (Event "Alabaster" "Baltimore" "Crenshaw" 1492 1494))
+    let mapEvent' = mapEvent (Entity (P.mkKey 1) (Event "Alabaster" "Baltimore" "Crenshaw" 1492 1494 $ P.mkKey 0))
         jsonObject = object ["startYear" .= (1492 :: Int),
                              "y".= (0 :: Int),
                              "x".= (0 :: Int),

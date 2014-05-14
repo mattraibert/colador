@@ -1,0 +1,10 @@
+Description: (Description here.)
+Created: 2014-05-14 18:21:37.7235 UTC
+Depends: create_location create_event
+Apply:
+  ALTER TABLE event
+  ADD COLUMN location_id integer not null REFERENCES location(id);
+
+Revert:
+  ALTER TABLE event
+  DROP COLUMN location_id;

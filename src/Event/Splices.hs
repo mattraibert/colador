@@ -25,7 +25,7 @@ eventsSplice :: [EventEntity] -> Splices (Splice AppHandler)
 eventsSplice events = "events" ## mapSplices (runChildrenWith . eventEntitySplice) events
 
 eventSplice :: Event -> Splices (Splice AppHandler)
-eventSplice (Event _title _content _citation _startYear _endYear) = do
+eventSplice (Event _title _content _citation _startYear _endYear _) = do
   "eventTitle" ## textSplice _title
   "eventContent" ## textSplice _content
   "eventCitation" ## textSplice _citation

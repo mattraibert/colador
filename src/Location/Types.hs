@@ -1,4 +1,5 @@
-{-# Language OverloadedStrings, GADTs, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, NoMonomorphismRestriction, ScopedTypeVariables, FlexibleContexts #-}
+{-# LANGUAGE QuasiQuotes, TypeFamilies, GeneralizedNewtypeDeriving, TemplateHaskell,
+             OverloadedStrings, GADTs, FlexibleContexts, EmptyDataDecls #-}
 
 module Location.Types where
 

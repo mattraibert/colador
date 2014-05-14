@@ -6,6 +6,7 @@ module Event.Types where
 import Data.Text (Text)
 import Database.Persist.Types
 import Database.Persist.TH
+import Location.Types
 
 import Application ()
 
@@ -16,6 +17,7 @@ Event
     citation Text
     startYear Int
     endYear Int
+    locationId LocationId
     deriving Show
     deriving Eq
 |]
