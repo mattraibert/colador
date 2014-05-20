@@ -28,35 +28,36 @@ eventTests = cleanup (void deleteEvents) $
   do
      it "#index" $ do
        eventKey <- insertEvent
-       should $ haveText <$> (get "/events") <*> val "<table"
-       should $ haveText <$> (get "/events")  <*> val "<td"
+       should $ haveSelector <$> (get "/events") <*> css "table td"
        should $ haveText <$> (get "/events")  <*> val "Alabaster"
        should $ haveText <$> (get "/events")  <*> val "Crenshaw"
-       should $ haveText <$> (get "/events")  <*> val "href='/events/new'"
+       should $ haveSelector <$> (get "/events")  <*> css "a[href='/events/new']"
        shouldNot $ haveText <$> (get "/events")  <*> val "Baltimore"
---       should $ haveText <$> (get "/events") <*> eventEditPath eventKey
+       should $ haveSelector <$> (get "/events") <*> css ("a[href='" ++ eventEditPath eventKey ++ "']")
      it "#map" $ do
        _eventKey <- insertEvent
-       should $ haveText <$> (get "/events/map")  <*> val "<svg"
+       should $ haveSelector <$> (get "/events/map")  <*> css "svg image"
        should $ haveText <$> (get "/events/map")  <*> val "<image xlink:href='/static/LAMap-grid.gif'"
      it "#show" $ do
        eventKey <- insertEvent
        let showPath = eventPath eventKey
-       shouldNot $ haveText <$> (get showPath)  <*> val "<form"
+       shouldNot $ haveSelector <$> (get showPath)  <*> css "form"
        should $ haveText <$> (get showPath)  <*> val "Alabaster"
        should $ haveText <$> (get showPath)  <*> val "Baltimore"
        should $ haveText <$> (get showPath)  <*> val "Crenshaw"
      it "#new" $ do
-       should $ haveText <$> (get "/events/new")  <*> val "<form"
-       should $ haveText <$> (get "/events/new")  <*> val "title"
-       should $ haveText <$> (get "/events/new")  <*> val "content"
-       should $ haveText <$> (get "/events/new")  <*> val "startYear"
-       should $ haveText <$> (get "/events/new")  <*> val "endYear"
+       should $ haveSelector <$> (get "/events/new")  <*> css "form input[name='new-event.title']"
+       should $ haveSelector <$> (get "/events/new")  <*> css "form textarea[name='new-event.content']"
+       should $ haveSelector <$> (get "/events/new")  <*> css "form input[name='new-event.startYear']"
+       should $ haveSelector <$> (get "/events/new")  <*> css "form input[name='new-event.endYear']"
      locationKey <- insertLocation
      it "#edit" $ do
        eventKey <- insertEvent
        let editPath = eventEditPath eventKey
-       should $ haveText <$> (get editPath)  <*> val "<form"
+       should $ haveSelector <$> (get editPath) <*> css "form input[name='edit-event.title']"
+       should $ haveSelector <$> (get editPath) <*> css "form textarea[name='edit-event.content']"
+       should $ haveSelector <$> (get editPath) <*> css "form input[name='edit-event.startYear']"
+       should $ haveSelector <$> (get editPath) <*> css "form input[name='edit-event.endYear']"
        should $ haveText <$> (get editPath)  <*> val "Alabaster"
        should $ haveText <$> (get editPath)  <*> val "Baltimore"
        should $ haveText <$> (get editPath)  <*> val "Crenshaw"
