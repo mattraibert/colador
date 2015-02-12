@@ -8,7 +8,7 @@ RSpec.describe "events/new", type: :view do
       :start_year => 1,
       :end_year => 1,
       :location => "",
-      :type => nil,
+      :category => nil,
       :source => "MyString",
       :size => "MyString",
       :published => false
@@ -30,7 +30,7 @@ RSpec.describe "events/new", type: :view do
 
       assert_select "input#event_location[name=?]", "event[location]"
 
-      assert_select "input#event_type_id[name=?]", "event[type_id]"
+      assert_select "input#event_category_id[name=?]", "event[category_id]"
 
       assert_select "input#event_source[name=?]", "event[source]"
 

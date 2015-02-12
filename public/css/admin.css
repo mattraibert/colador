@@ -1,0 +1,12 @@
+.css_hidden {
+    display: none;
+}
+
+.draft {
+    background-color: #FE7070;
+}
+
+.yay_draft {
+    background-color: #800000;
+    color: #eee;
+}

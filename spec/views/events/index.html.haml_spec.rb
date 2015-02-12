@@ -9,7 +9,7 @@ RSpec.describe "events/index", type: :view do
         :start_year => 1,
         :end_year => 2,
         :location => "",
-        :type => nil,
+        :category => nil,
         :source => "Source",
         :size => "Size",
         :published => false
@@ -20,7 +20,7 @@ RSpec.describe "events/index", type: :view do
         :start_year => 1,
         :end_year => 2,
         :location => "",
-        :type => nil,
+        :category => nil,
         :source => "Source",
         :size => "Size",
         :published => false

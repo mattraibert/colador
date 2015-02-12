@@ -1,0 +1,2302 @@
+.mainmap {background: url("../img/LAMap-draft.gif") no-repeat;}
+
+a.inline {display:inline;position:relative;color:#cc0000;}
+
+.bigquote {
+font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+font-size: 25px;
+font-style: italic;
+font-weight: bold;
+padding:0px 15px;
+}
+
+
+.caption {
+	font-size: 10px;
+	font-family: verdana, sans-serif;
+	padding-bottom: .5em;
+	text-align:right;
+		line-height: 140%;
+
+}
+
+.captionleft {
+	font-size: 10px;
+	font-family: verdana, sans-serif;
+	padding-bottom: .5em;
+	text-align:left;
+		line-height: 140%;
+
+}
+
+.close {position:relative;z-index:+999;}
+
+.entry_large .columns3 {
+    column-gap: 15px;
+    column-count: 3;
+    -moz-column-count: 3; /* Firefox */
+    -webkit-column-count: 3; /* Safari and Chrome */
+}
+
+
+.entry_title {
+color:#cc0000; font-variant: small-caps; text-transform: uppercase; font-size: 1.21em; letter-spacing: 0.17em; font-weight: bolder; font-family: sans-serif; margin-top: 5px; margin-left: 9px; margin-bottom: 7px;position:relative;z-index:+990;}
+}
+
+.entry_large .columns3 {
+    column-gap: 15px;
+    column-count: 3;
+    -moz-column-count: 3; /* Firefox */
+    -webkit-column-count: 3; /* Safari and Chrome */
+}
+
+.entry_single {
+    background-color: black;
+    max-width: 450px;
+	max-height:50px;
+    padding: 10px;
+    position: absolute;
+    right: 90px;
+    top: 100px;
+    overflow-y: hidden;
+    z-index: 100;
+}
+
+.entry_single .entry_title {font-size:1.1em;}
+
+.entry_small {
+    background-color: white;
+    width: 400px;
+	height:auto;
+    max-height: 400px;
+    padding: 10px;
+    position: absolute;
+    right: 90px;
+    top: 100px;
+    overflow-y: hidden;
+    z-index: 100;
+}
+
+.entry_medium {
+    background-color: white;
+    width: 480px;
+height:auto;
+    max-height: 400px;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    overflow-y: hidden;
+    z-index: 100;
+}
+
+.entry_large {
+    position: absolute;
+    background-color: white;
+    top: 30px;
+    left: 100px;
+    width: 1000px;
+	max-height:700px;    
+    padding: 10px;
+    z-index: 100;
+   
+}
+
+
+.entry_title {
+	color:#cc0000; font-variant: small-caps; text-transform: uppercase; font-size: 1.21em; letter-spacing: 0.17em; font-weight: bolder; font-family: sans-serif; margin-top: 5px; margin-left: 9px; margin-bottom: 7px;}
+
+hr {
+color:#cc0000;
+border: 0;
+background-color:#cc0000;
+visibility:hidden;
+height: 0px;}
+
+img.floatleft {float:left;padding: 0px 10px;}
+
+img.floatright {float:right;padding: 0px 10px;}
+
+img.farleft {float:left;padding: 0px 10px;position:relative;left:-10px;z-index:999;}
+
+img.farright {float:right;padding: 0px 10px;}
+
+
+.graybox {font-size:small;background-color:#E8E8E8;padding:10px;}
+
+.pullleft {float: left; margin-right: -125px; width: 150px; position:relative;left:-180px;top:90px;
+font-size: 20px; line-height: 22px; color: #cc0000; margin-top: -12px; }
+
+
+
+.pullright {float: right; margin-left: 15px; width: 150px; position:relative;top:90px;font-size: 14px; line-height: 20px; line-height: 22px; color: #cc0000; margin-top: -12px; }
+
+
+
+.entry_source 
+{text-align: right; font-weight: bold; font-size: 11px; font-family: helvetica, sans-serif; text-transform: uppercase; margin-bottom: 5px;padding-bottom: 5px; position:relative;z-index:+999;}
+
+.shen {
+	font-size: 1.2em;}
+
+span.blockquote {display:block;margin-left:15px;margin-right:15px;}
+
+span.blockquoteitalics {display:block;margin-left:15px;margin-right:15px;font-style:italic;}
+
+.medhed {color: #cc0000;
+	font-size: 1.4em;
+	font-family: Georgia, serif;
+	margin-bottom: 9px;
+	letter-spacing: .15em;
+}
+
+.intro {color:#cc0000; font-weight:bold;font-size: 1.05em;}
+
+.date {display:block;float:left;color:#cc0000;padding-right:15px;font-family: helvetica, arial, sans-serif; text-transform: uppercase;width:150px;}
+.dated {display:table-cell;padding-bottom:10px;text-indent: 10px;}
+
+.hide:hover {
+-moz-opacity: 0;
+opacity: 0;
+}
+
+/* typewritertest*/
+.id1 {background-image:url('/mapimages/typewriterpaper.jpg');
+background-size:cover;
+font-family:Courier, monospace;
+text-indent: 30px;}
+
+/* .statecraft */ 
+.statecraft,.id81,.id89,.id332,.id530,.id210,.id515,.id517,.id97,.id159,.id173,.id187,.id524,.id550,.id245,.id826 {border-style: double;
+border-color: #064780;
+border: 6px double #064780;
+outline: 3px solid #064780;
+outline-offset: -1px;
+}
+
+
+.headlinestatecraft, .id81 .entry_title,.id89 .entry_title,.id530 .entry_title,.id210 .entry_title,.id332 .entry_title,.id515 .entry_title,.id517 .entry_title,.id97 .entry_title,.id159,.id173 .entry_title,.id187 .entry_title,.id524 .entry_title,.id550 .entry_title,.id245 .entry_title,.id826 .entry_title {color: #064780;font-size: 1.5em;}
+
+.id81 .entry_source,.id89 .entry_source,.id530 .entry_source,.id210 .entry_source,.id332 .entry_source,.id515 .entry_source,.id517 .entry_source,.id97 .entry_source,.id159,.id173 .entry_source,.id187 .entry_source,.id524 .entry_source,.id550 .entry_source,.id826 .entry_source 
+{margin-bottom: -5px;
+padding-bottom: 0px;}
+
+
+
+/* .entry_title.id72.id73 {color: #064780;}
+
+.entry_source.id72.id73 {margin-bottom: -15px;
+padding-bottom: 0px;}
+*/
+
+.blackbox {background-color:black;padding:6px;color:white;font-family: helvetica, arial, sans-serif;}
+
+.page_sources {overflow:scroll;}
+
+
+.id2 {width:666px;}
+
+.id3 {background-image:url('/mapimages/blackjacobins.gif');
+background-position:center right;
+background-repeat:no-repeat;
+height:700px;}
+
+.id4 {
+    background-image:url('/mapimages/aztecdiegorivera1491.jpg');
+}
+
+
+.id5 {
+background-image:url('/mapimages/mayancalender900.jpg');
+background-position:center center;
+top:10px; 
+max-height:760px;
+height:760px;
+width:820px;
+top: -20px;}
+.id5 .entry_title {font-size:200%; font-weight:bolder;margin-bottom: 0px;}
+.id5 .entry_source {color:white;}
+
+
+
+.id6 { height:750px;
+width:1000px;}
+
+.Entry_Large[data-title="Origins"] {background-image:url('/mapimages/incaruins.jpg');
+background-position:center center;
+}
+
+.Entry_Large[data-title="Agriculture"]{
+background-image:url('/mapimages/incaagriculture.jpg');
+background-position:center center;
+}
+
+#entry_large [data-title="Structure"] {background-image:url('/mapimages/incaagriculture.jpg');
+background-position:center center;}
+
+.id7 {height:561px;width:900px;}
+
+.id8 {
+    background-image:url('/mapimages/wallpaperinquisition.gif');
+}
+
+.id8 .entry_title {font-size:250%; font-weight:bolder;}
+
+.id9 {background-image:url('/mapimages/Pierre_Dancart_Alterpiece_Sevillelq.jpg');
+background-position:center center;
+background-repeat:no-repeat;
+height:620px;
+width:620px;}
+
+.id9 .entry_title {color:white;font-size:400%; font-weight:bolder;}
+
+.id9 .entry_source {color:white;position:relative;top:165px;text-align: left;}
+
+.id10 {top:250px; left:150px;}
+
+.id12 {width:1070px;
+background-image:url('/mapimages/oldtrinidadmap.jpg');
+background-position:right top;
+background-repeat:no-repeat;
+max-height:750px;
+}
+
+.id12 .entry_title {width:350px;}
+
+.id14 {width:800px;}
+
+.id15 {background-image:url('/mapimages/senegalesehorseman1780.jpg');
+background-position:right center;
+background-repeat:no-repeat;
+width:1050px;
+max-height:725px;
+height:725px;
+}
+
+.id15 .entry_source {width: 321px;padding-left: 232px;}
+
+
+.id19 {height:200px; 
+overflow:hidden;}
+
+.id20 {width:810px;
+background-image:url('/mapimages/death1530.gif');
+background-position:right top;
+background-repeat:no-repeat;
+height:250px;}
+
+.id22 {max-width:650px;}
+
+.id23 {height:290px;width:400px;
+overflow:hidden;}
+
+.id23 .entry_title {color:white;}
+
+
+.id25 {
+background-image:url('/mapimages/nuevagalicia1540-ps.jpg');
+background-repeat:no-repeat;
+background-position:right center;
+left:20px; 
+width:1150px;
+height:440px;}
+
+.id25 .entry_source {position:absolute;bottom:0px; width: 360px; left: 75px;}
+
+.id26 .entry_title {font-size:4em;}
+
+.id26 {
+background-image:url('/mapimages/lemba.gif');
+background-repeat:no-repeat;
+background-position:center top ;
+height:665px;
+}
+
+
+.id29 {background-image:url('/mapimages/bayano.gif');
+height:630px;
+}
+
+.id29 .entry_title {font-size:3em;}
+
+.id30 .entry_title {font-size:2em;}
+
+.id30 {background-image:url('/mapimages/blemmyes1693.jpg');
+width:938px;
+height:750px;}
+
+.id30 p {background-image: url('/mapimages/blemmyes1693background.jpg');}
+
+.id32 {background-image:url('/mapimages/paraguay1662map-small.jpg');
+width:680px;
+height:550px;
+background-size:cover;}
+
+
+.id33 {max-height:519px;
+border-bottom:30px solid #cc0000;}
+
+.id33 .entry_title {font-size:230%; font-weight:bolder;}
+
+.id34 {background-image:url('/mapimages/chilemapuche1598.png');
+width:780px;
+background-repeat:no-repeat;
+background-position:center top;
+}
+
+.id35 {background-image:url('/mapimages/frenchflagmedium.jpg');}
+
+.id36 {
+    background-image:url('/mapimages/palmares.jpg');
+background-size:1050px;
+height:640px;
+width: 1000px;
+align:right;
+}
+
+.id36 .entry_title {font-size:190%; font-weight:bolder;}
+
+.id37 {width:720px;}
+
+.id38 .entry_title {font-size:3em; font-weight:bolder;}
+
+.id38 {background-image:url('/mapimages/mexicoyanga.gif');
+background-repeat:no-repeat;
+background-position:right top; 
+height:550px;}
+
+.id39 {background-color:black;}
+
+.id39 .entry_title {font-size:2.4em; font-weight:bolder;}
+
+.id41{width:530px;left:150px;}
+
+.id42 {background-image:url('/mapimages/chihuahumexico.jpg');
+max-width:842px;
+height:650px;}
+
+.id42 .entry_title {font-size:200%; font-weight:bolder;}
+
+.id45 {background-image:url('/mapimages/brazilnederlands163054.png');
+background-repeat:no-repeat;
+background-position:left center;
+background-color: #BDC6CE;
+height:730px;
+left:20px;
+width:1130px;
+}
+
+.id45 .entry_title {font-size: 3em;
+color: #E7640F;}
+
+
+.id47
+{width:500px;
+padding:20px;
+height: 368px;}
+
+.id47 .entry_title {font-size:180%; font-weight:bolder;}
+
+.id48 {background-image:url('/mapimages/stkitts.jpg');
+height:650px;}
+
+.id49 {max-height:800px;}
+
+.id50 {max-width:635px;}
+
+.id51 {left:50px;
+width:1120px;}
+
+.id55 {background-image:url('/mapimages/treatyofbreda1667.jpg');
+left:50px;
+background-color: #EDEAE3;
+background-repeat:no-repeat;
+background-position:right center; 
+height:615px;
+width:1050px;}
+
+.id56 .entry_title {top: 100px; left: 321px;font-size:2.5em;width:300px;}
+
+.id56 {background-image:url('/mapimages/coloniasacramento-v2.gif');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:transparent;
+height:500px;}
+
+.id56 .entry_source {left: 545px; top: 132px; width: 171px;}
+
+.id57 
+{width:750px;}
+
+.id60 {background-image:url('/mapimages/ouropreto-blur.jpg');
+height:740px;
+width:1000px}
+
+.id60 .entry_title {font-size:2em}
+
+.id60 .entry_source {color:white;}
+
+.id61 .entry_title {width:300px;}
+.id61 {background-image:url('/mapimages/frenchflagmedium.jpg');}
+
+.id66 {background-image:url('/mapimages/cerrouruguayfort.jpg');}
+
+.id68 {left:50px;
+width: 1100px;}
+
+.id70 {background-image:url('/mapimages/downarrow-small.png');
+background-repeat:no-repeat;
+background-position:left top;
+width:300px;
+padding:0px;
+max-height:100px;
+left: 559px;
+top: 330px;
+}
+
+.id70 .close {top:5px;padding-right:5px;}
+
+.id71 
+{
+background-image:url('/mapimages/cudjoemakingpeace.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+width:700px;
+height:610px;}
+
+.id73 {background-image:url('/mapimages/elcobrecubavirginmary.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+}
+
+.id78 {background-image:url('/mapimages/warjenkinsear1739.jpg');
+background-repeat:no-repeat;
+background-position:center bottom; 
+height:600px;
+}
+
+.id81  {border-style: double;
+border-color: #064780;
+border: 6px double #064780;
+outline: 3px solid #064780;
+outline-offset: -1px;
+}
+
+.id81 .entry_title {color: #064780;}
+
+.id81 .entry_source {margin-bottom: -15px;
+padding-bottom: 0px;}
+
+
+.id82 {
+background-image:url('/mapimages/1750slaveship.jpg');
+background-repeat:no-repeat;
+background-position:right top; 
+width:940px;}
+
+.id82 .entry_source {top: -72px;
+}
+
+.id85 {width:755px;}
+
+.id85 .entry_source {position:relative;top:-190px;}
+
+.id91 .entry_title {font-size:2.45em;position:relative;left:510px;width:457px;}
+
+.id91 {background-image:url('/mapimages/sevenyearwar.jpg');
+background-repeat:no-repeat;
+height:600px;
+background-position: center;}
+
+.id92 .entry_title {padding:6px;background-color:black;width:350px;}
+
+.id92 {background-image:url('/mapimages/turner_slave_ship_1840.jpg');
+height:710px;
+width:980px;
+background-position: bottom center}
+
+.id93 {background-image:url('/mapimages/falklandsbackground.png');
+background-repeat:no-repeat;
+background-position: top right;
+width: 622px;
+height: 575px;
+}
+
+.id93 .entry_title {font-size:200%; font-weight:bolder;}
+
+
+.id94 {background-image:url('/mapimages/kataribartolina.jpg');
+	background-size:cover;}
+	
+.id94 .entry_title {color: white; font-size: 1.6em;}
+
+.id99 {background-image:url('/mapimages/figueiredotiradentes.jpg');
+background-repeat:no-repeat;
+background-position: top center;
+width:265px;}
+
+.id99 .entry_title {font-size:1.4em;}
+
+.id102 {background-image:url('/mapimages/frenchabolition1794.jpg');
+background-repeat:no-repeat;
+background-position: top center;
+height:400px;
+}
+
+.id103
+{left:10px;
+height:640px;
+width:1200px;}
+
+.id105 {background-image:url('/mapimages/secondmaroonwarinwait.jpg');
+background-size:cover;
+height:750px;}
+
+.id105 .entry_title {background-color: #cc0000; color: black; font-size: 3em; width: 879px;}
+
+.id109 {background-image:url('/mapimages/argentina1806beresfordsurrender.jpg');
+background-repeat:no-repeat;
+background-position: top center;
+width:530px;
+max-height: 740px;
+}
+
+
+.id112 {background-image:url('/mapimages/brazil1807queluz.jpg');
+background-repeat:no-repeat;
+height:620px;
+}
+.id113 {background-image:url('/mapimages/1807uruguay.jpg');
+background-repeat:no-repeat;
+width:570px;
+background-position: top center;
+height:355px;
+}
+
+.id113 .entry_title {color: white;}
+
+.id116 {width:650px;}
+
+.id142 {width:600px;
+background-image:url('/mapimages/uruguay33orientales.jpg');
+background-position:center top;
+height:455px;
+background-repeat:no-repeat;}
+
+.id145 {background-image:url('/mapimages/2012-simon-bolivar.png');
+left:50px;
+width:300px;
+height:580px;}
+
+.id147 {width:780px;
+height:760px;
+max-height:760px;
+top:30px;}
+
+.id147 .entry_source {top:-44px;}
+.id147 .entry_title {color:white;}
+
+.id152 {
+    background-image:url('/mapimages/chiapaslandscape.jpg');
+width:900px;
+height:700px;
+}
+
+
+.id160 {
+    background-image:url('/mapimages/sugarcuba.jpeg');
+}
+
+.id161 {width: 925px;}
+
+.id163 {
+background-color: black;
+width:700px;
+max-width:700px;
+}
+
+.id164 {background-image:url('/mapimages/charrau-ps.jpg');
+background-size:500px 324px;
+background-repeat:no-repeat;
+background-position:center top;
+width:470px;
+top:10px; }
+
+.id164 .entry_title {margin-top: 285px;}
+
+.id165 .entry_title {font-size:1.45em;}
+
+.id180 .entry_title {font-size:3em;}
+
+
+.id181 {width:382px;}
+
+.id188 {background-image:url('/mapimages/buchananjamesdaguerotype.gif');
+background-repeat:no-repeat;
+background-position:right top; 
+width:519px;
+height:600px;
+background-color:transparent;
+}
+
+.id188 .entry_title {font-size:225%; font-weight:bolder;}
+
+.id189
+{background-image:url('/mapimages/NarcisoLopez1850background.jpg');
+width:650px;
+height:255px;
+left: 349px;
+top: 100px;
+ }
+
+
+.id193 { background-image:url('/mapimages/franklinpierce-bighead.gif');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:transparent;
+width:470px;
+height:674px;
+top:80px;
+left:500px;}
+
+.id193 .entry_title {color:white;font-size:1.6em;}
+
+.id196 { background-image:url('/mapimages/1856panamawatermelons.gif');
+background-size:1050px 700px;
+background-repeat:no-repeat;
+background-position:right top; 
+height:600px;
+width:1000px;
+}
+
+
+.id198 { background-image:url('/mapimages/jamesbuchanan1857.jpg');
+top:300px;
+left:10px;
+background-repeat:no-repeat;
+background-size:100%;
+width:270px;
+height:330px;
+}
+
+
+
+.id198 .entry_title {font-size:200%; font-weight:bolder;}
+
+.id213 { background-image:url('/mapimages/panama1885pedroprestan.jpg');
+background-repeat:no-repeat;
+background-position:center top; 
+width:760px;}
+
+.id217 {width:700px;}
+
+.id218
+{width:400px;
+padding:20px;}
+
+
+.id224 { background-image:url('/mapimages/plattamendment.jpg');
+background-repeat:no-repeat;
+width:900px;
+height:610px;
+}
+
+.id224 h3 {width:400px;}
+
+.id224 .navContainer {
+margin-right: 20px;
+margin-top:-50px;
+float: right;}
+
+.id224 .entry_source {position:relative;top: -90px; left: 536px; width: 360px;}
+
+
+.id226 {
+    background-image:url('/mapimages/isthmusofpanama-small.jpg');
+background-repeat:no-repeat;
+background-position:right top; 
+}
+
+.id229 {background-image:url('/mapimages/theodoreroosevelthead.gif');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:transparent;
+width:569px;
+height:692px;
+}
+
+.id229 .entry_title {font-size:3em;}
+
+
+
+.id230 .entry_title {color:white;font-size:3em;}
+.id230  {background-image:url('/mapimages/meatriotgeneric.jpg');
+background-repeat:no-repeat;
+background-position:right center;
+width:970px;
+height:700px; }
+
+.id231 .entry_title {color:white;font-size:3em;}
+.id231 .entry_source {padding:5px;background-color:white;width:250px;}
+
+.id231 {background-image:url('/mapimages/chile1907beforethemassacre.jpg');
+background-repeat:no-repeat;
+background-position:center;
+width:900px;
+height:650px;}
+
+.id234 { 
+background-size:cover;
+}
+
+
+.id243 {left:350px;
+max-width: 350px;
+padding:30px;}
+
+.id244 {background-image: url('/mapimages/header-background-red.png');
+ background-repeat: repeat-x;
+ background-position:top left;}
+
+.id244 .entry_title {color:white; font-size:175%; font-weight:bolder;}
+
+
+.id247 {width:580px;}
+
+.id251 {border-top:60px solid #000000;height:560px;}
+
+.id251 .entry_title {font-size:2.5em;position:relative;top:-64px;}
+
+.id251 .entry_source {position:relative;top:-90px;}
+
+.id259 {left:25px;width:1125px;
+background-image:url('/mapimages/bloodybanana.gif');
+background-repeat:no-repeat;
+background-position:center; 
+}
+
+.id263 {width:900px;}
+
+.id265 {background-image:url('/mapimages/hipolitoyrigoyen.jpg');
+background-size:cover;}
+
+
+.id266 {
+background-image:url('/mapimages/Chileanflag-darker.jpg');
+height:430px;
+width:600px;
+}
+
+.id267 {background-color: black;}
+
+
+.id268 {
+background-image:url('/mapimages/smedleybutler.jpg');
+background-size:448px 500px;
+height:480px;
+width:870px;
+background-repeat:no-repeat;
+background-position:right center; 
+}
+
+.id270 {
+background-image:url('/mapimages/robertodaubuisson.jpg');
+background-size:1200px 842px;
+top:0px; left:0px;
+position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;}
+
+.id271 .entry_title {font-size:175%; font-weight:bolder;color:white;}
+
+.id271 {background-image:url('/mapimages/nicsomozas.jpg');
+height:500px;
+width:890px;
+}
+
+.id271 .entry_source {position:relative;top:262px;}
+
+
+.id272 {
+    background-image:url('/mapimages/cardenasmexico1934.jpg');
+background-repeat:no-repeat;
+background-position:right top; 
+height:400px;
+width:580px;
+}
+
+.id273 {height:400px;
+    background-image:url('/mapimages/parsley.jpg');
+}
+
+.id274 {background-image:url('/mapimages/somozafdr-gray.jpg');
+height:475px;
+width:520px;
+}
+
+.id280 {background-image:url('/mapimages/peron1946.jpg');
+background-size:490px 364px;
+background-repeat:no-repeat;
+width:460px;
+height:370px;
+}
+
+.id280 .entry_source {position:relative;top:250px;}
+
+.id284 {width:725px;}
+
+.id285 {width:750px;background:#000000;}
+
+.id288 {width:930px;
+max-height:821px;
+background-color: black;}
+.id288 .entry_title {font-size:3.4em;}
+
+.id289 {
+    background-image:url('/mapimages/dullestoeisenhower.jpg');
+background-repeat:no-repeat;
+height:700px;}
+
+.id289 .entry_source {top:522px;color:white;}
+
+.id290 {height:700px;width:780px;}
+
+.id291 {
+    background-image:url('/mapimages/alfredostroessner.jpg');
+height:790px;
+width:1080px;
+left:50px;
+}
+
+.id291 .entry_title {font-size:175%; font-weight:bolder;}
+
+
+
+.id292 {background-image:url('/mapimages/brazilstatue.jpg');
+background-size:700px;
+background-position:center top;
+background-repeat:no-repeat;
+width:680px;
+height:650px;
+}
+
+
+.id292 .entry_title {color:white;font-size:200%; font-weight:bolder;}
+
+.id293 {background-image:url('/mapimages/costaricafigueres2.jpg');
+width:580px;
+}
+
+.id294 {background-image:url('/mapimages/argentinaplaza1955.jpg');
+height:500px;
+width:725px;
+}
+
+.id294 .entry_source {top:232px;}
+
+.id294 .entry_title {font-size:3em;}
+
+.id297 {background-image:url('/mapimages/frenchflagmedium.jpg');
+background-size:cover;}
+
+.id299 {width:600px;}
+
+.id301 {background-image:url('/mapimages/paraguaystrike.jpg');
+background-repeat:no-repeat;
+background-size:800px;
+width:700px;
+}
+
+.id301 .entry_title {font-size:2.7em;color:white;}
+
+
+.id306
+{width:700px;
+top:60px;}
+
+
+
+.id308 {background-image:url('/mapimages/elsalvadorjuntacountercoup1969.jpg');
+background-repeat:no-repeat;
+background-position:left top; 
+background-size: contain;
+max-height: 725px;
+left:50px;
+width:1100px;
+}
+
+.id308 .entry_title { font-size: 4em;
+letter-spacing: 0em;}
+
+.id308 .entry_source {top: 15px;}
+
+.id310
+{width:1250px;
+left:-35px;
+top:0px;}
+
+.id311 {
+background-image:url('/mapimages/joao-goulart-sliver.jpg');
+background-repeat:no-repeat;
+background-position:right bottom; 
+width:500px;
+height:530px;}
+
+.id313 {
+left:0px;
+top:0px;
+background-image:url('/mapimages/cuba1961castroism.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+width:1170px;
+height:830px;}
+
+
+
+.id316 {width:675px;}
+
+
+.id317 .entry_title{color:#FFFF07;font-size:4em;}
+
+
+.id317 {background-image:url('/mapimages/bachatacalderon.jpg');
+background-repeat:no-repeat;
+background-position:center left;
+height:570px;
+width:790px;}
+
+.id318 {height:670px;
+background-image:url('/mapimages/bloodsplatterbig.gif');
+background-repeat:no-repeat;
+background-position:center; }
+
+.id318 .entry_title {font-size:3em;color:black;}
+
+.id321 {
+background-image:url('/mapimages/kennedyembargosigning.jpg');
+background-repeat:no-repeat;
+background-position:right top; 
+height:675px;
+}
+
+.id321 .entry_title {font-size:150%; font-weight:bolder;width:300px;}
+
+
+.id322 
+{background-image:url('/mapimages/usmilitarybayofpigs.jpg');
+background-repeat:no-repeat;
+height:620px;
+background-position:center bottom;
+}
+
+.id324 {background-image:url('/mapimages/goulartkennedykruel1963.jpg');
+background-repeat:no-repeat;
+width:980px;
+height:700px;
+}
+
+.id324 .entry_title {font-size: 2.6em;}
+
+.id324 .entry_source {color:white;top: 316px;}
+
+.id331 {width:900px;}
+
+
+.id338 {left:0px;
+top:0px;
+max-height:730px;
+width:1200px;}
+
+.id341 {height:650px;
+background-image:url('/mapimages/guatemalaciadoc.gif');
+background-size:cover;
+background-position:center bottom;}
+
+.id341 .entry_title {font-weight:bold;font-size:2.5em;color:white;}
+
+.id342 {background-image:url('/mapimages/coupdetattanks.gif');
+height:475px;width:475px;}
+
+.id342 .entry_title {background-color: black;
+width: 435px;}
+
+.id342 .entry_source {color: #cc0000; background-color: black;
+width: 235px;}
+
+.id343 {width:710px;}
+
+.id344 {background-image:url('/mapimages/chefelixrodriguez-small.jpg');
+background-position:center top;
+background-size:cover;
+height:750px;
+}
+
+.id344 .entry_source {position:relative;top:293px;padding:6px;background-color:white;}
+
+.id347 {background-image:url('/mapimages/rainforestbackground-sliver.jpg');
+background-position:center right;
+background-repeat:no-repeat;
+}
+.id347 .entry_source {width:900px;}
+
+.id348 {width:1031px;left:20px;height:630px;}
+
+.id348 .entry_title {font-size:200%; font-weight:bolder;}
+
+
+.id350
+{width:500px;
+top:100px;}
+
+
+.id352 {background-image:url('/mapimages/hourofthefurnaces.png');
+background-size:1021px 720px;
+top:0px; left:0px;
+position:absolute;
+}
+
+.id352 .entry_title {font-size:175%; font-weight:bolder;}
+
+.id356 .entry_title {font-size:3em; color:white;width:270px;}
+
+.id356 .entry_source {width:90px;}
+
+
+.id356 {background-image:url('/mapimages/argentina-ongania_rezando_lujan.jpg');
+height:670px;
+width:630px;
+background-position: center;
+background-repeat:no-repeat}
+
+
+.id359 {background-image:url('/mapimages/braziltrain1970.jpg');
+background-size:1020px;
+background-position:center top;
+background-repeat:no-repeat;
+height:750px;
+}
+
+.id359  .entry_title {font-size:180%; font-weight:bolder;}
+
+.id360 {background-image:url('/mapimages/aminabeljaspun.jpg');
+height:700px;
+background-position:left center;
+background-repeat:no-repeat
+}
+
+.id360 .entry_title {position:relative;left:480px;font-size:2em;width:500px;}
+
+.id360 .entry_source {padding:6px;background-color:white;width:400px;position:relative;left:450px;}
+
+.id365 {background-image:url('/mapimages/lobbysealcia.jpg');}
+
+.id365 .entry_title {font-size:200%; font-weight:bolder;}
+
+.id371 {background-image:url('/mapimages/chilecoup-bg2.jpg');
+top:0px;
+left:-30px;
+height:680px;
+width:1200px;}
+
+.id371 h3 {width:400px;}
+
+.id371 .navContainer {
+margin-right: 20px;
+margin-top:-55px;
+float: right;}
+
+.id371  .entry_title {font-size:180%; font-weight:bolder;color:#ff0000;}
+
+.id371 .entry_source {color:white;}
+
+.id374 {background-image:url('/mapimages/1974mexicochiapascongreso-dark.jpg');
+height:480px;
+width:940px;
+}
+
+.id376 {width:800px;}
+
+.id377 {background-image:url('/mapimages/hondurasmelgarcastro.jpg');
+background-position:top left;
+background-repeat:no-repeat;}
+
+
+.id379 {background-image:url('/mapimages/argentina1975-tortolo-videla.jpg');
+background-position:top center;
+background-size:100%;
+background-repeat:no-repeat;
+width:700px;
+height:500px;
+}
+
+.id380 .entry_title {font-size:220%; font-weight:bolder;}
+
+
+.id380 {background-image:url('/mapimages/arg1975erpcollage.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+width:980px;
+height:660px;
+
+}
+
+.id381 {width:925px;
+max-height:900px;}
+
+.id383 .entry_title {font-size:220%; font-weight:bolder;color:#ffffff}
+
+.id383 {background-image:url('/mapimages/ecuadorchurch-dark.jpg');
+width:1000px;
+height:700px;}
+
+.id383 .entry_source {top:-360px;color:#f5f5f5;}
+
+.id386
+{
+    background-image:url('/mapimages/uruguaypolicearrest.jpg');
+body:#FF0000;
+height:600px;
+width:900px;}
+
+.id386 .entry_title {font-size:2em;}
+
+.id382 {background-image:url('/mapimages/videlawhiteuniformskinny.jpg');
+background-position:center right;
+background-repeat:no-repeat;
+height:700px;
+width:960px;
+}
+
+.id382 .entry {line-height:17px;}
+
+
+
+
+.id382 .entry_title {position:relative;font-size:6em;left:450px;}
+
+.id382 .entry_source {position:relative;top: 420px; width: 395px;}
+
+.id387 {background-image:url('/mapimages/1976videlaargentinaswearingin-lq.jpg');
+background-position:center center;
+width:1050px;
+left:50px;}
+
+.id387 .entry_title {font-size:180%; font-weight:bolder;}
+
+.id390
+{background-image:url('/mapimages/davidrockefeller.jpg');
+background-position:right center;
+background-repeat:no-repeat;
+left:10px;
+width:1200px;
+height:380px;}
+
+.id397 {background-image:url('/mapimages/cocainepile.jpg');
+background-size:cover;}
+
+.id397 .entry_title {font-size:2.4em;}
+
+.id397 .entry_source {padding:9px;background:white;width:415px;left:567px;}
+
+
+.id398 {height:650px;}
+
+.id398 .entry_title {font-size:1.5em;}
+
+.id399 {background-color: black;}
+
+.id399 .entry_source {color:#f5f5f5;}
+
+.id400 {background-image:url('/mapimages/hondurasmilitary1984.jpg');
+background-position:top center;
+width:950px;
+height:515px;
+}
+
+.id400 .entry_title {font-size:5em;color:white;}
+
+.id400 .entry_source {position:relative;top:37px;}
+
+.id401 {position:relative;top:221px;background-color:white;}
+
+.id401 {background-image:url('/mapimages/sandinofslnposter.gif');
+background-position:left center;
+background-repeat:no-repeat;
+left:400px;
+top:100px;
+width:670px;height:363px;}
+
+
+
+.id401  .entry_title {position:relative;left:300px;width:350px;}
+
+.id405 {background-image:url('/mapimages/oscarromero1979.jpg');
+background-position:right center;
+background-repeat:no-repeat;
+background-size:500px 443px;
+max-height:420px;
+}
+
+.id408 {  max-height:350px; max-width:400px; overflow-X:hidden; background: #000000;}
+
+.id413 {background-image:url('/mapimages/felixgarciarodriguez.jpg');
+background-repeat:no-repeat;
+background-position:center top; 
+width:370px;}
+
+
+.id416 {background-image:url('/mapimages/adolfoperezesquivel-lighter.jpg');
+background-size:1040px 641px;
+}
+
+.id418 {    background: #F5F5F5;
+height:750px;
+}
+
+.id420  .entry_title {color:white;font-size:3em;width:400px;}
+.id420 {background-image:url('/mapimages/guatemalariosmonttgraves.jpg');
+background-size:cover;
+height:700px;}
+
+.id421 {width:650px;}
+
+.id422 {background-image:url('/mapimages/bullets-darker.jpg');}
+
+.id424 {background-image:url('/mapimages/absaloncastellanosdominguez.gif');
+background-repeat:no-repeat;
+background-position:center top;
+width:380px;
+height:500px;
+ }
+
+.id428 
+{width:1100px;
+left:50px;}
+
+
+
+.id426 
+{width:730px;}
+
+.id430 {
+    background-image:url('/mapimages/negativereagan.jpg');
+height:690px;
+width:900px;
+left:50px;
+}
+
+.id430 .entry_title {font-size:150%; font-weight:bolder;}
+
+.id431 { background-image:url('/mapimages/bloodthirstyreagan-yellow.png');
+background-repeat:no-repeat;
+background-position:right bottom; 
+width:800px;
+height:480px;}
+
+.id431 .entry_title {font-size:3em;}
+
+.id433  { background-image:url('/mapimages/argentinamassera-big.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+background-size:cover;
+height:700px;}
+
+.id436 {height:720px;}
+
+
+.id437 {
+    background-image:url('/mapimages/singlaubgallery.jpg');
+height:740px;
+width:980px;
+}
+
+.id439 {background-image:url('/mapimages/desaparecidos-vector.gif');
+background-repeat:no-repeat;
+background-position:center bottom; 
+height:475px;
+width:475px;
+}
+
+.id439 .entry_title {left: 59px;font-size:1.4em;}
+
+.id439 .entry_source {top:-20px;}
+
+.id442 .entry_title {font-size:2.3em;}
+
+.id445 {background-image:url('/mapimages/60fireworks.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+background-size:cover;}
+
+.id447 {background-image:url('/mapimages/noriega1987.gif');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:transparent;
+width:1050px;
+height:680px;
+}
+
+.id447 .entry_title {width: 337px;
+position: absolute;
+left: 131px;
+top: 87px;
+line-height: 120px;
+font-size: 8em;
+text-align: center;}
+
+.id448 {background-image:url('/mapimages/filesshelves.jpg');
+width:1000px;
+height:640px;}
+
+.id448 .entry_title {font-size:5em; background-color:white;padding:9px;width:850px;}
+
+.id451 {background-image:url('/mapimages/arg87carapintadas.jpg');
+background-repeat:no-repeat;
+background-position:left top; }
+
+.id451 .entry_title {left:500px;
+font-size: 2em;}
+
+.id455 {background-image:url('/mapimages/contrasouthernfrontcamp-smaller.jpg');
+background-repeat:no-repeat;
+background-position:left top; 
+height:675px;}
+
+.id455 .entry_title {left:350px;font-size:1.5em;}
+
+.id461 {background-image:url('/mapimages/1989venezuelabottom.jpg');
+background-repeat:no-repeat;
+background-position:bottom center;
+height:662px; }
+
+.id461 .entry_title {font-size:2em;}
+
+.id467 .entry_source {top:-20px;}
+
+.id473 {width:1200px;height:900px;left:0px;top:0px;
+background-image:url('/mapimages/ezlnmujeres.jpg');
+background-size:color;
+}
+
+.id473 .entry_title {font-weight:bold;font-size:1.95em;}
+
+
+ezlnmujeres.jpg
+.id474 {background-image:url('/mapimages/nuclearexplosion.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+width:950px;
+height:680px;}
+
+.id477 {background-image:url('/mapimages/adolfoscilingo.jpg');
+background-repeat:no-repeat;
+background-position:top center;
+width:470px;
+height:680px;}
+
+.id479 .entry_title {font-size:2.3em;}
+
+.id482 {background-image:url('/mapimages/acteal-background.jpg');
+background-repeat:no-repeat;
+height:650px;}
+
+.id482  .entry_title {font-size:250%; font-weight:bolder;}
+
+.id482 .entry_source {color:white;}
+
+.id486 {background-image:url('/mapimages/argentina2001economycrisisprotest-dark.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+width:970px;
+height:620px;}
+
+.id486 .entry_title {font-size:5em;}
+
+.id491 {background-image:url('/mapimages/zapatistas1999.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+width:1050px;
+height: 750px;
+max-height: 750px;
+}
+
+
+.id492 {background-image:url('/mapimages/jamilmahaud.jpg');
+background-repeat:no-repeat;
+background-position:center right; 
+width:900px;
+height:440px;}
+
+.id492 .entry_title {width:280px;}
+
+.id494 {max-height:750px;}
+
+.id494 .entry_title {font-size:2.6em;}
+
+.id497 
+{
+background-image:url('/mapimages/panama2003protest.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+width:700px;
+height:240px;}
+
+.id499{background-image:url('/mapimages/filibertopuertorico.gif');
+background-repeat:no-repeat;
+background-position:right center;
+height:670px;}
+
+
+.id500 {background-image:url('/mapimages/chileeducationprotest2011.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+height:700px;}
+
+.id500 .entry_title {font-size: 2em;}
+
+.id502 {background-image:url('/mapimages/aliromismith-crop.jpg');
+background-size:cover;}
+
+.id508 {
+background-image:url('/mapimages/nicaraguacanalproposal.png');
+background-repeat:no-repeat;
+background-position:center; 
+height:200px;
+color:yellow;
+font-size:1.5em;
+font-weight:bold;}
+
+.id510 {left: 30px; height: 530px;}
+.id510 .entry_source {top:-25px;}
+
+.id511 .entry_title {color:white; font-size:4em;background-color: rgba(0,0,0,.5);width:500px;}
+.id511 {background-image:url('/mapimages/franciscohernandezdecordobanic-v2.jpg');height:600px;}
+
+.id512 {background-image:url('/mapimages/pedrariasdavilanicaragua.jpg');
+height:500px;}
+
+
+.id514 {background-image:url('/mapimages/oldnicaraguamap.jpg');
+background-repeat:no-repeat;
+background-position:center;
+width:425px;
+height:350px; }
+
+.id514 .entry_title {padding-top:100px;font-size: 3em;
+text-shadow: 0px 2px 3px #666;}
+
+.id516 .entry_title {color:black;}
+
+.id516 {background-image:url('/mapimages/philipiispain.png');
+height:220px;}
+
+.id518 .entry_title {color:black;font-size:1.9em;}
+
+.id518 {background-image:url('/mapimages/momotombo.jpg');
+background-repeat:no-repeat;
+background-position:center;
+height:400px;
+background-size:cover;}
+
+.id519
+{background-image:url('/mapimages/sweetpotatoes.jpg');}
+
+.id520 .entry_title {color: #003eff; font-size: 1.7em; background-color: white; padding: 6px;}
+
+.id520 
+{background-image:url('/mapimages/miskitucoastmap.jpg');
+background-position:top right;
+background-repeat:no-repeat;
+height:740px;
+}
+
+.id520 .entry_source {width:490px;padding:6px;background-color:white;}
+
+.id523 {background-image:url('/mapimages/henrymorganbuccaneer.gif');
+width:370px;
+height:450px;}
+
+.id523 .entry_title {font-size: 3em;}
+
+.id525 .entry_title {font-size: 2em;}
+.id525 {background-image:url('/mapimages/baconsrebellion.jpg');
+background-repeat:no-repeat;
+background-position:top center; 
+left:25px;
+height:760px;
+width:1025px;}
+
+.id526 {background: -moz-radial-gradient(50% 50%, #e5b887, #663333); background: -webkit-radial-gradient(50% 50%, #e5b887, #663333); background: -o-radial-gradient(50% 50%, #e5b887, #663333); background: -ms-radial-gradient(50% 50%, #e5b887, #663333); background: radial-gradient(50% 50%, #e5b887, #663333)}
+
+.id526 .entry_title {color:black;font-size:270%; font-weight:bolder;}
+
+.id527 {background-image:url('/mapimages/rainforestbackground-small.jpg');
+background-repeat:no-repeat;
+background-position:top center; }
+
+.id527 .entry_title {color:white;}
+.id527 .entry_source {color:white;}
+
+.id531 {
+background-image:url('/mapimages/nicaraguacanalproposal.png');
+background-repeat:no-repeat;
+background-position:center; 
+height:200px;
+color:yellow;
+font-size:1.3em;
+font-weight:bold;}
+
+.id532 {
+background-image:url('/mapimages/nicaraguacanalproposal.png');
+background-repeat:no-repeat;
+background-position:center; 
+height:200px;
+color:yellow;
+font-size:1.2em;
+font-weight:bold;}
+
+.id534 {background-image:url('/mapimages/alienseditionacts1798.gif');
+background-repeat:no-repeat;
+background-position:center; 
+background-color:transparent;
+width:475px;
+height:600px;}
+
+.id534 .entry_title {font-size:3em;
+left:75px;top:20px;}
+
+.id537 .entry_title {font-size: 4em;}
+.id537 {background-image:url('/mapimages/britishslavetradeabolished1807.jpg');
+height:550px;
+width:970px;}
+
+.id542 {height:725px;border: 5px solid black;}
+
+.id545 {
+background-image:url('/mapimages/nicaraguacanalproposal.png');
+background-repeat:no-repeat;
+background-position:center; 
+height:200px;
+color:yellow;
+font-size:1.3em;
+font-weight:bold;}
+
+.id553 {
+background-image:url('/mapimages/Cornelius_Vanderbilt-small.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+width:715px;
+height:700px;
+}
+
+.id558 {top:20px;left:20px;width:1100px;
+height:660px;
+background-image:url('/mapimages/oldpaper.jpg');
+background-repeat:no-repeat;
+background-position:center; 
+}
+
+.id558 h3 {width:400px;font-size:1.5em;}
+
+
+.id558 .navContainer {
+margin-right: 20px;
+margin-top:-55px;
+float: right;}
+
+
+.id560
+{
+    background-image:url('/mapimages/1917immigrationbottom.jpg');
+background-repeat:no-repeat;
+background-position:right bottom; }
+
+.id561 .entry_title {font-size: 2.4em;width:281px;}
+
+.id561 {
+    background-image:url('/mapimages/1918passport.gif');
+background-repeat:no-repeat;
+background-position:left bottom;
+height:511px;
+width:800px;}
+
+.id561 .entry_source {width:400px;margin-top: 161px; margin-left: 336px;}
+
+
+.id563 {
+    background-image:url('/mapimages/calvincoolidge-dark.jpg');
+background-repeat:no-repeat;
+background-position:right top; }
+
+.id563 .entry_source {color:white;}
+
+.id564 {height:760px;max-height:760px;width:1020px;}
+
+.id566 {
+    background-image:url('/mapimages/1921quotabanner.jpg');
+background-repeat:no-repeat;
+background-position:center top; 
+width:1080px;}
+
+.id566 .entry_title {margin-top: 237px;}
+
+.id569 .entry_title {color:black;}
+
+.id569 {
+    background-image:url('/mapimages/trainbolivia.gif');
+    background-position:center bottom; 
+    height:287px;
+    border-style: double;
+border-color: #cc0000;
+border: 6px double #cc0000;
+outline: 3px solid #cc0000;
+outline-offset: -1px;
+
+    
+}
+
+.id570 {width:720px;height:295px;}
+
+.id570 .entry_title  {font-size:2em;}
+
+.id574 {background-image:url('/mapimages/tiburciocarias-v2.gif');
+background-position:center right; 
+background-repeat:no-repeat;
+height:450px;}
+
+.id576 {background-image:url('/mapimages/managua-terremoto-1931.jpg');
+background-position:center top; 
+background-repeat:no-repeat;
+width:610px;}
+
+
+.id582 {background-image:url('/mapimages/estadonovovargas.jpg');
+background-size: cover;
+height:700px;}
+
+.id583 {max-width:650px;}
+
+.id590 {background-image:url('/mapimages/1947riopact-dark.jpg');
+background-size: cover;
+height:670px;}
+
+.id591 {left:10px;}
+
+.id592 .entry_title {font-size: 2.5em;}
+
+.id597 .entry_title {font-size: 7em; opacity:0.6;z-index:100;}
+
+.id597 {top:200px;
+background-color: transparent;width:900px;}
+
+.id597 .entry_source {position:relative;top:-118px;}
+
+.id603 {background-image:url('/mapimages/operationwetback.jpg');
+background-size:cover;
+height:600px;}
+
+.id605 {background-image:url('/mapimages/nicaraguacotton.jpg');
+background-repeat:no-repeat;
+background-position:center top; 
+width:940px;
+height:620px;
+font-size:99%;}
+
+.id605 .entry_source {position:relative;top:-35px;}
+
+
+.id606 {left:50px;
+width:1130px;}
+
+.id607 {max-height: 770px;}
+
+.id607 .entry_title {font-size:3.5em;}
+
+.id610 {background-image:url('/mapimages/iadb1959.jpg');
+background-repeat:no-repeat;
+background-position:center top;
+width:900px;
+height:655px;}
+
+.id610 .entry_title {font-size:3em;width:200px;}
+
+.id610 .entry_source {background:white;padding:5px;position:relative;top:75px;left:400px;width:500px;}
+
+.id612 {width:1050px;}
+
+.id612 .entry_title {font-size:1.5em;}
+
+.id612 .entry_source {width: 1031px;}
+
+.id617 .entry_title {font-size:2.1em;}
+
+.id617 {background-image:url('/mapimages/USAID-building.jpg');
+max-height:750px;}
+
+
+
+
+
+.id620 {height:600px;}
+
+.id630 .entry_title {font-size:1.55em;}
+.id630 {width:1050px;max-height:760px;background-color:black;}
+
+.id630 .entry_source {color:#cc0000;}
+
+.id646 {background-image:url('/mapimages/bananas-dark.jpg');}
+
+.id648 {background-image:url('/mapimages/parache1972.jpg');
+background-repeat:no-repeat;
+background-position:center left;
+height:750px;}
+
+.id648 .entry_title {width:200px;font-size:3em;}
+
+.id648 .entry_source {top:200px;}
+
+.id651 .entry_title {font-size:2em; margin-bottom: -10px;padding-top: 44px;}
+
+.id651 {background-image:url('/mapimages/harkinamendbanner.gif');
+background-repeat:no-repeat;
+background-position:center top;
+width:980px;}
+ 
+.id652 {background-image:url('/mapimages/carlosfonseca.jpg');
+background-repeat:no-repeat;
+background-position:left center; 
+height:570px;
+width:1075px;}
+
+.id652 .entry_title {font-size:1.8em;}
+
+.id652 .entry_source {position: relative; top: -20px;
+}
+
+.id653 .entry_title {color: #FFFF00;font-size: 2.5em;}
+.id653 {background-image:url('/mapimages/bananas-dark.jpg');background-size:cover;}
+.id653 .entry_source {color: #FFFF00;}
+
+.id659 {background-image:url('/mapimages/chamorro-v2.jpg');
+background-repeat:no-repeat;
+background-position:right center; 
+height:350px;
+width:500px;}
+
+.id660 {height:750px;}
+
+.id660 .entry_source {width: 50px; position: relative; left: 604px; background-color: #cc0000; padding: 6px; top: -21px;}
+
+.id661 {background-image:url('/mapimages/panamacanal-ps.jpg');
+width:805px;
+height:650px;}
+
+.id661 .entry_source {position: relative;
+top: 105px;
+color: #cc0000;
+width: 454px;
+left: 342px;}
+
+.id661 .entry_title{font-size: 2.7em;}
+
+.id667 {background-image:url('/mapimages/nicaraguabravo1979.jpg');
+background-position:center; 
+height:378px;
+width:378px;}
+
+.id673 {background-image:url('/mapimages/josenapoleonduarte.gif');
+background-repeat:no-repeat;
+background-position:right bottom; 
+width:550px;
+max-width:550px;
+max-height: 500px;
+z-index: 100;}
+
+.id673 .entry_title {width:400px;}
+
+.id676 {background-image:url('/mapimages/cokebackground.png');
+left:25px;
+height:765px;
+width:1025px;}
+.id676 .entry_title {color: white;font-size:2em;}
+
+.id678 .entry_title {background-color:black;padding:7px;}
+
+.id678 {background-image:url('/mapimages/1981hundreddollarbill.jpg');
+width:600px;
+height:375px;
+}
+
+.id678 .entry_source {position:relative;top:104px;}
+
+
+.id679 {background-image:url('/mapimages/fmlnteenagers.gif');no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+height:100%;
+width:100%;
+position:absolute;
+}
+
+.id686 {
+background-image:url('/mapimages/sheratonsansalvador.jpg');
+background-size:1200px 752px;
+background-position:center;
+background-repeat:no-repeat;
+left:50px;
+width:1150px;
+height:740px;}
+
+.id686 .entry_title {color:white;font-size:200%; font-weight:bolder;}
+
+.id690 .entry_title {color:white;font-size:320%; font-weight:bolder;}
+
+.id690 {background-image:url('/mapimages/reaganelection.jpg');
+background-position:bottom center;
+background-repeat:no-repeat;
+height:685px;}
+
+.id692 {background-image:url('/mapimages/horizontalcamoborder.jpg');
+background-position:bottom center;
+background-repeat:no-repeat;
+}
+
+
+
+.id697 {width:455px;}
+
+.id698 .entry_title {color:black;font-size:1.8em;}
+.id698 {background-image:url('/mapimages/contraguns.jpg');
+background-position:bottom center;
+background-repeat:no-repeat;
+height:185px;
+width:830px;
+}
+
+.id799 {height:800px;
+background: #CC9E61;
+}
+
+.id709
+{
+    background-image:url('/mapimages/reagansalvador.jpg');
+left:250px;
+top:200px;
+height:410px;
+width:600px;
+}
+
+.id711 .entry_title {background-color:white;font-size:2em;}
+.id711 {
+    background-image:url('/mapimages/guatemalanleftunitychart.gif');
+    height:700px;
+   
+    background-repeat:no-repeat;
+    background-position:center bottom;
+}
+
+.id711 .entry_source {background-color: white; width: 53px; left: 745px; top: 534px; padding: 6px;}
+
+.id712 {height:700px;
+	background-image:url('/mapimages/guatriosmonttrisetopower.jpg');
+background-size:cover;}
+
+.id712 .entry_title {font-size:3em;}
+
+.id718  {background-image:url('/mapimages/generalnoriega.jpg');
+width:950px;
+height:690px;}
+
+.id719 {background-image:url('/mapimages/contadora1984.jpg');
+background-size:1040px 439px;
+background-position:top center;
+background-repeat:no-repeat;
+height:760px;
+}
+
+.id719 .entry_source {position: relative;
+top: 257px;}
+
+.id720 {left:0px;width:1150px;}
+
+
+.id723 .entry_title {font-size:2.5em;}
+.id723 {background-image:url('/mapimages/reagan1985.jpg');
+background-position:top center;
+height:450px;
+width:540px;}
+
+
+
+.id731 h3 {width:400px;font-size:2em;}
+.id731 {  background-image:url('/mapimages/lapencamontage.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+height:660px;
+}
+
+
+
+.id731 .navContainer {
+margin-right: 20px;
+margin-top:-55px;
+float: right;}
+
+.id731 .entry_source {top:150px;}
+
+.id735 {background-image:url('/mapimages/1984reagan-reelection-detail.jpg');
+background-position:top right;
+background-repeat:no-repeat;
+width:700px;
+height:420px;background-color:black;}
+
+.id750 {background-image:url('/mapimages/guatemala-alvarez.jpg');
+background-position:center left;
+background-repeat:no-repeat;
+width:1100px;
+height:425px;
+}
+
+.id750 .entry_title {position:relative;left:588px;}
+
+.id761 {width:754px;}
+
+.id761 .entry_title {font-size:2.6em;}
+
+.id763 {width:1088px;
+left:30px}
+
+.id770 {background-image:url('/mapimages/cocainecocacola.jpg');
+height:360px;
+width:450px;}
+
+.id770 .entry_title {color:white;font-size:250%; font-weight:bolder;}
+
+.id796 .entry_title {color:white;font-size:2.2em; font-weight:bolder;}
+
+.id796 {background-image:url('/mapimages/reagan-top-bar.jpg');
+background-position:center top;
+background-repeat:no-repeat;}
+
+.id805 
+{width:750px;}
+
+.id805 
+{top:10px;
+width:1100px;}
+
+.id810 .entry_title {font-size: 2.4em;}
+
+.id810 {background-image:url('/mapimages/marineshonduras1988.jpg');
+background-size:cover;
+background-position:center;
+height:700px;}
+
+.id810 .entry_source {color:white;position:relative;top:85px;}
+
+.id815{background-image:url('/mapimages/GeorgeHWBushinauguration.jpg');
+background-position:top left;
+background-repeat:no-repeat;
+height:700px;
+width:}
+
+.id818 .entry_title {font-size:2em;color:black;}
+
+.id818 {left:50px;
+width:1050px;
+background-image:url('/mapimages/bloodsplatterbig.gif');
+background-repeat:no-repeat;
+background-size:cover;
+max-height:740px;
+height:740px;
+}
+
+.id826 {height:210px;}
+
+.id836 .entry_title {color:white;}
+
+.id836 {background-image:url('/mapimages/reagansituroomnorthabramspoindexter.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+height:750px;
+max-height:750px;
+width:760px;}
+
+.id839 {
+background-image:url('/mapimages/irancontra-backgrounddark.gif');
+background-size:cover;
+background-position:center bottom;
+height:650px;	
+	left:0px;
+width:1190px;}
+
+.id839 .entry_title {background-color:black;font-size:2.2em;}
+
+.id840 {background-image:url('/mapimages/VitalRobertoGaguine-small.jpg');
+background-position:top left;
+background-repeat:no-repeat;
+height:330px;
+width:380px;
+}
+
+.id840 .entry_source {top:166px;}
+
+.id847 {background-image:url('/mapimages/hurricainemitch.jpg');
+height:600px;
+background-size:cover;}
+
+.id847 .entry_title {font-size:4.6em; font-weight:bolder;}
+
+.id847 .entry_source {padding:6px;background-color:white;width:300px;position:relative;left:700px;}
+
+.id848 {background-image:url('/mapimages/enriquebolanosrumsfeldnicaragua.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+height:750px;
+max-height:750px;
+}
+
+.id848 .entry_title {background-color:black;width:666px;}
+
+.id849 {background-image:url('/mapimages/elsalvadorfactory2004.jpg');
+height:760px;}
+
+.id850 {background-image:url('/mapimages/Nicaragua2006DanielOrtega.JPG');
+height:600px;
+background-size:cover;
+}
+
+.id857 {background-image:url('/mapimages/coffee_bean.png');
+background-position:bottom left;
+background-repeat:no-repeat;
+height:550px;}
+
+.id857 .entry_title {font-size:190%; font-weight:bolder;}
+
+.id858 {background-image:url('/mapimages/oldpaper.jpg');}
+
+.id859 {width:900px;}
+
+.id861 {left:25px;
+width:1120px;}
+
+.id862 {background-image:url('/mapimages/fire.gif');
+background-size:1125px 740px;
+width:1100px;}
+
+.id862 .entry_title {color:black;font-size:200%; font-weight:bolder;}
+
+.id863 {background-image:url('/mapimages/transatlanticcable.gif');
+background-position:center;}
+
+.id865 {background-image:url('/mapimages/benitojuarez-transparent2.gif');
+width:740px;
+height:740px;
+background-position:top center;
+background-repeat:no-repeat;}
+
+.id866 {background-image:url('/mapimages/peruguano1840.jpg');
+background-position:top left;
+background-repeat:no-repeat;
+width: 1080px;
+top:20px;
+left:20px;}
+
+.id868  h3 {width:400px;}
+
+.id868 {width:1100px;
+left:50px;}
+
+.id868 .entry_title {font-size:200%; font-weight:bolder;}
+
+.id868 .navContainer {
+margin-right: 20px;
+margin-top:-55px;
+float: right;}
+
+.id869 {background-image:url('/mapimages/brazilindependencebackground.jpg');
+background-size: cover;
+}
+
+.id869 .entry_title {font-size: 2.1em;color:white;}
+
+.id870 {background-image:url('/mapimages/amazonbackground.gif');
+background-position:top center;
+background-repeat:no-repeat;
+height:700px;}
+
+.id873 .entry_source {position:relative;top:-15px;}
+
+.id874 .entry_title {color:white;font-size:2em;}
+
+.id874 {background-image:url('/mapimages/natino_parada_guerrero.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+width:620px;
+background-color:black;}
+
+.id874 .entry_source {color:white;}
+
+.id875 {background-image:url('/mapimages/pisaguagraves.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+background-size:cover;
+height:700px;}
+
+.id875 .entry_title {color:white;font-size:2em;}
+
+.id875 .entry_source {position:relative;top:310px;left:490px;background-color:white;padding:6px;width:470px;}
+
+.id876 {background-image:url('/mapimages/SebastianAcevedo.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+background-size:cover;
+height:700px;}
+
+.id878 {background-image:url('/mapimages/lulacrowds.jpg');
+background-position:top center;
+background-repeat:no-repeat;
+height:700px;}
+
+.id878 .entry_title {color:white;font-size:3.5em;}
+
+.id878 .entry_source {position:relative;top:202px;left:592px;background:white;padding:9px;width:400px;}
+
+.id879 {max-height:740px;
+height:740px;
+background-image:url('/mapimages/oldpaper.jpg');
+background-repeat:no-repeat;
+background-position:center; }
+
+.id879 .entry_source {position:relative;top:55px;}
+
+.id894 {background-image:url('/mapimages/agueybana2.png');
+background-repeat:no-repeat;
+background-position:bottom right;}
+
+.id894 .entry_source {top: 15px;}
+
+.id897 {background-image:url('/mapimages/bloodsplatter.jpg');
+height:350px;}
+
+.id898 {background-image:url('/mapimages/king_Charles_II.jpg');
+height:620px;width:590px;
+background-repeat:no-repeat;}
+
+.id898 .entry_source {top:265px;color:white;}
+
+.id902 {background-image:url('/mapimages/bandonegro1848.png');
+background-position:top right;
+background-repeat:no-repeat;
+height:580px;
+width: 970px;}
+.id902 .entry_title {font-size: 3em;}
+.id902 .entry_source {width:660px;position:relative;top:-409px;}
+
+.bar2 {top:185px;
+left:475px;}
+
+.incos1 {
+top:750px;
+left:200px;
+}
+
+.incos2 {
+top:750px;
+left:215px;
+}
+
+.domrep2 {top: 125px;
+left: 385px;}
+
+.inels6 {
+top:635px;
+left:100px;
+}
+
+.ingua1 {left:75px;
+top:590px;}
+
+.ingua2 {left:75px;
+top:550px;}
+
+.ingua3 {left:75px;
+top:570px;}
+
+.ingua4 {left:55px;
+top:590px;}
+
+.inhon1 {left:155px;
+top:590px;}
+
+.inhon2 {left:155px;
+top:610px;}
+
+.mex3 {
+top:100px;
+left:150px;
+}
+
+.mex4 {top:120px;
+left:110px;}
+
+.mie1 {left:1045px;
+top:650px;}
+
+.innic1
+{left:200px;
+top:690px;}
+
+.innic2
+{left:200px;
+top:650px;}
+
+.innic3
+{left:200px;
+top:670px;}
+
+.innic4
+{left:180px;
+top:690px;}
+
+.innic5
+{left:180px;
+top:670px;}
+
+.inpan1 {left:280px;
+top:775px;}
+
+.inpan2 {left:300px;
+top:775px;}
+
+.sea2 {
+top: 621px;
+left: 417px;
+}
+
+.usa2 {
+top:660px;
+left:965px;
+}
+
+.usa3 {
+top:675px;
+left:965px;
+}
+
+.usa4 {
+top:645px;
+left:950px;
+}
+
+.usa5 {
+top:645px;
+left:965px;
+}
+
+

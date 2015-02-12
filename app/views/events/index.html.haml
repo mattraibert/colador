@@ -4,28 +4,24 @@
   %thead
     %tr
       %th Title
-      %th Content
       %th Start year
       %th End year
       %th Location
-      %th Type
-      %th Source
+      %th Category
       %th Size
       %th Published
       %th
       %th
       %th
-      
+
   %tbody
     - @events.each do |event|
       %tr
         %td= event.title
-        %td= event.content
         %td= event.start_year
         %td= event.end_year
         %td= event.location
-        %td= event.type
-        %td= event.source
+        %td= event.category.name if event.category
         %td= event.size
         %td= event.published
         %td= link_to 'Show', event

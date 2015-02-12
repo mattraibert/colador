@@ -1,0 +1,162 @@
+
+/* This file contains the main styling of the site, including the
+   basic map, slider, etc */
+
+body {
+    background-image: url("../img/sea.gif");
+}
+
+.slider {
+    margin-top: 57px;
+    margin-left: 246px;
+    height: 10px;
+    width: 800px;
+    height: 10px;
+    float: left;
+}
+div.selected { visibility: visible;}
+div.location  { visibility: hidden; }
+
+.mainmap {
+    position:relative;
+    width:1200px;
+    height:800px;
+    background:url("../img/LAMap-grid.gif") no-repeat;
+    text-align:left;
+    margin:10px auto;
+    padding:0px;
+    border:none;
+}
+
+.inset {
+    display: none;
+    background: url("/mapimages/centralamerica-inset.gif") no-repeat;
+    left: -10px;
+    top: 500px;
+    width: 401px;
+    height: 323px;
+    position: absolute;
+}
+
+a {
+    display:block;
+    position:absolute;
+    outline:none;
+    z-index:10;
+    text-decoration:none;
+}
+
+
+.yearIndicator {
+    color: #CC0000;
+    float: left;
+    font-family: futura;
+    font-size: 16px;
+    font-weight: normal;
+    height: 32px;
+    letter-spacing: 3px;
+    margin-left: 239px;
+    margin-top: -29px;
+    position: relative;
+    z-index: 3;
+}
+
+
+.key {
+    left: 850px;
+    top: 710px;
+}
+
+.sources {
+    left: 950px;
+    top: 710px;
+}
+
+.info {
+    left: 1050px;
+    top: 710px;
+}
+
+.legend {
+  padding-top: 90px;
+  padding-left: 12px;
+  padding-right: 116px;
+  background-image: url("../img/legend.png");
+  font-size: 12px;
+  left: 738px;
+  position: absolute;
+  top: 525px;
+  width: 300px;
+  height: 150px;
+}
+
+.legend .icon {
+    height: 25px;
+    padding-left: 30px;
+    background-position: 0 0;
+    width: 80px;
+    display: inline-block;
+    margin: 0;
+    cursor: default;
+}
+
+.legend .legend_buttons {
+  padding-top: 10px;
+}
+.legend .legend_buttons span{
+  padding: 20px;
+}
+
+.sources {
+top:715px;
+left:850px;
+}
+
+.info {
+top:715px;
+left:950px;
+}
+
+
+.ui-widget-content {
+background: none;
+border: none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #CC0000;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: 0.15em;
+}
+
+.ui-slider .ui-slider-handle {
+    height: 0.5em;
+    width: 0.5em;
+    z-index: 100;
+}
+
+.location {
+    position: absolute;
+}
+
+.close {
+    background:url(/mapimages/close.gif) no-repeat;
+    width:15px;
+    height:15px;
+    float: right;
+    cursor: pointer;
+}
+
+.headline {
+  color: #cc0000;
+  font-family: sans-serif;
+  font-size: 1.21em;
+  font-variant: small-caps;
+  font-weight: bolder;
+  letter-spacing: 0.17em;
+  margin-bottom: 7px;
+  margin-left: 9px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}

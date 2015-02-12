@@ -1,32 +1,22 @@
 %p#notice= notice
-
+= raw @event.title
 %p
-  %b Title:
-  = @event.title
-%p
-  %b Content:
-  = @event.content
-%p
-  %b Start year:
   = @event.start_year
-%p
-  %b End year:
-  = @event.end_year
-%p
-  %b Location:
-  = @event.location
-%p
-  %b Type:
-  = @event.type
+  = ?-
+  =@event.end_year
+= raw @event.content
 %p
   %b Source:
   = @event.source
 %p
+  %b Location:
+  = @event.location
+%p
+  %b Category:
+  = link_to @event.category.name, @event.category if @event.category
+%p
   %b Size:
   = @event.size
-%p
-  %b Published:
-  = @event.published
 
 = link_to 'Edit', edit_event_path(@event)
 \|

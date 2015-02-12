@@ -11,7 +11,7 @@
     = f.text_field :title
   .field
     = f.label :content
-    = f.text_area :content
+    = f.text_area :content, rows:30, cols:100
   .field
     = f.label :start_year
     = f.number_field :start_year
@@ -20,16 +20,16 @@
     = f.number_field :end_year
   .field
     = f.label :location
-    = f.text_field :location
+    = f.text_field :location, :placeholder => 'lat,long'
   .field
-    = f.label :type
-    = f.text_field :type
+    = f.label :category_id, 'Category'
+    = f.select :category_id, Category.all.collect { |t| [t.name, t.id] }
   .field
     = f.label :source
     = f.text_field :source
   .field
     = f.label :size
-    = f.text_field :size
+    = f.select :size, %w(small medium large)
   .field
     = f.label :published
     = f.check_box :published

@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @category.name
+  %ul
+    %h4 Events:
+    - @category.events.each do |event|
+      %li= link_to event.title, event
+
+= link_to 'Back', categories_path

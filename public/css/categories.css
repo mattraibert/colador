@@ -1,0 +1,164 @@
+/* This file contains styling for the different types of events,
+   in particular the icon urls and sizes */
+
+.iso {
+    position: absolute;
+    z-index: 2;
+}
+
+a.int { position: relative;}
+
+.redstar {
+    background:url(/mapimages/redstar.gif) no-repeat;
+    width:15px;
+    height:15px;
+    cursor: pointer;
+}
+
+a.redstar:hover, .redstar.active {
+    background:url(point-hover.png) no-repeat -0px -0px;
+    cursor: pointer;
+}
+
+
+.event {
+    background:url(/mapimages/eventicon.gif) no-repeat;
+    width:15px;
+    height:15px;
+    cursor: pointer;
+}
+
+a.event:hover, .event.active {
+    background:url(point-hover.png) no-repeat -0px -0px;
+    cursor: pointer;
+}
+
+.redfist {
+    background:url(/mapimages/fist.gif) no-repeat;
+    width:19px;
+    height:25px;
+}
+
+.culture {
+    background:url(/mapimages/book2.png) no-repeat;
+    width:20px;
+    height:20px;
+}
+
+a.culture:hover, .culture.active {
+    background:url(/mapimages/book-large.png) no-repeat -01px -0px;
+    width:45px;
+    height:34px;
+    cursor: pointer;
+}
+
+.church {
+    background:url(/mapimages/cross1.gif) no-repeat;
+    width:20px;
+    height:31px;
+    margin: -20px;
+}
+
+a.church:hover, .church.active {
+    background:url(/mapimages/cross2.gif) no-repeat;
+    width:29px;
+    height:30px;
+    cursor: pointer;
+}
+
+.economy {
+    background:url(/mapimages/factory1.gif) no-repeat;
+    width:20px;
+    height:20px;
+    margin: -10px;
+}
+
+a.economy:hover, .economy.active {
+    background:url(/mapimages/factory2.gif) no-repeat -0px -0px;
+    width:39px;
+    height:39px;
+    margin: -20px;
+    cursor: pointer;
+}
+
+.agricultural {
+    background:url(/mapimages/agric-nosickle.png) no-repeat;
+    width:25px;
+    height:36px;
+    margin: -5px;
+}
+
+a.agricultural:hover, .agriculture.active {
+    background:url(/mapimages/agricla.png) no-repeat -1px -1px;
+    width:40px;
+    height:58px;
+    margin: -5px;
+    cursor: pointer;
+}
+
+.envir {
+    background:url(/mapimages/nature2.gif) no-repeat;
+    width:20px;
+    height:20px;
+}
+
+a.envir:hover, .envir.active {
+    background:url(/mapimages/nature2a.gif) no-repeat ;
+    width:20px;
+    height:20px;
+    cursor: pointer;
+}
+
+
+.power {
+    background:url(/mapimages/power3.gif) no-repeat;
+    width:12px;
+    height:24px;
+    margin: -24px -12px;
+}
+
+a.power:hover, .power.active {
+    background:url(/mapimages/power.png) no-repeat -1px -1px;
+    cursor: pointer;
+}
+
+.massacre {
+    background:url(/mapimages/massacre.gif) no-repeat;
+    width:30px;
+    height:16px;
+}
+
+a.massacre:hover, .massacre.active {
+    background:url(/mapimages/massacre.gif) no-repeat -0px -0px;
+    width:30px;
+    height:16px;
+    cursor: pointer;
+}
+
+.ind {
+    background:url(/mapimages/ind.gif) no-repeat;
+    width:15px;
+    height:15px;
+}
+
+
+a.ind:hover, .ind.active {
+    background:url(point-hover.png) no-repeat -0px -0px;
+    cursor: pointer;
+}
+
+
+.war {
+    background:url(/mapimages/war2.gif) no-repeat;
+    width:19px;
+    height:32px;
+    margin: -15px -10px;
+}
+
+a.war:hover, .war.active {
+    background:url(/mapimages/war1.gif) no-repeat -0px -0px;
+    width:37px;
+    height:64px;
+    margin: -45px -10px;
+    cursor: pointer;
+}

@@ -1,0 +1,418 @@
+/* This file contains locations that may be reused across different events,
+   which is why they are not stored with the data itself. */
+
+
+.afr1 {
+top:670px;
+left:1020px;
+}
+
+.ant1 {
+top:200px;
+left:400px;
+}
+
+.arg1 {
+top:600px;
+left:535px;}
+
+.arg12 {
+top:600px;
+left:525px;}
+
+.arg13 {
+top:600px;
+left:515px;}
+
+.arg14 {
+top:600px;
+left:505px;}
+
+.arg2 {
+top:650px;
+left:500px;}
+
+.arg22 {
+top:640px;
+left:490px;}
+
+.arg3 {
+top:550px;
+left:500px;}
+
+.arg4 {
+top:740px;
+left:600px;}
+
+.bar1 {
+top:185px;
+left:460px;
+}
+
+
+.bel1 {
+top:180px;
+left:240px;
+}
+
+.bol1 {
+top:450px;
+left:450px;}
+
+
+.bol2 {
+top:470px;
+left:450px;}
+
+.bra1 {
+top:450px;
+left:620px;}
+
+.bra2 {
+top:480px;
+left:620px;}
+
+.bra3 {
+top:500px;
+left:600px;}
+
+.bra4 {
+top:540px;
+left:580px;}
+
+.bra5 {
+top:310px;
+left:550px;}
+
+
+.bra6 {
+top:370px;
+left:430px;}
+
+
+.bra7 {
+top:320px;
+left:440px;}
+
+.bra8 {
+top:400px;
+left:500px;}
+
+.bra9 {
+top:350px;
+left:600px;}
+
+
+
+
+
+
+.chi1 {
+top:600px;
+left:440px;
+}
+
+.chi2 {
+top:490px;
+left:420px;
+}
+
+.chi3 {
+top:550px;
+left:435px;
+}
+
+.chi4 {
+top:700px;
+left:475px;
+}
+
+.chi5 {
+top:725px;
+left:475px;
+}
+
+
+.chi6 {
+top:780px;
+left:530px;
+}
+
+.col1 {
+top:250px;
+left:350px;
+}
+
+.cos1 {
+top:235px;
+left:270px;
+}
+
+.cub1 {
+top:125px;
+left:280px;
+}
+
+.cub2 {
+top:125px;
+left:290px;
+}
+
+.cub3 {
+top:125px;
+left:300px;
+}
+
+.cub4 {
+top:135px;
+left:310px;
+}
+
+.cub5 {
+top:130px;
+left:320px;
+}
+
+
+.cur1 {
+top:200px;
+left:380px;
+}
+
+
+.domrep1 {
+top:140px;
+left:370px;}
+
+.ecu1 {
+top:335px;
+left:325px;
+}
+
+.els1 {
+top:205px;
+left:225px;}
+
+.els11 {
+top:215px;
+left:215px;}
+
+.eur1 {
+top:640px;
+left:1020px;}
+
+.gre1 {
+top:205px;
+left:460px;
+}
+
+.gua1 {
+top:200px;
+left:205px;}
+
+.gua2 {
+top:190px;
+left:220px;}
+
+.guy1 {
+top:250px;
+left:460px;
+}
+
+.hai1 {
+top:150px;
+left:355px;
+}
+
+.hon1 {
+top:195px;
+left:235px;
+}
+
+.hon2 {
+top:195px;
+left:245px;
+}
+
+.jam1 {
+top:160px;
+left:325px;
+}
+
+.jam2 {
+top:160px;
+left:310px;
+}
+
+.jam3 {
+top:175px;
+left:310px;
+}
+
+.mex1 {
+top:170px;
+left:160px;
+}
+
+.mex2 {
+top:175px;
+left:185px;
+}
+
+.mex22 {
+top:185px;
+left:195px;
+}
+
+.mex23 {
+top:175px;
+left:195px;
+}
+
+
+.nic1 {
+top:215px;
+left:250px;}
+
+.nic2 {
+top:200px;
+left:270px;}
+
+.pan1 {
+top:240px;
+left:310px;
+}
+
+.par1 {
+top:510px;
+left:515px;
+}
+
+.par2 {
+top:500px;
+left:495px;
+}
+
+.par3 {
+top:490px;
+left:490px;
+}
+
+.par4 {
+top:520px;
+left:5305px;
+}
+
+.par5 {
+top:500px;
+left:505px;
+}
+
+
+
+
+
+
+
+
+
+
+.per1 {
+top:400px;
+left:350px;}
+
+
+.per2 {
+top:400px;
+left:370px;}
+
+.pue1 {
+top:150px;
+left:400px;}
+
+.sea1 {
+top: 200px;
+left: 600px;
+}
+
+.stj1 {
+top: 145px;
+left: 420px;
+}
+
+.stk1 {
+top: 150px;
+left: 440px;
+}
+
+.sur1 {
+top:260px;
+left:490px;
+}
+
+.tat1 {
+top:210px;
+left:450px;
+}
+
+.uru1 {
+top:580px;
+left:560px;}
+
+.usa1 {
+top:645px;
+left:965px;
+}
+
+.ven1 {
+top:240px;
+left:433px;
+}
+
+
+
+
+
+
+.inels1 {
+top:640px;
+left:80px;
+}
+
+.inels2 {
+top:620px;
+left:90px;
+}
+
+.inels3 {
+top:635px;
+left:105px;
+}
+
+.inels4 {
+top:640px;
+left:80px;
+}
+
+.inels5 {
+top:650px;
+left:100px;
+}
+
+.inels6 {
+top:635px;
+left:100px;
+}
+
+.inels7 {
+top:640px;
+left:100px;
+}
+
+
+.inhon1 {
+top:610px;
+left:125px;
+z-index: 5; 
+position: absolute;
+}

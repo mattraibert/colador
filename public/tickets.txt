@@ -1,0 +1,83 @@
+TICKETS 
+S 08/11/2013 started file
+S 08/14/2013 added (8) on close button
+D 08/15/2013 Resolved 8, Solid Rough Solution for B
+S 09/15/2013 Added small addition to (1) and a new back end issue (D)
+S 09/16/2013 Added 9, weird pagination issue
+S 11/12/13 Mocked up pagination solution 
+D 12/1/13 Partial solution for #1 (styling needs improvement, and continue link, for D, isn't done)
+D 12/4/13 Resolved 9 and 7.
+D 12/4/13 Resolved 2 - entries with links like <a data-entry="6" data-year="1491">Some link</a> work.
+D 2/23/14 Moved database over to postgresql, which resolves #1 from 2/21 meeting. Now a 'daily-dump' file created.
+D 2/26/14 I did a little bit of #2 from 2/21 meeting. I still want to do better, but it does more.
+D 2/26/14 Spent more time and solved #2 to my satisfaction.
+S 3/12/14 Emailed city location list for 7 and 7a.
+S 7/20/2014 HTML5 can handle embedded mp3 player
+
+
+NOTES from 2/21 Meeting
+
+1) Move to Database, spit out a new backup dump daily RESOLVED
+2) making it so the icons are already there and do not show on scroll. RESOLVED
+3) Key Sources Info pages
+4) Search:
+Search has optional limiters (check boxable, category, country, year)
+produces list
+
+ TITLE Country Year
+ First Sentence or two (first 400 characters)
+ Side Search Results display
+
+5) mp3 player type thing RESOLVED
+6) continued arrow
+7) Location override on the individual entry page
+for icon shows up
+Country, location (e,g, city name, river)
+7a) For inset years, automatically move to inset map.
+8) spitting out a list of overlap entry/location/year
+9) full screen modal, entire screen becomes stage, obscuring map.
+
+NOTES for 10/21 Meeting
+1) Getting the CSS overrides on the back end page of the CMS
+2) alternatives to maphael (or just using maphael)
+3) New CMS
+4) Plates, 
+
+
+Outstanding Issues
+
+1) Pagination: I made a mock-up of this at http://hiaw.org/defcon2/pagination/ There are a few components:
+	A) A black bar immediately below the entry (so as not to disrupt the layout.
+	B) On the left an arrow and previous, on the right a next and an an arrow
+	C) In the middle a count and title (e.g. "page 3 of 7: whatever page 3 of 7 is called")
+	D) A snippet of code that can be added to the conclusion of each page that gives a little continued and arrow that'll hop the person to the next page (for those too obtuse or engrossed to catch the prominent black bar at the bottom.
+	E) Ideally, they could all be styled if need be (i.e. to fit in with a color scheme.) 
+
+RESOLVED - see resolution above, or email me for more details. 2) Inline links
+there's an inline style now, but is there a more graceful way for internal links?
+
+3) Dictatorship and red cuba plates
+Can those get put in? They are already made. What about for additional topical plates?
+
+4) Full page modals? Possible?
+
+5) Key, Source, and About pop ups.
+
+6) Search
+Two people in a row, unprompted, asked if it would be searchable. Is this doable? Could it work like the key source and about pop ups and a search modal with inline links would pop up? Could limiters and spans be added (e.g., I want to search for the word Reagan AND/OR Environmental category in colombia between 1980 and 1990). I'm feeling stupid that I never thought about it but now I'm like duh.
+
+RESOLVED 7) html in the title and source? There are css styles for them, but when there's HTML Symbol Entities or bracket italics, it doesn't recognize it (so, for example, an italicized book title with a normal author name). Quotes aren't a huge deal for headlines, but I still would appreciate italics and line breaks for sources.
+
+RESOLVED 8) I moved up the title and close button up in the Z index so pictures would fit behind it without needing to be in the background (e.g., http://map.historyisaweapon.com/#year=1981,id=408 WARNING:graphic), but now the close button feels harder to click on, especially on mobile. RESOLVED
+
+RESOLVED 9)Weird pagination issue: Editing http://map.historyisaweapon.com/#year=1720,id=68, when I'd open and close the entry multiple times, the pagination menu would duplicate over and over again (one menu, close, open to two menus, close, open to three menus, etc)
+
+FOR editing and back end
+
+A) Oversight? Can you look at the overrides css and let me know if it is becoming preposterous. Also, my cheat sheet can be found here at the top of this file:http://historyisaweapon.com/defcon2/mapscratch.txt If there are smarter/less stupid things I can be doing, let me know. (feel free to ignore the rest of this scratch paper)
+
+RESOLVED WITH NOTE B) a long alternative version with just the entries stacked (i.e., literally the admin long list, but seeing the actual entries instead of just the heading. That was I can this up in a  tab and get a better sense of redundancies and relationships in editing) I made an earlier version of this with iframes:  http://historyisaweapon.com/editlam2.html (scroll down until it gets interesting.) RESOLVED WITH NOTE: color coding of drafts is wonky on this page, not a major issue.
+
+C) Easy way to check to see if multiple entries are in the same location for the same years? Is there anyway to spit out a list of all instances of doubled locations?
+
+D) Is there a way that entries could have a location override where I could enter the numbers in for the location on the entry page and it would override the CSS location designation? I'm getting nervous as it gets closer to public consumption that some of the locations are a little further off than I would like and it would be nice to have a simpler way to precisely locate them individually if need be.
