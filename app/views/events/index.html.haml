@@ -1,0 +1,37 @@
+%h1 Listing events
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Content
+      %th Start year
+      %th End year
+      %th Location
+      %th Type
+      %th Source
+      %th Size
+      %th Published
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.title
+        %td= event.content
+        %td= event.start_year
+        %td= event.end_year
+        %td= event.location
+        %td= event.type
+        %td= event.source
+        %td= event.size
+        %td= event.published
+        %td= link_to 'Show', event
+        %td= link_to 'Edit', edit_event_path(event)
+        %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Event', new_event_path

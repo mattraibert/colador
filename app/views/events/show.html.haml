@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Content:
+  = @event.content
+%p
+  %b Start year:
+  = @event.start_year
+%p
+  %b End year:
+  = @event.end_year
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Type:
+  = @event.type
+%p
+  %b Source:
+  = @event.source
+%p
+  %b Size:
+  = @event.size
+%p
+  %b Published:
+  = @event.published
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path
