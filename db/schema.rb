@@ -62,19 +62,5 @@ ActiveRecord::Schema.define(version: 20150213022703) do
     t.boolean "uw_draft",              null: false
   end
 
-  create_table "uw_la_misc", primary_key: "uw_key", force: :cascade do |t|
-    t.text "uw_data", null: false
-  end
-
-  create_table "uw_userpass_s", primary_key: "uw_loggedin", force: :cascade do |t|
-    t.text "uw_user",    null: false
-    t.text "uw_session", null: false
-  end
-
-  create_table "uw_userpass_u", primary_key: "uw_user", force: :cascade do |t|
-    t.text "uw_salt",     null: false
-    t.text "uw_password", null: false
-  end
-
   add_foreign_key "events", "categories"
 end
