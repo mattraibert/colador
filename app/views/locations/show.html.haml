@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Abbr:
+  = @location.abbr
+%p
+  %b Top:
+  = @location.top
+%p
+  %b Left:
+  = @location.left
+%p
+  %b Name:
+  = @location.name
+%p
+  %b Location:
+  = @location.location
+
+= link_to 'Edit', edit_location_path(@location)
+\|
+= link_to 'Back', locations_path

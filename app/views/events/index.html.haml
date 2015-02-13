@@ -7,6 +7,7 @@
       %th Start year
       %th End year
       %th Location
+      %th Legacy Location
       %th Category
       %th Size
       %th Published
@@ -20,7 +21,7 @@
         %td= event.title
         %td= event.start_year
         %td= event.end_year
-        %td= event.location
+        %td= event.location.abbr if event.location
         %td= event.category.name if event.category
         %td= event.size
         %td= event.published

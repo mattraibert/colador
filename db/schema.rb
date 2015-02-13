@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212223411) do
+ActiveRecord::Schema.define(version: 20150212235826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,29 @@ ActiveRecord::Schema.define(version: 20150212223411) do
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "start_year"
+    t.integer  "start_year",  null: false
     t.integer  "end_year"
-    t.point    "location"
-    t.integer  "category_id"
+    t.integer  "category_id", null: false
+    t.integer  "location_id"
     t.string   "source"
-    t.string   "size"
-    t.boolean  "published"
+    t.string   "size",        null: false
+    t.boolean  "published",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
+  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "abbr"
+    t.integer  "top"
+    t.integer  "left"
+    t.string   "name"
+    t.point    "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "uw_la_entries", primary_key: "uw_id", force: :cascade do |t|
     t.text    "uw_title",              null: false

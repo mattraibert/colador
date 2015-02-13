@@ -19,8 +19,8 @@
     = f.label :end_year
     = f.number_field :end_year
   .field
-    = f.label :location
-    = f.text_field :location, :placeholder => 'lat,long'
+    = f.label :location_id, 'Location'
+    = f.select :location_id, Location.all.collect { |t| [t.abbr, t.id] }
   .field
     = f.label :category_id, 'Category'
     = f.select :category_id, Category.all.collect { |t| [t.name, t.id] }

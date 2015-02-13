@@ -96,10 +96,10 @@ height:auto;
     top: 30px;
     left: 100px;
     width: 1000px;
-	max-height:700px;    
+	max-height:700px;
     padding: 10px;
     z-index: 100;
-   
+
 }
 
 
@@ -133,7 +133,7 @@ font-size: 20px; line-height: 22px; color: #cc0000; margin-top: -12px; }
 
 
 
-.entry_source 
+.entry_source
 {text-align: right; font-weight: bold; font-size: 11px; font-family: helvetica, sans-serif; text-transform: uppercase; margin-bottom: 5px;padding-bottom: 5px; position:relative;z-index:+999;}
 
 .shen {
@@ -166,7 +166,7 @@ background-size:cover;
 font-family:Courier, monospace;
 text-indent: 30px;}
 
-/* .statecraft */ 
+/* .statecraft */
 .statecraft,.id81,.id89,.id332,.id530,.id210,.id515,.id517,.id97,.id159,.id173,.id187,.id524,.id550,.id245,.id826 {border-style: double;
 border-color: #064780;
 border: 6px double #064780;
@@ -177,7 +177,7 @@ outline-offset: -1px;
 
 .headlinestatecraft, .id81 .entry_title,.id89 .entry_title,.id530 .entry_title,.id210 .entry_title,.id332 .entry_title,.id515 .entry_title,.id517 .entry_title,.id97 .entry_title,.id159,.id173 .entry_title,.id187 .entry_title,.id524 .entry_title,.id550 .entry_title,.id245 .entry_title,.id826 .entry_title {color: #064780;font-size: 1.5em;}
 
-.id81 .entry_source,.id89 .entry_source,.id530 .entry_source,.id210 .entry_source,.id332 .entry_source,.id515 .entry_source,.id517 .entry_source,.id97 .entry_source,.id159,.id173 .entry_source,.id187 .entry_source,.id524 .entry_source,.id550 .entry_source,.id826 .entry_source 
+.id81 .entry_source,.id89 .entry_source,.id530 .entry_source,.id210 .entry_source,.id332 .entry_source,.id515 .entry_source,.id517 .entry_source,.id97 .entry_source,.id159,.id173 .entry_source,.id187 .entry_source,.id524 .entry_source,.id550 .entry_source,.id826 .entry_source
 {margin-bottom: -5px;
 padding-bottom: 0px;}
 
@@ -209,7 +209,7 @@ height:700px;}
 .id5 {
 background-image:url('/mapimages/mayancalender900.jpg');
 background-position:center center;
-top:10px; 
+top:10px;
 max-height:760px;
 height:760px;
 width:820px;
@@ -276,7 +276,7 @@ height:725px;
 .id15 .entry_source {width: 321px;padding-left: 232px;}
 
 
-.id19 {height:200px; 
+.id19 {height:200px;
 overflow:hidden;}
 
 .id20 {width:810px;
@@ -297,7 +297,7 @@ overflow:hidden;}
 background-image:url('/mapimages/nuevagalicia1540-ps.jpg');
 background-repeat:no-repeat;
 background-position:right center;
-left:20px; 
+left:20px;
 width:1150px;
 height:440px;}
 
@@ -362,7 +362,7 @@ align:right;
 
 .id38 {background-image:url('/mapimages/mexicoyanga.gif');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 height:550px;}
 
 .id39 {background-color:black;}
@@ -411,7 +411,7 @@ width:1120px;}
 left:50px;
 background-color: #EDEAE3;
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 height:615px;
 width:1050px;}
 
@@ -419,13 +419,13 @@ width:1050px;}
 
 .id56 {background-image:url('/mapimages/coloniasacramento-v2.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-color:transparent;
 height:500px;}
 
 .id56 .entry_source {left: 545px; top: 132px; width: 171px;}
 
-.id57 
+.id57
 {width:750px;}
 
 .id60 {background-image:url('/mapimages/ouropreto-blur.jpg');
@@ -456,22 +456,22 @@ top: 330px;
 
 .id70 .close {top:5px;padding-right:5px;}
 
-.id71 
+.id71
 {
 background-image:url('/mapimages/cudjoemakingpeace.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 width:700px;
 height:610px;}
 
 .id73 {background-image:url('/mapimages/elcobrecubavirginmary.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 }
 
 .id78 {background-image:url('/mapimages/warjenkinsear1739.jpg');
 background-repeat:no-repeat;
-background-position:center bottom; 
+background-position:center bottom;
 height:600px;
 }
 
@@ -491,7 +491,7 @@ padding-bottom: 0px;}
 .id82 {
 background-image:url('/mapimages/1750slaveship.jpg');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 width:940px;}
 
 .id82 .entry_source {top: -72px;
@@ -527,7 +527,7 @@ height: 575px;
 
 .id94 {background-image:url('/mapimages/kataribartolina.jpg');
 	background-size:cover;}
-	
+
 .id94 .entry_title {color: white; font-size: 1.6em;}
 
 .id99 {background-image:url('/mapimages/figueiredotiradentes.jpg');
@@ -633,7 +633,7 @@ top:10px; }
 
 .id188 {background-image:url('/mapimages/buchananjamesdaguerotype.gif');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 width:519px;
 height:600px;
 background-color:transparent;
@@ -652,7 +652,7 @@ top: 100px;
 
 .id193 { background-image:url('/mapimages/franklinpierce-bighead.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-color:transparent;
 width:470px;
 height:674px;
@@ -664,7 +664,7 @@ left:500px;}
 .id196 { background-image:url('/mapimages/1856panamawatermelons.gif');
 background-size:1050px 700px;
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 height:600px;
 width:1000px;
 }
@@ -685,7 +685,7 @@ height:330px;
 
 .id213 { background-image:url('/mapimages/panama1885pedroprestan.jpg');
 background-repeat:no-repeat;
-background-position:center top; 
+background-position:center top;
 width:760px;}
 
 .id217 {width:700px;}
@@ -714,12 +714,12 @@ float: right;}
 .id226 {
     background-image:url('/mapimages/isthmusofpanama-small.jpg');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 }
 
 .id229 {background-image:url('/mapimages/theodoreroosevelthead.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-color:transparent;
 width:569px;
 height:692px;
@@ -745,7 +745,7 @@ background-position:center;
 width:900px;
 height:650px;}
 
-.id234 { 
+.id234 {
 background-size:cover;
 }
 
@@ -772,7 +772,7 @@ padding:30px;}
 .id259 {left:25px;width:1125px;
 background-image:url('/mapimages/bloodybanana.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 }
 
 .id263 {width:900px;}
@@ -796,7 +796,7 @@ background-size:448px 500px;
 height:480px;
 width:870px;
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 }
 
 .id270 {
@@ -823,7 +823,7 @@ width:890px;
 .id272 {
     background-image:url('/mapimages/cardenasmexico1934.jpg');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 height:400px;
 width:580px;
 }
@@ -921,7 +921,7 @@ top:60px;}
 
 .id308 {background-image:url('/mapimages/elsalvadorjuntacountercoup1969.jpg');
 background-repeat:no-repeat;
-background-position:left top; 
+background-position:left top;
 background-size: contain;
 max-height: 725px;
 left:50px;
@@ -941,7 +941,7 @@ top:0px;}
 .id311 {
 background-image:url('/mapimages/joao-goulart-sliver.jpg');
 background-repeat:no-repeat;
-background-position:right bottom; 
+background-position:right bottom;
 width:500px;
 height:530px;}
 
@@ -950,7 +950,7 @@ left:0px;
 top:0px;
 background-image:url('/mapimages/cuba1961castroism.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 width:1170px;
 height:830px;}
 
@@ -978,14 +978,14 @@ background-position:center; }
 .id321 {
 background-image:url('/mapimages/kennedyembargosigning.jpg');
 background-repeat:no-repeat;
-background-position:right top; 
+background-position:right top;
 height:675px;
 }
 
 .id321 .entry_title {font-size:150%; font-weight:bolder;width:300px;}
 
 
-.id322 
+.id322
 {background-image:url('/mapimages/usmilitarybayofpigs.jpg');
 background-repeat:no-repeat;
 height:620px;
@@ -1244,7 +1244,7 @@ max-height:420px;
 
 .id413 {background-image:url('/mapimages/felixgarciarodriguez.jpg');
 background-repeat:no-repeat;
-background-position:center top; 
+background-position:center top;
 width:370px;}
 
 
@@ -1272,13 +1272,13 @@ width:380px;
 height:500px;
  }
 
-.id428 
+.id428
 {width:1100px;
 left:50px;}
 
 
 
-.id426 
+.id426
 {width:730px;}
 
 .id430 {
@@ -1292,7 +1292,7 @@ left:50px;
 
 .id431 { background-image:url('/mapimages/bloodthirstyreagan-yellow.png');
 background-repeat:no-repeat;
-background-position:right bottom; 
+background-position:right bottom;
 width:800px;
 height:480px;}
 
@@ -1300,7 +1300,7 @@ height:480px;}
 
 .id433  { background-image:url('/mapimages/argentinamassera-big.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 background-size:cover;
 height:700px;}
 
@@ -1315,7 +1315,7 @@ width:980px;
 
 .id439 {background-image:url('/mapimages/desaparecidos-vector.gif');
 background-repeat:no-repeat;
-background-position:center bottom; 
+background-position:center bottom;
 height:475px;
 width:475px;
 }
@@ -1328,12 +1328,12 @@ width:475px;
 
 .id445 {background-image:url('/mapimages/60fireworks.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-size:cover;}
 
 .id447 {background-image:url('/mapimages/noriega1987.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-color:transparent;
 width:1050px;
 height:680px;
@@ -1362,7 +1362,7 @@ font-size: 2em;}
 
 .id455 {background-image:url('/mapimages/contrasouthernfrontcamp-smaller.jpg');
 background-repeat:no-repeat;
-background-position:left top; 
+background-position:left top;
 height:675px;}
 
 .id455 .entry_title {left:350px;font-size:1.5em;}
@@ -1387,7 +1387,7 @@ background-size:color;
 ezlnmujeres.jpg
 .id474 {background-image:url('/mapimages/nuclearexplosion.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 width:950px;
 height:680px;}
 
@@ -1409,7 +1409,7 @@ height:650px;}
 
 .id486 {background-image:url('/mapimages/argentina2001economycrisisprotest-dark.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 width:970px;
 height:620px;}
 
@@ -1417,7 +1417,7 @@ height:620px;}
 
 .id491 {background-image:url('/mapimages/zapatistas1999.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 width:1050px;
 height: 750px;
 max-height: 750px;
@@ -1426,7 +1426,7 @@ max-height: 750px;
 
 .id492 {background-image:url('/mapimages/jamilmahaud.jpg');
 background-repeat:no-repeat;
-background-position:center right; 
+background-position:center right;
 width:900px;
 height:440px;}
 
@@ -1436,11 +1436,11 @@ height:440px;}
 
 .id494 .entry_title {font-size:2.6em;}
 
-.id497 
+.id497
 {
 background-image:url('/mapimages/panama2003protest.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 width:700px;
 height:240px;}
 
@@ -1452,7 +1452,7 @@ height:670px;}
 
 .id500 {background-image:url('/mapimages/chileeducationprotest2011.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 height:700px;}
 
 .id500 .entry_title {font-size: 2em;}
@@ -1463,7 +1463,7 @@ background-size:cover;}
 .id508 {
 background-image:url('/mapimages/nicaraguacanalproposal.png');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 height:200px;
 color:yellow;
 font-size:1.5em;
@@ -1506,7 +1506,7 @@ background-size:cover;}
 
 .id520 .entry_title {color: #003eff; font-size: 1.7em; background-color: white; padding: 6px;}
 
-.id520 
+.id520
 {background-image:url('/mapimages/miskitucoastmap.jpg');
 background-position:top right;
 background-repeat:no-repeat;
@@ -1524,7 +1524,7 @@ height:450px;}
 .id525 .entry_title {font-size: 2em;}
 .id525 {background-image:url('/mapimages/baconsrebellion.jpg');
 background-repeat:no-repeat;
-background-position:top center; 
+background-position:top center;
 left:25px;
 height:760px;
 width:1025px;}
@@ -1543,7 +1543,7 @@ background-position:top center; }
 .id531 {
 background-image:url('/mapimages/nicaraguacanalproposal.png');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 height:200px;
 color:yellow;
 font-size:1.3em;
@@ -1552,7 +1552,7 @@ font-weight:bold;}
 .id532 {
 background-image:url('/mapimages/nicaraguacanalproposal.png');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 height:200px;
 color:yellow;
 font-size:1.2em;
@@ -1560,7 +1560,7 @@ font-weight:bold;}
 
 .id534 {background-image:url('/mapimages/alienseditionacts1798.gif');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 background-color:transparent;
 width:475px;
 height:600px;}
@@ -1578,7 +1578,7 @@ width:970px;}
 .id545 {
 background-image:url('/mapimages/nicaraguacanalproposal.png');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 height:200px;
 color:yellow;
 font-size:1.3em;
@@ -1587,7 +1587,7 @@ font-weight:bold;}
 .id553 {
 background-image:url('/mapimages/Cornelius_Vanderbilt-small.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 width:715px;
 height:700px;
 }
@@ -1596,7 +1596,7 @@ height:700px;
 height:660px;
 background-image:url('/mapimages/oldpaper.jpg');
 background-repeat:no-repeat;
-background-position:center; 
+background-position:center;
 }
 
 .id558 h3 {width:400px;font-size:1.5em;}
@@ -1638,7 +1638,7 @@ background-position:right top; }
 .id566 {
     background-image:url('/mapimages/1921quotabanner.jpg');
 background-repeat:no-repeat;
-background-position:center top; 
+background-position:center top;
 width:1080px;}
 
 .id566 .entry_title {margin-top: 237px;}
@@ -1647,7 +1647,7 @@ width:1080px;}
 
 .id569 {
     background-image:url('/mapimages/trainbolivia.gif');
-    background-position:center bottom; 
+    background-position:center bottom;
     height:287px;
     border-style: double;
 border-color: #cc0000;
@@ -1655,7 +1655,7 @@ border: 6px double #cc0000;
 outline: 3px solid #cc0000;
 outline-offset: -1px;
 
-    
+
 }
 
 .id570 {width:720px;height:295px;}
@@ -1663,12 +1663,12 @@ outline-offset: -1px;
 .id570 .entry_title  {font-size:2em;}
 
 .id574 {background-image:url('/mapimages/tiburciocarias-v2.gif');
-background-position:center right; 
+background-position:center right;
 background-repeat:no-repeat;
 height:450px;}
 
 .id576 {background-image:url('/mapimages/managua-terremoto-1931.jpg');
-background-position:center top; 
+background-position:center top;
 background-repeat:no-repeat;
 width:610px;}
 
@@ -1700,7 +1700,7 @@ height:600px;}
 
 .id605 {background-image:url('/mapimages/nicaraguacotton.jpg');
 background-repeat:no-repeat;
-background-position:center top; 
+background-position:center top;
 width:940px;
 height:620px;
 font-size:99%;}
@@ -1764,10 +1764,10 @@ height:750px;}
 background-repeat:no-repeat;
 background-position:center top;
 width:980px;}
- 
+
 .id652 {background-image:url('/mapimages/carlosfonseca.jpg');
 background-repeat:no-repeat;
-background-position:left center; 
+background-position:left center;
 height:570px;
 width:1075px;}
 
@@ -1782,7 +1782,7 @@ width:1075px;}
 
 .id659 {background-image:url('/mapimages/chamorro-v2.jpg');
 background-repeat:no-repeat;
-background-position:right center; 
+background-position:right center;
 height:350px;
 width:500px;}
 
@@ -1803,13 +1803,13 @@ left: 342px;}
 .id661 .entry_title{font-size: 2.7em;}
 
 .id667 {background-image:url('/mapimages/nicaraguabravo1979.jpg');
-background-position:center; 
+background-position:center;
 height:378px;
 width:378px;}
 
 .id673 {background-image:url('/mapimages/josenapoleonduarte.gif');
 background-repeat:no-repeat;
-background-position:right bottom; 
+background-position:right bottom;
 width:550px;
 max-width:550px;
 max-height: 500px;
@@ -1833,7 +1833,7 @@ height:375px;
 .id678 .entry_source {position:relative;top:104px;}
 
 
-.id679 {background-image:url('/mapimages/fmlnteenagers.gif');no-repeat center center fixed; 
+.id679 {background-image:url('/mapimages/fmlnteenagers.gif');no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1895,7 +1895,7 @@ width:600px;
 .id711 {
     background-image:url('/mapimages/guatemalanleftunitychart.gif');
     height:700px;
-   
+
     background-repeat:no-repeat;
     background-position:center bottom;
 }
@@ -1983,10 +1983,10 @@ width:450px;}
 background-position:center top;
 background-repeat:no-repeat;}
 
-.id805 
+.id805
 {width:750px;}
 
-.id805 
+.id805
 {top:10px;
 width:1100px;}
 
@@ -2031,7 +2031,7 @@ width:760px;}
 background-image:url('/mapimages/irancontra-backgrounddark.gif');
 background-size:cover;
 background-position:center bottom;
-height:650px;	
+height:650px;
 	left:0px;
 width:1190px;}
 
@@ -2197,106 +2197,3 @@ height:580px;
 width: 970px;}
 .id902 .entry_title {font-size: 3em;}
 .id902 .entry_source {width:660px;position:relative;top:-409px;}
-
-.bar2 {top:185px;
-left:475px;}
-
-.incos1 {
-top:750px;
-left:200px;
-}
-
-.incos2 {
-top:750px;
-left:215px;
-}
-
-.domrep2 {top: 125px;
-left: 385px;}
-
-.inels6 {
-top:635px;
-left:100px;
-}
-
-.ingua1 {left:75px;
-top:590px;}
-
-.ingua2 {left:75px;
-top:550px;}
-
-.ingua3 {left:75px;
-top:570px;}
-
-.ingua4 {left:55px;
-top:590px;}
-
-.inhon1 {left:155px;
-top:590px;}
-
-.inhon2 {left:155px;
-top:610px;}
-
-.mex3 {
-top:100px;
-left:150px;
-}
-
-.mex4 {top:120px;
-left:110px;}
-
-.mie1 {left:1045px;
-top:650px;}
-
-.innic1
-{left:200px;
-top:690px;}
-
-.innic2
-{left:200px;
-top:650px;}
-
-.innic3
-{left:200px;
-top:670px;}
-
-.innic4
-{left:180px;
-top:690px;}
-
-.innic5
-{left:180px;
-top:670px;}
-
-.inpan1 {left:280px;
-top:775px;}
-
-.inpan2 {left:300px;
-top:775px;}
-
-.sea2 {
-top: 621px;
-left: 417px;
-}
-
-.usa2 {
-top:660px;
-left:965px;
-}
-
-.usa3 {
-top:675px;
-left:965px;
-}
-
-.usa4 {
-top:645px;
-left:950px;
-}
-
-.usa5 {
-top:645px;
-left:965px;
-}
-
-
