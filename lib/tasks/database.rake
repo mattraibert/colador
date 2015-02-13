@@ -24,6 +24,7 @@ namespace :db do
       puts 'Database Restored'
     end
 
-    task :reset => %w(db:drop db:create db:data:restore db:migrate)
+    task :setup => %w(db:create db:data:restore db:migrate)
+    task :reset => %w(db:drop db:data:setup)
   end
 end
