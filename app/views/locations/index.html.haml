@@ -1,3 +1,5 @@
+= link_to 'New Location', new_location_path
+
 %h1 Listing locations
 
 %table
@@ -11,7 +13,7 @@
       %th
       %th
       %th
-      
+
   %tbody
     - @locations.each do |location|
       %tr
@@ -26,4 +28,3 @@
 
 %br
 
-= link_to 'New Location', new_location_path

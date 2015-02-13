@@ -21,6 +21,7 @@
   .field
     = f.label :location_id, 'Location'
     = f.select :location_id, Location.all.collect { |t| [t.abbr, t.id] }
+    = link_to 'New Location', new_location_path
   .field
     = f.label :category_id, 'Category'
     = f.select :category_id, Category.all.collect { |t| [t.name, t.id] }
