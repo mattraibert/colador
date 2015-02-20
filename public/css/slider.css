@@ -1,0 +1,19 @@
+.axis {
+  font: 8px sans-serif;
+}
+   
+.slider .handle {
+  fill: lightgoldenrodyellow;
+  stroke: #c00;
+  stroke-opacity: .5;
+  stroke-width: 1.25px;
+  pointer-events: none;
+}
+
+.slider .year {
+  font-family: futura;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  fill: #c00
+}
