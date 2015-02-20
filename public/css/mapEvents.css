@@ -1,0 +1,42 @@
+body {
+	background-image: url('/static/sea.gif');
+	background-color: #7895A4;
+}
+#container {
+	margin: auto;
+	width: 1250px;
+	display: none;
+}
+
+.hidden { display: none;}
+
+#mainmap {
+	position: relative;
+	width: 1200px;
+	height: 800px;
+	background: url("../img/LAMap-blank.gif") no-repeat;
+	text-align: left;
+	margin: 10px auto;
+	padding: 0px;
+	border: none;
+}
+
+#markers {
+	position: relative;
+}
+
+.marker {
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	position: absolute;
+}
+
+#mapslider {
+	margin-top: 57px;
+	margin-left: 246px;
+	height: 10px;
+	width: 800px;
+	height: 10px;
+	float: left;
+}
