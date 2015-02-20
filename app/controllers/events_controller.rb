@@ -50,6 +50,7 @@ class EventsController < ApplicationController
   end
 
   def map
+    render 'events/map', layout: false
   end
 
   private
