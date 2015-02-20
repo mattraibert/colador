@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213022703) do
+ActiveRecord::Schema.define(version: 20150220175924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,4 +63,5 @@ ActiveRecord::Schema.define(version: 20150213022703) do
   end
 
   add_foreign_key "events", "categories"
+  add_foreign_key "events", "locations"
 end
