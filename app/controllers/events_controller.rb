@@ -49,6 +49,9 @@ class EventsController < ApplicationController
     end
   end
 
+  def map
+  end
+
   private
     def set_event
       @event = Event.find(params[:id])

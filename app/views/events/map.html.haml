@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Colador
+    %link{:href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/mapEvents.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/slider.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js", :type => "text/javascript"}
+    %script{:src => "js/data.js", :type => "text/javascript"}
+    %script{:src => "js/main.js", :type => "text/javascript"}
+    %script{:src => "js/mapEvents.js", :type => "text/javascript"}
+  / <script src="slider.js"></script>
+  %body
+    #container
+      %svg{:height => "900", :width => "1250"}
+        %image{:height => "800", :transform => "translate(20,0)", :width => "1200", :x => "0", "xlink:href" => "./img/LAMap-blank.gif", :y => "0"}
+        %image{:height => "323", :width => "401", :x => "0", "xlink:href" => "./mapimages/centralamerica-inset.gif", :y => "500"}
+    #mapslider
+    #mainmap
+      #markers
