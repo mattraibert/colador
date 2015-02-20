@@ -2,15 +2,11 @@ body {
 	background-image: url('/static/sea.gif');
 	background-color: #7895A4;
 }
-#container {
-	margin: auto;
-	width: 1250px;
-	display: none;
-}
+
 
 .hidden { display: none;}
 
-#mainmap {
+#container {
 	position: relative;
 	width: 1200px;
 	height: 800px;
@@ -26,17 +22,54 @@ body {
 }
 
 .marker {
+	display: none;
 	width: 10px;
 	height: 10px;
 	background-color: red;
 	position: absolute;
+	cursor: pointer;
 }
 
-#mapslider {
-	margin-top: 57px;
-	margin-left: 246px;
+#markerDialogs {
+	margin-left: 50%;
+	background-color: rgba(255,055,255, 0.5);
+	border: 4px dotted red;
+	padding: 20px;
+}
+
+.markerDialog {
+	display: none;
+}
+
+#markerDialog-1 {
+}
+
+#yearIndicator {
+	position: absolute;
+	top: 40px;
+	left: 239px;
+
+	color: #CC0000;
+	font-family: futura;
+	font-size: 16px;
+	font-weight: normal;
+	height: 32px;
+	letter-spacing: 3px;
+
+} 
+
+#slider {
+	position: absolute;
+	top: 65px;
+	left: 246px;
 	height: 10px;
 	width: 800px;
-	height: 10px;
-	float: left;
+	background: none !important;
+	border: none !important;
+}
+
+#slider .ui-slider-handle {
+	border: 1px solid #CC0000;
+	height: 0.5em;
+	width: 0.5em;
 }
