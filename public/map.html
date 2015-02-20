@@ -5,10 +5,7 @@
 <title>Colador</title>
 <script src="./d3.v3.min.js"></script>
 <style>
-  body {
-    background-image: url('/static/sea.gif');
-    background-color: #7895A4;
-  }
+  body { background-image: url('./img/sea.gif') }
   .container {
     margin: auto;
     width: 1250px;
@@ -20,8 +17,8 @@
 <body>
 <div class='container'>
   <svg width=1250 height=900>
-    <image xlink:href='./img/LAMap-blank.gif' x='0' y='0' width='1200' height='800' transform='translate(20,0)' />
-    <image xlink:href='./mapimages/centralamerica-inset.gif' x='0' y='500' width='401' height='323'/>
+    <image xlink:href='./img/LAMap-blank.gif' x='0' y='0' width='1200' height='800' transform='translate(20,0)' ></image>
+    <image xlink:href='./mapimages/centralamerica-inset.gif' x='0' y='500' width='401' height='323'></image>
   </svg>
 </div>
 <link href="./css/slider.css" media="all" rel="stylesheet" type="text/css" />
@@ -32,7 +29,7 @@
       .attr("xlink:href", function(d) {return "/events/" + d.id;})
       .append("image")
       .attr("class", "event")
-      .attr("xlink:href", function(d) {return d.img;})
+      .attr("xlink:href", function(d) {return './mapimages/book.png';})
       .attr("width",20).attr("height",20)
       .attr("x", function(d) {return randomIntFromInterval(200,600);})
       .attr("y", function(d) {return randomIntFromInterval(200,500);});
@@ -41,7 +38,7 @@
 
   var showEvents = function(year) {
     function should_hide(d) {
-      return !(d.startYear <= year && d.endYear >= year);
+      return !(d.start_year <= year && d.end_year >= year);
     }
 
     d3.selectAll("image.event").classed("hidden", should_hide);
